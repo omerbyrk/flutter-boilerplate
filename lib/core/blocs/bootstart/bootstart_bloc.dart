@@ -16,14 +16,6 @@ class BootstartBloc extends Bloc<BootstartEvent, BootStartState> {
   Stream<BootStartState> mapEventToState(
     BootstartEvent event,
   ) async* {
-    yield* event.applyAsync(currentState: state, bloc: this).transform(
-          StreamTransformer.fromHandlers(
-            handleError: BlocHelpers(
-              blocOnMessageStateCreator: (message, type) =>
-                  BootstartStateOnMessage.fromOldSettingState(
-                      message: message, type: type),
-            ).transformStreamErrors,
-          ),
-        );
+    yield* event.applyAsync(currentState: state, bloc: this);
   }
 }

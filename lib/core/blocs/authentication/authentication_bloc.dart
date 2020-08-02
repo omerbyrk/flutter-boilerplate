@@ -1,15 +1,16 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:covid19_app/core/datasources/bases/user_datasource.dart';
+import 'package:covid19_app/data/locale/datasources/user_local_datasource.dart';
+import 'package:covid19_app/domain/usecases/user/get_by_token.dart';
 
 import '../utils/bloc_helpers.dart';
 import 'index.dart';
 
 class AuthenticationBloc
     extends Bloc<AuthenticationEvent, AuthenticationState> {
-  UserDataSource userDataSource;
-  AuthenticationBloc({this.userDataSource}) : super(UnAuthentication());
+  GetByToken getByToken;
+  AuthenticationBloc({this.getByToken}) : super(UnAuthentication());
 
   @override
   Future<void> close() async {

@@ -1,12 +1,13 @@
 import 'dart:async';
 
-import '../../datasources/locale/models/user_model.dart';
+import 'package:covid19_app/core/blocs/utils/enums.dart';
+import 'package:covid19_app/domain/usecases/user/get_by_token.dart';
+
 import '../bases/bloc_event_base.dart';
 import 'index.dart';
 
 abstract class AuthenticationEvent
-    extends BlocEventBase<AuthenticationState, AuthenticationBloc> {
-}
+    extends BlocEventBase<AuthenticationState, AuthenticationBloc> {}
 
 class UnAuthenticationEvent extends AuthenticationEvent {
   @override
@@ -27,8 +28,15 @@ class LoadAuthenticationEvent extends AuthenticationEvent {
       {AuthenticationState currentState, AuthenticationBloc bloc}) async* {
     yield AuthenticationStateOnMessage.fromOldState(currentState,
         message: "Your informations are fetching");
-    UserModel user = await bloc.userDataSource.getBy(token);
-    yield InAuthentication(token: token, user: user);
+    final tokenResult = await bloc.getByToken(Params(token));
+    yield* tokenResult.fold<Stream<AuthenticationState>>((failure) async* {
+      yield AuthenticationStateOnMessage.fromOldState(currentState,
+          message: failure.message, type: MessageType.ERROR);
+      await Future.delayed(Duration(seconds: 2));
+      yield UnAuthentication.fromOldState(currentState);
+    }, (user) async* {
+      yield InAuthentication(token: token, user: user);
+    });
   }
 }
 
@@ -41,10 +49,7 @@ class AuthenticationControlEvent extends AuthenticationEvent {
     // look for token.
     String token;
     if (token != null) {
-      yield AuthenticationStateOnMessage.fromOldState(currentState,
-          message: "Your informations are fetching");
-      UserModel user = await bloc.userDataSource.getBy(token);
-      yield InAuthentication(token: token, user: user);
+      bloc.add(LoadAuthenticationEvent(token));
     } else {
       yield UnAuthentication(user: null, token: null);
     }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'image_rotater.dart';
-import '../extensions/widget_extension.dart';
+import 'widget_extension.dart';
 
 class AppCircularProgressIndicator extends StatelessWidget {
   final Color color;

@@ -5,9 +5,9 @@ import 'package:get_it/get_it.dart';
 import 'core/blocs/authentication/index.dart';
 import 'core/blocs/bootstart/index.dart';
 import 'dependency_injection.dart' as di;
-import 'features/home/presentation/pages/home_page.dart';
-import 'features/login/presentation/pages/login_page.dart';
-import 'features/splash/presentation/pages/SplashPage.dart';
+import 'presentations/home/pages/home_page.dart';
+import 'presentations/login/pages/login_page.dart';
+import 'presentations/splash/pages/SplashPage.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

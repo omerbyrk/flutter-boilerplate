@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../extensions/widget_extension.dart';
+import 'widget_extension.dart';
 
 class ImageRotater extends StatefulWidget {
   final double height;
