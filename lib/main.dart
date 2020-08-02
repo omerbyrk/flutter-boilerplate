@@ -1,15 +1,15 @@
-import 'package:covid19_app/blocs/authentication/index.dart';
-import 'package:covid19_app/blocs/bootstart/bootstart_bloc.dart';
-import 'package:covid19_app/blocs/bootstart/index.dart';
-import 'package:covid19_app/blocs/common/bloc_state_bases.dart';
-import 'package:covid19_app/pages/home/HomePage.dart';
-import 'package:covid19_app/pages/login/LoginPage.dart';
-import 'package:covid19_app/pages/splash/SplashPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'core/bloc/authentication/index.dart';
+import 'core/bloc/base/bloc_state_base.dart';
+import 'core/bloc/bootstart/index.dart';
+import 'features/home/presentation/pages/home_page.dart';
+import 'features/login/presentation/pages/login_page.dart';
+import 'features/splash/presentation/pages/SplashPage.dart';
+
 void main() => runApp(MaterialApp(
-    title: 'Flutter Boilerplate',
+    title: 'Movie BooilerPlate',
     debugShowCheckedModeBanner: false,
     theme: ThemeData(
       primarySwatch: Colors.purple,
