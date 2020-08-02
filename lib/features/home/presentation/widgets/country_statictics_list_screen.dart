@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../model/country_statistics.dart';
+import '../../../../core/datasources/remote/coronavirus_monitor/models/country_statistics_model.dart';
 import '../bloc/index.dart';
 
 class CountryStaticticsListScreen extends StatelessWidget {
@@ -44,7 +44,7 @@ class CountryStaticticsListScreen extends StatelessWidget {
                 separatorBuilder: (_, i) => Divider(),
                 itemCount: countryStatisticsList.length,
                 itemBuilder: (_, i) {
-                  CountryStatistics statistics = countryStatisticsList[i];
+                  CountryStatisticsModel statistics = countryStatisticsList[i];
                   return ListTile(
                     onTap: () {
                       _homeBloc.add(SelectCountryStatistics(statistics));

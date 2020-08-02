@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import '../../../../core/bloc/base/bloc_event_base.dart';
-import '../../../../model/country_statistics.dart';
-import '../../../../network/providers/country_statistics_provider.dart';
+import '../../../../core/blocs/bases/bloc_event_base.dart';
+import '../../../../core/datasources/remote/coronavirus_monitor/country_statistics_datasource.dart';
+import '../../../../core/datasources/remote/coronavirus_monitor/models/country_statistics_model.dart';
 import 'index.dart';
 
 class HomeEvent extends BlocEventBase<HomeState, HomeBloc> {
@@ -14,7 +14,7 @@ class LoadCountryStatisticsList extends HomeEvent {
   Stream<HomeState> applyAsync(
       {HomeState currentState, HomeBloc bloc}) async* {
     yield HomeInProgress.fromOldState(currentState);
-    var countryStatisticsList = await CountryStatisticsProvider().getAll();
+    var countryStatisticsList = await CountryStatisticsDataSource().getAll();
     var selectedCountryStatictics = countryStatisticsList
         .singleWhere((statictics) => statictics.countryName == "Turkey");
     yield HomeLoadded.fromOldState(currentState,
@@ -24,7 +24,7 @@ class LoadCountryStatisticsList extends HomeEvent {
 }
 
 class SelectCountryStatistics extends HomeEvent {
-  final CountryStatistics countryStatistics;
+  final CountryStatisticsModel countryStatistics;
   SelectCountryStatistics(this.countryStatistics);
 
   @override

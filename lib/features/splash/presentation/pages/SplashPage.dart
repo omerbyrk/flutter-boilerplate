@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/extensions/widget_extension.dart';
 import '../../../../core/widgets/app_circular_progress_indicator.dart';
-import '../widgets/widgets.dart';
+import '../widgets/index.dart';
 
 // ignore: must_be_immutable
 class SplashPage extends StatelessWidget {
@@ -34,17 +34,17 @@ class SplashPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                LogoWidget(),
+                SplashPageLogoWidget(),
                 Padding(
                   padding: EdgeInsets.only(
                       bottom: this.getHeight(context, percent: .10)),
                   child: Column(
                     children: <Widget>[
-                      MessageWidget(message),
+                      SplashPageMessageWidget(message),
                       SizedBox(
                         height: 75.0,
                       ),
-                      AppSignature()
+                      SplashPageSignature()
                     ],
                   ),
                 )

@@ -1,61 +1,63 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
 
-import 'core/bloc/authentication/index.dart';
-import 'core/bloc/base/bloc_state_base.dart';
-import 'core/bloc/bootstart/index.dart';
+import 'core/blocs/authentication/index.dart';
+import 'core/blocs/bootstart/index.dart';
+import 'dependency_injection.dart' as di;
 import 'features/home/presentation/pages/home_page.dart';
 import 'features/login/presentation/pages/login_page.dart';
 import 'features/splash/presentation/pages/SplashPage.dart';
 
-void main() => runApp(MaterialApp(
-    title: 'Movie BooilerPlate',
-    debugShowCheckedModeBanner: false,
-    theme: ThemeData(
-      primarySwatch: Colors.purple,
-    ),
-    home: AppBootstart()));
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await di.init();
+  runApp(AppBootstart());
+}
 
 class AppBootstart extends StatelessWidget {
   // This widget is the root of your application.
-  final BootstartBloc _bootstartBloc = new BootstartBloc();
-  final AuthenticationBloc _authenticationBloc = AuthenticationBloc();
-
   @override
   StatelessElement createElement() {
-    // TODO: implement createElement
-    _bootstartBloc
-        .add(LoadBootstartEvent(authenticationBloc: _authenticationBloc));
+    GetIt.instance.get<BootstartBloc>()
+        .add(LoadBootstartEvent());
     return super.createElement();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-        create: (_) => _bootstartBloc,
-        child: BlocBuilder(
-            cubit: _bootstartBloc,
-            builder: (_, state) {
-              if (state is BootStartIsOver) {
-                return startApp();
-              } else if (state is BootstartStateOnMessage) {
-                return SplashPage(state.message);
-              } else
-                return Container();
-            }));
+    return MaterialApp(
+      title: 'Flutter Movie BooilerPlate',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.purple,
+      ),
+      home: BlocProvider(
+        create: (_) => GetIt.instance.get<BootstartBloc>(),
+        child: BlocBuilder<BootstartBloc, BootStartState>(
+          builder: (_, state) {
+            if (state is BootStartIsOver) {
+              return app();
+            } else if (state is BootstartStateOnMessage) {
+              return SplashPage(state.message);
+            } else
+              return Container();
+          },
+        ),
+      ),
+    );
   }
 
-  Widget startApp() {
+  Widget app() {
     return BlocProvider(
-      create: (_) => _authenticationBloc,
-      child: BlocBuilder(
-        cubit: _authenticationBloc,
+      create: (_) => GetIt.instance.get<AuthenticationBloc>(),
+      child: BlocBuilder<AuthenticationBloc, AuthenticationState>(
         builder: (_, state) {
           if (state is UnAuthentication) {
             return LoginPage();
           } else if (state is InAuthentication) {
             return HomePage();
-          } else if (state is BlocOnMessageStateBase) {
+          } else if (state is AuthenticationStateOnMessage) {
             return SplashPage(state.message);
           } else
             return Container();

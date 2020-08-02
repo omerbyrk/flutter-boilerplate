@@ -2,16 +2,17 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 
-import '../../../../core/bloc/base/bloc_base.dart';
-import '../../../../core/bloc/base/bloc_state_base.dart';
-import '../../../../core/bloc/utils/bloc_helpers.dart';
-import '../../../../model/country_statistics.dart';
+import '../../../../core/blocs/bases/bloc_base.dart';
+import '../../../../core/blocs/bases/bloc_state_base.dart';
+import '../../../../core/blocs/utils/bloc_helpers.dart';
+import '../../../../core/datasources/remote/coronavirus_monitor/models/country_statistics_model.dart';
 import 'index.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> with StateChangerBlocBase {
-  HomeBloc() : super(HomeInProgress(
-      countryStatisticsList: <CountryStatistics>[],
-      selectedCountryStatistics: null));
+  HomeBloc()
+      : super(HomeInProgress(
+            countryStatisticsList: <CountryStatisticsModel>[],
+            selectedCountryStatistics: null));
 
   @override
   Stream<HomeState> mapEventToState(
@@ -30,8 +31,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> with StateChangerBlocBase {
 
   @override
   void toInProgressState() {
-    this.add(
-        HomeEvent(toState: HomeInProgress.fromOldState(state)));
+    this.add(HomeEvent(toState: HomeInProgress.fromOldState(state)));
   }
 
   @override

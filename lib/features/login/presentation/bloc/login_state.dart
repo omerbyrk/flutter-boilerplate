@@ -1,8 +1,9 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 
-import '../../../../core/bloc/base/bloc_state_base.dart';
-import '../../../../core/bloc/utils/enums.dart';
+import '../../../../core/blocs/bases/bloc_state_base.dart';
+import '../../../../core/blocs/utils/enums.dart';
+
 
 // ignore: must_be_immutable
 abstract class LoginState extends Equatable {

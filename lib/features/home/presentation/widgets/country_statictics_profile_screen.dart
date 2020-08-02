@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/datasources/remote/coronavirus_monitor/models/country_statistics_model.dart';
 import '../../../../core/extensions/widget_extension.dart';
 import '../../../../core/widgets/image_rotater.dart';
 import '../../../../core/widgets/info_focused_chip.dart';
-import '../../../../model/country_statistics.dart';
 import '../bloc/index.dart';
 
 class CountryStaticticsProfileScreen extends StatelessWidget {
@@ -24,14 +24,14 @@ class CountryStaticticsProfileScreen extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16),
         width: this.getWidth(context),
         child: BlocBuilder<HomeBloc, HomeState>(builder: (context, state) {
-          CountryStatistics statistics = state.selectedCountryStatistics;
+          CountryStatisticsModel statistics = state.selectedCountryStatistics;
           if (statistics == null) return Container();
           return Stack(
             children: <Widget>[
               ImageRotater(
                 imagePath: "assets/images/progress.png",
                 height: this.getHeight(context, percent: .5),
-                color:  Colors.black,
+                color: Colors.black,
                 opacity: 0.1,
                 animationDuration: Duration(seconds: 10),
                 width: this.getWidth(context, percent: .5),

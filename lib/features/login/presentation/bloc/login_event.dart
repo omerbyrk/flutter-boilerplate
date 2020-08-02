@@ -1,13 +1,14 @@
 import 'dart:async';
-import 'package:covid19_app/features/login/presentation/bloc/index.dart';
-import 'package:covid19_app/network/dto/user.dart';
-import 'package:covid19_app/network/providers/user_provider.dart';
+
 import 'package:meta/meta.dart';
+
+import '../../../../core/blocs/utils/enums.dart';
+import '../../domain/usecases/DoLogin.dart';
+import 'index.dart';
 
 @immutable
 abstract class LoginEvent {
   Stream<LoginState> applyAsync({LoginState currentState, LoginBloc bloc});
-  final UserProvider _userProvider = UserProvider();
 }
 
 class LoadLoginEvent extends LoginEvent {
@@ -20,7 +21,10 @@ class LoadLoginEvent extends LoginEvent {
   Stream<LoginState> applyAsync(
       {LoginState currentState, LoginBloc bloc}) async* {
     yield LoginOnProgress.fromOldState(currentState);
-    String token = await this._userProvider.login(LoginDTO(username, password));
-    yield InLoginState.fromOldState(currentState, token: token);
+    var loginResult = await bloc.doLogin(Params(username, password));
+    yield loginResult.fold(
+        (l) => LoginOnMessage.fromOldState(currentState,
+            message: l.message, type: MessageType.ERROR),
+        (r) => InLoginState.fromOldState(currentState, token: r));
   }
 }

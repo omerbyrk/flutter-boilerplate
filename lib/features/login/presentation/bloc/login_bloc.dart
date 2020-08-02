@@ -1,13 +1,17 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:covid19_app/features/login/domain/repositories/login_repository.dart';
+import 'package:covid19_app/features/login/domain/usecases/DoLogin.dart';
 
-import '../../../../core/bloc/utils/bloc_helpers.dart';
+import '../../../../core/blocs/utils/bloc_helpers.dart';
 import 'index.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
-  LoginBloc() : super(UnLogin());
+  final DoLogin doLogin;
+
+  LoginBloc({this.doLogin}) : super(UnLogin());
 
   @override
   Stream<LoginState> mapEventToState(

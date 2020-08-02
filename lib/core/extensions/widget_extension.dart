@@ -2,7 +2,7 @@ import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../bloc/utils/enums.dart';
+import '../blocs/utils/enums.dart';
 
 extension WidgetExtension on Widget {
   double getWidth<T>(BuildContext context, {double percent = 1}) {

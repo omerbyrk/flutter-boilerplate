@@ -1,13 +1,13 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 
-import '../../../../core/bloc/base/bloc_state_base.dart';
-import '../../../../core/bloc/utils/enums.dart';
-import '../../../../model/country_statistics.dart';
+import '../../../../core/blocs/bases/bloc_state_base.dart';
+import '../../../../core/blocs/utils/enums.dart';
+import '../../../../core/datasources/remote/coronavirus_monitor/models/country_statistics_model.dart';
 
 abstract class HomeState extends Equatable {
-  final List<CountryStatistics> countryStatisticsList;
-  final CountryStatistics selectedCountryStatistics;
+  final List<CountryStatisticsModel> countryStatisticsList;
+  final CountryStatisticsModel selectedCountryStatistics;
   const HomeState({this.countryStatisticsList, this.selectedCountryStatistics});
 
   @override
@@ -22,8 +22,8 @@ class HomeInProgress extends HomeState with BlocInProgressStateBase {
             selectedCountryStatistics: selectedCountryStatistics);
 
   HomeInProgress.fromOldState(HomeState oldState,
-      {List<CountryStatistics> countryStatisticsList,
-      CountryStatistics selectedCountryStatistics})
+      {List<CountryStatisticsModel> countryStatisticsList,
+      CountryStatisticsModel selectedCountryStatistics})
       : super(
           countryStatisticsList:
               countryStatisticsList ?? oldState.countryStatisticsList,
@@ -34,8 +34,8 @@ class HomeInProgress extends HomeState with BlocInProgressStateBase {
 
 class HomeLoadded extends HomeState {
   HomeLoadded.fromOldState(HomeState oldState,
-      {List<CountryStatistics> countryStatisticsList,
-      CountryStatistics selectedCountryStatistics})
+      {List<CountryStatisticsModel> countryStatisticsList,
+      CountryStatisticsModel selectedCountryStatistics})
       : super(
           countryStatisticsList:
               countryStatisticsList ?? oldState.countryStatisticsList,
@@ -47,8 +47,8 @@ class HomeLoadded extends HomeState {
 // ignore: must_be_immutable
 class HomeOnMessage extends HomeState with BlocOnMessageStateBase {
   HomeOnMessage.fromOldState(HomeState oldState,
-      {List<CountryStatistics> countryStatisticsList,
-      CountryStatistics selectedCountryStatistics,
+      {List<CountryStatisticsModel> countryStatisticsList,
+      CountryStatisticsModel selectedCountryStatistics,
       @required String message,
       type = MessageType.INFO})
       : super(
