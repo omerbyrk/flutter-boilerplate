@@ -4,9 +4,7 @@ import 'package:covid19_app/blocs/authentication/index.dart';
 import 'package:covid19_app/blocs/common/bloc_event_bases.dart';
 import 'package:covid19_app/model/User.dart';
 import 'package:covid19_app/network/providers/UserProvider.dart';
-import 'package:meta/meta.dart';
 
-@immutable
 abstract class AuthenticationEvent
     extends BlocEventBase<AuthenticationState, AuthenticationBloc> {
   UserProvider userProvider = UserProvider();
@@ -17,7 +15,7 @@ class UnAuthenticationEvent extends AuthenticationEvent {
   Stream<AuthenticationState> applyAsync(
       {AuthenticationState currentState, AuthenticationBloc bloc}) async* {
     // token will be deleted!
-    yield UnAuthenticationState(user: null, token: null);
+    yield UnAuthentication(user: null, token: null);
   }
 }
 
@@ -32,7 +30,7 @@ class LoadAuthenticationEvent extends AuthenticationEvent {
     yield AuthenticationStateOnMessage.fromOldState(currentState,
         message: "Your informations are fetching");
     User user = await userProvider.getBy(token);
-    yield InAuthenticationState(token: token, user: user);
+    yield InAuthentication(token: token, user: user);
   }
 }
 
@@ -48,9 +46,9 @@ class AuthenticationControlEvent extends AuthenticationEvent {
       yield AuthenticationStateOnMessage.fromOldState(currentState,
           message: "Your informations are fetching");
       User user = await userProvider.getBy(token);
-      yield InAuthenticationState(token: token, user: user);
+      yield InAuthentication(token: token, user: user);
     } else {
-      yield UnAuthenticationState(user: null, token: null);
+      yield UnAuthentication(user: null, token: null);
     }
   }
 }

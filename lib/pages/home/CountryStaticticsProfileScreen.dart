@@ -1,14 +1,14 @@
-import 'package:covid19_app/blocs/home/home_bloc.dart';
-import 'package:covid19_app/blocs/home/home_state.dart';
-import 'package:covid19_app/components/InfoFocusedChip.dart';
-import 'package:covid19_app/components/PositionedVirusImageRotater.dart';
-import 'package:covid19_app/model/CountryStatistics.dart';
-import 'package:covid19_app/pages/HookWidgetBase.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 
-class CountryStaticticsProfileScreen extends HookWidgetBase {
+import '../../blocs/home/home_bloc.dart';
+import '../../blocs/home/home_state.dart';
+import '../../components/ImageRotater.dart';
+import '../../components/InfoFocusedChip.dart';
+import '../../model/CountryStatistics.dart';
+import '../WidgetExtension.dart';
+
+class CountryStaticticsProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -21,20 +21,22 @@ class CountryStaticticsProfileScreen extends HookWidgetBase {
         ),
       ),
       child: Container(
-        height: this.getHeight(percent: .35),
+        height: this.getHeight(context, percent: .35),
         padding: const EdgeInsets.symmetric(horizontal: 16),
-        width: this.getWidth(),
+        width: this.getWidth(context),
         child: BlocBuilder<HomeBloc, HomeState>(builder: (context, state) {
           CountryStatistics statistics = state.selectedCountryStatistics;
           if (statistics == null) return Container();
           return Stack(
             children: <Widget>[
-              HookBuilder(builder: (context) {
-                return PositionedVirusImageRotater(
-                  height: this.getHeight(percent: .5),
-                  width: this.getWidth(percent: .5),
-                );
-              }),
+              ImageRotater(
+                imagePath: "assets/images/progress.png",
+                height: this.getHeight(context, percent: .5),
+                color:  Colors.black,
+                opacity: 0.1,
+                animationDuration: Duration(seconds: 10),
+                width: this.getWidth(context, percent: .5),
+              ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[

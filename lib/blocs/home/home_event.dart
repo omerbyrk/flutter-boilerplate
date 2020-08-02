@@ -15,11 +15,11 @@ class LoadCountryStatisticsList extends HomeEvent {
   @override
   Stream<HomeState> applyAsync(
       {HomeState currentState, HomeBloc bloc}) async* {
-    yield HomeStateInProgress.fromOldState(currentState);
+    yield HomeInProgress.fromOldState(currentState);
     var countryStatisticsList = await CountryStatisticsProvider().getAll();
     var selectedCountryStatictics = countryStatisticsList
         .singleWhere((statictics) => statictics.countryName == "Turkey");
-    yield HomeStateLoadded.fromOldState(currentState,
+    yield HomeLoadded.fromOldState(currentState,
         countryStatisticsList: countryStatisticsList,
         selectedCountryStatistics: selectedCountryStatictics);
   }
@@ -32,9 +32,9 @@ class SelectCountryStatistics extends HomeEvent {
   @override
   Stream<HomeState> applyAsync(
       {HomeState currentState, HomeBloc bloc}) async* {
-    yield HomeStateInProgress.fromOldState(currentState);
+    yield HomeInProgress.fromOldState(currentState);
     await Future.delayed(Duration(milliseconds: 500));
-    yield HomeStateLoadded.fromOldState(currentState,
+    yield HomeLoadded.fromOldState(currentState,
         selectedCountryStatistics: countryStatistics);
   }
 }

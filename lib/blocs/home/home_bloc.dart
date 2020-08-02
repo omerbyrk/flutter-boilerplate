@@ -8,23 +8,9 @@ import 'package:covid19_app/blocs/home/index.dart';
 import 'package:covid19_app/model/CountryStatistics.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> with StateChangerBlocBase {
-  static final HomeBloc _homeBlocSingleton = HomeBloc._internal();
-
-  factory HomeBloc() {
-    return _homeBlocSingleton;
-  }
-  HomeBloc._internal();
-
-  @override
-  Future<void> close() async {
-    await _homeBlocSingleton.close();
-    await super.close();
-  }
-
-  @override
-  HomeState get initialState => HomeStateInProgress(
+  HomeBloc() : super(HomeInProgress(
       countryStatisticsList: <CountryStatistics>[],
-      selectedCountryStatistics: null);
+      selectedCountryStatistics: null));
 
   @override
   Stream<HomeState> mapEventToState(
@@ -34,7 +20,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> with StateChangerBlocBase {
           StreamTransformer.fromHandlers(
             handleError: BlocHelpers(
               blocOnMessageStateCreator: (message, type) =>
-                  HomeStateOnMessage.fromOldState(state,
+                  HomeOnMessage.fromOldState(state,
                       message: message, type: type),
             ).transformStreamErrors,
           ),
@@ -44,18 +30,18 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> with StateChangerBlocBase {
   @override
   void toInProgressState() {
     this.add(
-        HomeEvent(toState: HomeStateInProgress.fromOldState(state)));
+        HomeEvent(toState: HomeInProgress.fromOldState(state)));
   }
 
   @override
   void toLoaddedState() {
-    this.add(HomeEvent(toState: HomeStateLoadded.fromOldState(state)));
+    this.add(HomeEvent(toState: HomeLoadded.fromOldState(state)));
   }
 
   @override
   void toOnMessageState(BlocOnMessageStateBase onMessageState) {
     this.add(HomeEvent(
-        toState: HomeStateOnMessage.fromOldState(state,
+        toState: HomeOnMessage.fromOldState(state,
             type: onMessageState.type, message: onMessageState.message)));
   }
 }

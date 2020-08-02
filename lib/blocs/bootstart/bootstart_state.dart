@@ -2,14 +2,14 @@ import 'package:covid19_app/blocs/common/bloc_state_bases.dart';
 import 'package:covid19_app/blocs/common/enums.dart';
 import 'package:flutter/foundation.dart';
 
-abstract class BootstartState {}
+abstract class Bootstart {}
 
 /// UnInitialized
-class UnBootstartState extends BootstartState {}
+class UnBootstart extends Bootstart {}
 
-class BootStartOverState extends BootstartState {}
+class BootStartIsOver extends Bootstart {}
 
-class BootstartStateOnMessage extends BootstartState
+class BootstartStateOnMessage extends Bootstart
     with BlocOnMessageStateBase {
   BootstartStateOnMessage.fromOldSettingState(
       {@required String message, type = MessageType.INFO}) {

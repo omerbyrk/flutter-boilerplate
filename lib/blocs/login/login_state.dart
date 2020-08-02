@@ -3,15 +3,17 @@ import 'package:covid19_app/blocs/common/enums.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 
+// ignore: must_be_immutable
 abstract class LoginState extends Equatable {
   String token;
   LoginState({this.token});
 }
 
-class UnLoginState extends LoginState {
-  UnLoginState({token}) : super(token: token);
+// ignore: must_be_immutable
+class UnLogin extends LoginState {
+  UnLogin({token}) : super(token: token);
 
-  UnLoginState.fromOldState(LoginState loginState, {String token})
+  UnLogin.fromOldState(LoginState loginState, {String token})
       : super(token: token ?? loginState.token);
 
   @override
@@ -20,10 +22,11 @@ class UnLoginState extends LoginState {
 }
 
 /// UnInitialized
-class LoginStateInProgress extends LoginState with BlocInProgressStateBase {
-  LoginStateInProgress({token}) : super(token: token);
+// ignore: must_be_immutable
+class LoginOnProgress extends LoginState with BlocInProgressStateBase {
+  LoginOnProgress({token}) : super(token: token);
 
-  LoginStateInProgress.fromOldState(LoginState loginState, {String token})
+  LoginOnProgress.fromOldState(LoginState loginState, {String token})
       : super(token: token ?? loginState.token);
 
   @override
@@ -32,10 +35,11 @@ class LoginStateInProgress extends LoginState with BlocInProgressStateBase {
 }
 
 /// Initialized
-class LoginStateLoadded extends LoginState {
-  LoginStateLoadded({token}) : super(token: token);
+// ignore: must_be_immutable
+class InLoginState extends LoginState {
+  InLoginState({token}) : super(token: token);
 
-  LoginStateLoadded.fromOldState(LoginState loginState, {String token})
+  InLoginState.fromOldState(LoginState loginState, {String token})
       : super(token: token ?? loginState.token);
 
   @override
@@ -43,11 +47,11 @@ class LoginStateLoadded extends LoginState {
   List<Object> get props => [token];
 }
 
-@immutable
-class LoginStateOnMessage extends LoginState with BlocOnMessageStateBase {
-  LoginStateOnMessage({token}) : super(token: token);
+// ignore: must_be_immutable
+class LoginOnMessage extends LoginState with BlocOnMessageStateBase {
+  LoginOnMessage({token}) : super(token: token);
 
-  LoginStateOnMessage.fromOldState(LoginState loginState,
+  LoginOnMessage.fromOldState(LoginState loginState,
       {String token, @required String message, type = MessageType.INFO})
       : super(token: token ?? loginState.token) {
     this.message = message;

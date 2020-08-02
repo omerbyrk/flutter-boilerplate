@@ -2,16 +2,15 @@ import 'package:covid19_app/blocs/common/enums.dart';
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 
-abstract class HookWidgetBase extends HookWidget {
-  double getWidth<T>({double percent = 1}) {
-    final context = useContext();
+
+
+extension WidgetExtension on Widget {
+  double getWidth<T>(BuildContext context, {double percent = 1}) {
     return MediaQuery.of(context).size.width * percent;
   }
 
-  double getHeight<T>({double percent = 1}) {
-    final context = useContext();
+  double getHeight<T>(BuildContext context, {double percent = 1}) {
     return MediaQuery.of(context).size.height * percent;
   }
 
@@ -21,9 +20,8 @@ abstract class HookWidgetBase extends HookWidget {
     Future.delayed(duration, function);
   }
 
-  showErrorMessage(String message) {
+  showErrorMessage(BuildContext context, String message) {
     if (message != null) {
-      final context = useContext();
       doDelayedTask(() {
         FlushbarHelper.createError(
           message: message,
@@ -35,9 +33,9 @@ abstract class HookWidgetBase extends HookWidget {
     return Container();
   }
 
-  showInformationMessage(String message) {
+  showInformationMessage(BuildContext context, String message) {
     if (message != null) {
-      final context = useContext();
+
       doDelayedTask(() {
         FlushbarHelper.createInformation(
           message: message,
@@ -49,9 +47,8 @@ abstract class HookWidgetBase extends HookWidget {
     return Container();
   }
 
-  showSuccessMessage(String message) {
+  showSuccessMessage(BuildContext context, String message) {
     if (message != null) {
-      final context = useContext();
       doDelayedTask(() {
         FlushbarHelper.createSuccess(
           message: message,
@@ -63,14 +60,14 @@ abstract class HookWidgetBase extends HookWidget {
     return Container();
   }
 
-  Widget showMessage(String message, MessageType type) {
+  Widget showMessage(BuildContext context, String message, MessageType type) {
     switch (type) {
       case MessageType.SUCCESS:
-        return showSuccessMessage(message);
+        return showSuccessMessage(context, message);
       case MessageType.ERROR:
-        return showErrorMessage(message);
+        return showErrorMessage(context, message);
       case MessageType.INFO:
-        return showInformationMessage(message);
+        return showInformationMessage(context, message);
       default:
         return Container();
     }

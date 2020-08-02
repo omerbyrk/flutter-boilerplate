@@ -4,7 +4,6 @@ import 'package:covid19_app/model/CountryStatistics.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 
-@immutable
 abstract class HomeState extends Equatable {
   final List<CountryStatistics> countryStatisticsList;
   final CountryStatistics selectedCountryStatistics;
@@ -15,14 +14,13 @@ abstract class HomeState extends Equatable {
       ([countryStatisticsList, selectedCountryStatistics]);
 }
 
-@immutable
-class HomeStateInProgress extends HomeState with BlocInProgressStateBase {
-  const HomeStateInProgress({countryStatisticsList, selectedCountryStatistics})
+class HomeInProgress extends HomeState with BlocInProgressStateBase {
+  const HomeInProgress({countryStatisticsList, selectedCountryStatistics})
       : super(
             countryStatisticsList: countryStatisticsList,
             selectedCountryStatistics: selectedCountryStatistics);
 
-  HomeStateInProgress.fromOldState(HomeState oldState,
+  HomeInProgress.fromOldState(HomeState oldState,
       {List<CountryStatistics> countryStatisticsList,
       CountryStatistics selectedCountryStatistics})
       : super(
@@ -33,9 +31,8 @@ class HomeStateInProgress extends HomeState with BlocInProgressStateBase {
         );
 }
 
-@immutable
-class HomeStateLoadded extends HomeState {
-  HomeStateLoadded.fromOldState(HomeState oldState,
+class HomeLoadded extends HomeState {
+  HomeLoadded.fromOldState(HomeState oldState,
       {List<CountryStatistics> countryStatisticsList,
       CountryStatistics selectedCountryStatistics})
       : super(
@@ -46,9 +43,9 @@ class HomeStateLoadded extends HomeState {
         );
 }
 
-@immutable
-class HomeStateOnMessage extends HomeState with BlocOnMessageStateBase {
-  HomeStateOnMessage.fromOldState(HomeState oldState,
+// ignore: must_be_immutable
+class HomeOnMessage extends HomeState with BlocOnMessageStateBase {
+  HomeOnMessage.fromOldState(HomeState oldState,
       {List<CountryStatistics> countryStatisticsList,
       CountryStatistics selectedCountryStatistics,
       @required String message,

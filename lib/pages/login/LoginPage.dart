@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:covid19_app/blocs/authentication/index.dart';
 import 'package:covid19_app/blocs/login/index.dart';
 import 'package:covid19_app/components/AppFadeAnimation.dart';
@@ -6,33 +8,46 @@ import 'package:covid19_app/components/AppLogoImage.dart';
 import 'package:covid19_app/components/AppTextField.dart';
 import 'package:covid19_app/components/BlocFlushbarShow.dart';
 import 'package:covid19_app/components/BlocProgressIndicator.dart';
-import 'package:covid19_app/pages/HookWidgetBase.dart';
 import 'package:covid19_app/utils/clippers/WavyBottomCLipper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 
-class LoginPage extends HookWidgetBase {
+import '../WidgetExtension.dart';
+
+class LoginPage extends StatefulWidget {
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  TextEditingController usernameTextController = TextEditingController();
+  TextEditingController passwordTextController = TextEditingController();
+  AuthenticationBloc _authenticationBloc;
+  LoginBloc _loginBloc;
+  StreamSubscription<LoginState> loginBlocSubscription;
+
+  @override
+  void initState() {
+    _authenticationBloc = BlocProvider.of<AuthenticationBloc>(context);
+    _loginBloc = LoginBloc();
+
+    loginBlocSubscription = _loginBloc.listen((state) {
+      if (state is InLoginState) {
+        _authenticationBloc.add(LoadAuthenticationEvent(state.token));
+      }
+    });
+
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    loginBlocSubscription.cancel();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    AuthenticationBloc _authenticationBloc =
-        BlocProvider.of<AuthenticationBloc>(context);
-    LoginBloc _loginBloc = LoginBloc();
-
-    final usernameTextController = useTextEditingController();
-    final passwordTextController = useTextEditingController();
-
-    useEffect(() {
-      var loginStateSubscription = _loginBloc.listen((state) {
-        if (state is LoginStateLoadded) {
-          _authenticationBloc.add(LoadAuthenticationEvent(state.token));
-        }
-      });
-      return () async {
-        loginStateSubscription.cancel();
-      };
-    }, []);
-
     return Scaffold(
       body: BlocProvider(
         create: (_) => _loginBloc,
@@ -46,7 +61,7 @@ class LoginPage extends HookWidgetBase {
                   ClipPath(
                     clipper: WavyBottomCLipper(),
                     child: Container(
-                      height: this.getHeight(percent: .45),
+                      height: this.widget.getHeight(context, percent: .45),
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
                           begin: Alignment.topLeft,
@@ -60,7 +75,7 @@ class LoginPage extends HookWidgetBase {
                       ),
                       child: Center(
                         child: AppFadeAnimation(
-                          duration: Duration(milliseconds: 1000),
+                          duration: Duration(milliseconds: 300),
                           child: AppLogoImage(
                             width: 250,
                             height: 250,
@@ -74,7 +89,7 @@ class LoginPage extends HookWidgetBase {
                     height: 20,
                   ),
                   AppFadeAnimation(
-                    duration: const Duration(milliseconds: 1500),
+                    duration: const Duration(milliseconds: 450),
                     child: Center(
                         child: Row(
                       mainAxisSize: MainAxisSize.min,
@@ -104,7 +119,7 @@ class LoginPage extends HookWidgetBase {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 32.0),
                     child: AppFadeAnimation(
-                      duration: Duration(milliseconds: 2000),
+                      duration: Duration(milliseconds: 600),
                       child: Column(
                         children: <Widget>[
                           AppTextField(
@@ -129,7 +144,7 @@ class LoginPage extends HookWidgetBase {
                             height: 15.0,
                           ),
                           AppFadeAnimation(
-                            duration: const Duration(milliseconds: 2500),
+                            duration: const Duration(milliseconds: 750),
                             child: AppGradientButton(
                               buttonText: "Tab to login",
                               onTap: () {

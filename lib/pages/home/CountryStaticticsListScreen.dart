@@ -1,14 +1,13 @@
 import 'package:covid19_app/blocs/home/index.dart';
 import 'package:covid19_app/model/CountryStatistics.dart';
-import 'package:covid19_app/pages/HookWidgetBase.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class CountryStaticticsListScreen extends HookWidgetBase {
+class CountryStaticticsListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var _homeBloc = BlocProvider.of<HomeBloc>(context);
-    return BlocBuilder<HomeBloc, HomeState>(builder: (_, state) {
+    return BlocBuilder<HomeBloc, HomeState>(cubit: _homeBloc, builder: (_, state) {
       var countryStatisticsList = state.countryStatisticsList
           .where((statictics) => statictics.countryName.isNotEmpty)
           .toList();

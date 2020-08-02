@@ -1,10 +1,12 @@
 import 'package:covid19_app/components/AppCircularProgressIndicator.dart';
 import 'package:covid19_app/components/AppLogoImage.dart';
-import 'package:covid19_app/pages/HookWidgetBase.dart';
+import 'package:covid19_app/pages/WidgetExtension.dart';
+import 'package:covid19_app/pages/splash/cubit/splash_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class SplashPage extends HookWidgetBase {
+// ignore: must_be_immutable
+class SplashPage extends StatelessWidget {
   String message;
   final List<String> messageSuffixes = [".", "..", "..."];
 
@@ -12,13 +14,10 @@ class SplashPage extends HookWidgetBase {
 
   @override
   Widget build(BuildContext context) {
-    var message = useState("");
-    var tweenEnd = useState(3.0);
-
     return Scaffold(
       body: Container(
-        height: this.getHeight(),
-        width: this.getWidth(),
+        height: this.getHeight(context),
+        width: this.getWidth(context),
         decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topLeft,
@@ -38,42 +37,53 @@ class SplashPage extends HookWidgetBase {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.only(top: this.getHeight(percent: .05)),
+                  padding: EdgeInsets.only(
+                      top: this.getHeight(context, percent: .05)),
                   child: AppLogoImage(
                     height: 250,
                     width: 250,
                   ),
                 ),
                 Padding(
-                  padding:
-                      EdgeInsets.only(bottom: this.getHeight(percent: .10)),
+                  padding: EdgeInsets.only(
+                      bottom: this.getHeight(context, percent: .10)),
                   child: Column(
                     children: <Widget>[
-                      Center(
-                        child: TweenAnimationBuilder<double>(
-                          tween: Tween<double>(begin: 0, end: tweenEnd.value),
-                          onEnd: () {
-                            tweenEnd.value += 3.0;
-                          },
-                          duration: Duration(milliseconds: 1000),
-                          builder: (_, number, child) {
-                            this.doDelayedTask(() {
-                              message.value = this.message +
-                                  this.messageSuffixes[number.floor() % 3];
-                            });
-                            return child;
-                          },
-                          child: Container(
-                            child: Text(
-                              message.value,
-                              style: TextStyle(
-                                  color: Colors.white70,
-                                  fontFamily: "Flamenco",
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 25),
+                      BlocProvider(
+                        create: (_) => SplashCubit(),
+                        child: BlocBuilder<SplashCubit, SplashState>(
+                            builder: (context, state) {
+                          return Center(
+                            child: TweenAnimationBuilder<double>(
+                              tween:
+                                  Tween<double>(begin: 0, end: state.twenEnd),
+                              onEnd: () {
+                                context
+                                    .bloc<SplashCubit>()
+                                    .setTweenEnd(state.twenEnd + 3);
+                              },
+                              duration: Duration(milliseconds: 1000),
+                              builder: (_, number, child) {
+                                this.doDelayedTask(() {
+                                  context.bloc<SplashCubit>().setMessage(this
+                                          .message +
+                                      this.messageSuffixes[number.floor() % 3]);
+                                });
+                                return child;
+                              },
+                              child: Container(
+                                child: Text(
+                                  state.message,
+                                  style: TextStyle(
+                                      color: Colors.white70,
+                                      fontFamily: "Flamenco",
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 25),
+                                ),
+                              ),
                             ),
-                          ),
-                        ),
+                          );
+                        }),
                       ),
                       SizedBox(
                         height: 75.0,

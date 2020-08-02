@@ -19,8 +19,8 @@ class LoadLoginEvent extends LoginEvent {
   @override
   Stream<LoginState> applyAsync(
       {LoginState currentState, LoginBloc bloc}) async* {
-    yield LoginStateInProgress.fromOldState(currentState);
+    yield LoginOnProgress.fromOldState(currentState);
     String token = await this._userProvider.login(LoginDTO(username, password));
-    yield LoginStateLoadded.fromOldState(currentState, token: token);
+    yield InLoginState.fromOldState(currentState, token: token);
   }
 }

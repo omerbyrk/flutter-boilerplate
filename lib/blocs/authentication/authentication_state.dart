@@ -10,10 +10,10 @@ abstract class AuthenticationState {
 }
 
 /// UnInitialized
-class UnAuthenticationState extends AuthenticationState {
-  UnAuthenticationState({String token, User user})
+class UnAuthentication extends AuthenticationState {
+  UnAuthentication({String token, User user})
       : super(token: token, user: user);
-  UnAuthenticationState.fromOldState(AuthenticationState state,
+  UnAuthentication.fromOldState(AuthenticationState state,
       {String token, User user})
       : super(token: token ?? state.token, user: user ?? state.user);
 }
@@ -34,10 +34,10 @@ class AuthenticationStateOnMessage extends AuthenticationState
 }
 
 /// Initialized
-class InAuthenticationState extends AuthenticationState {
-  InAuthenticationState({String token, User user})
+class InAuthentication extends AuthenticationState {
+  InAuthentication({String token, User user})
       : super(token: token, user: user);
-  InAuthenticationState.fromOldState(AuthenticationState state,
+  InAuthentication.fromOldState(AuthenticationState state,
       {String token, User user})
       : super(token: token ?? state.token, user: user ?? state.user);
 }

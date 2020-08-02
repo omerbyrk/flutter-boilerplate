@@ -1,8 +1,6 @@
-import 'package:covid19_app/pages/HookWidgetBase.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 
-class AppLogoImage extends HookWidgetBase {
+class AppLogoImage extends StatelessWidget {
   final double width;
   final double height;
   final bool inAnimated;
@@ -10,9 +8,6 @@ class AppLogoImage extends HookWidgetBase {
 
   @override
   Widget build(BuildContext context) {
-    var animationController =
-        useAnimationController(duration: Duration(seconds: 10));
-    animationController.repeat();
     return TweenAnimationBuilder<double>(
       tween: _tween,
       duration: Duration(milliseconds: 500),
