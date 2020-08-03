@@ -1,17 +1,18 @@
-import '../../../core/exceptions/failure.dart';
-import '../usecase.dart';
-import '../../repositories/user/user_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 
-class DoLogin implements UseCase<String, Params> {
-  UserRepository userRepository;
+import '../../../core/exceptions/failure.dart';
+import '../../repository/index.dart';
+import '../usecase.dart';
 
-  DoLogin({@required this.userRepository});
+class DoLogin implements UseCase<String, Params> {
+  Repository repository;
+
+  DoLogin({@required this.repository});
 
   @override
   Future<Either<Failure, String>> call(Params params) async {
-    return await userRepository.login(params.username, params.password);
+    return await repository.login(params.username, params.password);
   }
 }
 

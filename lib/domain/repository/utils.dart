@@ -1,9 +1,7 @@
-import 'package:covid19_app/core/exceptions/failure.dart';
-import 'package:dartz/dartz.dart';
+part of repository;
 
-import 'repository.dart';
-
-extension RepositoryExtension on Repository {
+extension RepositoryUtils on Repository {
+  //! Utils
   Future<Either<Failure, T>> convertToEither<T>(
       Future<T> Function() function) async {
     try {

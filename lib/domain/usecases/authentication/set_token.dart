@@ -2,17 +2,17 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 
 import '../../../core/exceptions/failure.dart';
-import '../../repositories/authentication/authentication_repository.dart';
+import '../../repository/index.dart';
 import '../usecase.dart';
 
 class SetToken implements UseCase<void, Params> {
-  AuthenticationRepository authenticationRepository;
+  Repository repository;
 
-  SetToken({@required this.authenticationRepository});
+  SetToken({@required this.repository});
 
   @override
   Future<Either<Failure, void>> call(Params params) async {
-    return await authenticationRepository.setToken(params.token);
+    return await repository.setToken(params.token);
   }
 }
 
