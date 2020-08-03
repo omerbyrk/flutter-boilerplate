@@ -31,7 +31,7 @@ class _LoginPageFormState extends State<LoginPageForm> {
     _loginBloc = BlocProvider.of<LoginBloc>(context);
     loginBlocSubscription = _loginBloc.listen((state) {
       if (state is InLoginState) {
-        _authenticationBloc.add(LoadAuthenticationEvent(state.token));
+        _authenticationBloc.add(LoadAuthenticationEvent());
       }
     });
 

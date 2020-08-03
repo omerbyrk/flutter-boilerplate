@@ -29,7 +29,9 @@ class SplashPage extends StatelessWidget {
         ),
         child: Stack(
           children: <Widget>[
-            AppCircularProgressIndicator(),
+            AppCircularProgressIndicator(
+              sizePercent: .7,
+            ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

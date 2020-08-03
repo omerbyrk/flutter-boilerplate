@@ -4,7 +4,6 @@ class UserModel implements ModelBase {
   int id;
   String username;
   String password;
-  String token;
   String fullname;
   int age;
   String country;
@@ -14,7 +13,6 @@ class UserModel implements ModelBase {
       {this.id,
       this.username,
       this.password,
-      this.token,
       this.fullname,
       this.age,
       this.country,
@@ -29,7 +27,6 @@ class UserModel implements ModelBase {
         "twitterAccount": twitterAccount,
         "username": username,
         "password": password,
-        "token": token
       };
 
   factory UserModel.fromMap(Map<String, dynamic> map) => UserModel(
@@ -39,6 +36,5 @@ class UserModel implements ModelBase {
       fullname: map["fullname"],
       username: map["username"],
       password: map["password"],
-      token: map["token"],
       twitterAccount: map["twitterAccount"]);
 }

@@ -1,5 +1,8 @@
+import 'package:covid19_app/core/blocs/authentication/authentication_bloc.dart';
+import 'package:covid19_app/core/blocs/authentication/authentication_event.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
 
 import '../../../core/widgets/index.dart';
 import '../../../data/models/country_statistics_model.dart';
@@ -28,11 +31,10 @@ class CountryStaticticsProfileScreen extends StatelessWidget {
             children: <Widget>[
               ImageRotater(
                 imagePath: "assets/images/progress.png",
-                height: this.getHeight(context, percent: .5),
+                sizePercent: 1,
                 color: Colors.black,
                 opacity: 0.1,
                 animationDuration: Duration(seconds: 10),
-                width: this.getWidth(context, percent: .5),
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -40,14 +42,31 @@ class CountryStaticticsProfileScreen extends StatelessWidget {
                   SizedBox(
                     height: 30.0,
                   ),
-                  Center(
-                    child: Text(
-                      statistics.countryName,
-                      style: TextStyle(
+                  Stack(
+                    children: <Widget>[
+                      Center(
+                        child: Text(
+                          statistics.countryName,
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w700,
+                              fontSize: 25),
+                        ),
+                      ),
+                      Positioned(
+                        right: 0,
+                        top:-5,
+                        child: IconButton(
                           color: Colors.white,
-                          fontWeight: FontWeight.w700,
-                          fontSize: 25),
-                    ),
+                          icon: Icon(Icons.exit_to_app),
+                          onPressed: () {
+                            GetIt.instance
+                                .get<AuthenticationBloc>()
+                                .add(AuthenticationLogoutEvent());
+                          },
+                        ),
+                      )
+                    ],
                   ),
                   Divider(),
                   Expanded(

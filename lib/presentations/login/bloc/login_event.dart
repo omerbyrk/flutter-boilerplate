@@ -1,14 +1,16 @@
 import 'dart:async';
 
+import 'package:covid19_app/domain/usecases/authentication/set_token.dart'
+    as st;
 import 'package:meta/meta.dart';
 
-import '../../../core/blocs/utils/enums.dart';
-import '../../../domain/usecases/user/do_login.dart';
+import '../../../core/blocs/bases/bloc_event_base.dart';
+import '../../../domain/usecases/user/do_login.dart' as dl;
 import 'index.dart';
 
 @immutable
-abstract class LoginEvent {
-  Stream<LoginState> applyAsync({LoginState currentState, LoginBloc bloc});
+class LoginEvent extends BlocEventBase<LoginState, LoginBloc> {
+  LoginEvent({LoginState toState}) : super(toState: toState);
 }
 
 class LoadLoginEvent extends LoginEvent {
@@ -21,10 +23,11 @@ class LoadLoginEvent extends LoginEvent {
   Stream<LoginState> applyAsync(
       {LoginState currentState, LoginBloc bloc}) async* {
     yield LoginOnProgress.fromOldState(currentState);
-    var loginResult = await bloc.doLogin(Params(username, password));
-    yield loginResult.fold(
-        (l) => LoginOnMessage.fromOldState(currentState,
-            message: l.message, type: MessageType.ERROR),
-        (r) => InLoginState.fromOldState(currentState, token: r));
+    var loginResult = await bloc.doLogin(dl.Params(username, password));
+    String token = bloc.extractEither<String>(loginResult);
+    if (token != null)
+      bloc.extractEither<void>(await bloc.setToken(st.Params(token)));
+    await Future.delayed(Duration(seconds: 1));
+    yield InLoginState();
   }
 }

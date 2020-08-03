@@ -1,21 +1,38 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:covid19_app/core/blocs/authentication/index.dart';
+import 'package:covid19_app/core/blocs/bases/bloc_base.dart';
+import 'package:covid19_app/core/blocs/utils/enums.dart';
+import 'package:covid19_app/domain/usecases/authentication/get_authenticated_user.dart';
+import 'package:covid19_app/domain/usecases/authentication/get_token.dart';
+import 'package:covid19_app/domain/usecases/authentication/is_authenticated_user.dart';
+import 'package:flutter/foundation.dart';
 
-import '../utils/bloc_helpers.dart';
 import 'index.dart';
 
-class BootstartBloc extends Bloc<BootstartEvent, BootStartState> {
+class BootstartBloc extends Bloc<BootstartEvent, BootStartState>
+    with AppBlocBase {
+  final IsAuthenticatedUser isAuthenticatedUser;
+  final GetToken getToken;
+  final GetAuthenticatedUser getAuthenticatedUser;
 
-  final AuthenticationBloc authenticationBloc;
+  BootstartBloc(
+      {@required this.isAuthenticatedUser,
+      @required this.getToken,
+      @required this.getAuthenticatedUser})
+      : super(UnBootstart());
 
-  BootstartBloc({this.authenticationBloc}) : super(UnBootstart());
-  
   @override
   Stream<BootStartState> mapEventToState(
     BootstartEvent event,
   ) async* {
     yield* event.applyAsync(currentState: state, bloc: this);
+  }
+
+  @override
+  void toOnMessageState(String message, MessageType type) {
+    this.add(BootstartEvent(
+        toState: BootstartStateOnMessage.fromOldSettingState(
+            message: message, type: type)));
   }
 }

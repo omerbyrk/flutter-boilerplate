@@ -20,7 +20,7 @@ class CountryStatisticsDataSource extends ApiDataSourceBase {
           .toList());
       return countryStatisticsList;
     } catch (err) {
-      throw RemoteServerException(message: err.toString());
+      throw RemoteServerException(err);
     }
   }
 }

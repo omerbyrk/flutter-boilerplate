@@ -1,12 +1,11 @@
-import 'package:covid19_app/data/models/user_model.dart';
-import 'package:covid19_app/domain/entities/user_entity.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 
-import '../repository.dart';
 import '../../../core/exceptions/failure.dart';
+import '../../../data/local/datasources/user_local_datasource.dart';
+import '../../entities/user_entity.dart';
+import '../repository.dart';
 import '../repository_extension.dart';
-import '../../../data/locale/datasources/user_local_datasource.dart';
 
 abstract class UserRepository implements Repository {
   Future<Either<Failure, String>> login(String username, String password);

@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'widget_extension.dart';
 
 class ImageRotater extends StatefulWidget {
-  final double height;
-  final double width;
+  final double sizePercent;
   final bool animateToReverse;
   final double opacity;
   final Duration animationDuration;
@@ -13,8 +12,7 @@ class ImageRotater extends StatefulWidget {
 
   const ImageRotater(
       {Key key,
-      this.height,
-      this.width,
+      this.sizePercent = 0.5,
       this.animateToReverse = false,
       this.opacity = 1,
       @required this.animationDuration,
@@ -50,15 +48,13 @@ class _ImageRotaterState extends State<ImageRotater>
       child: Center(
         child: RotationTransition(
           turns: _twen.animate(_controller),
-          child: Image.asset(
-            this.widget.imagePath,
-            height: this.widget.height ??
-                this.widget.getHeight(context, percent: .3),
-            width:
-                this.widget.width ?? this.widget.getWidth(context, percent: .3),
-            fit: BoxFit.contain,
-            color: this.widget.color.withOpacity(this.widget.opacity),
-            filterQuality: FilterQuality.high,
+          child: SizedBox(
+            child: Image.asset(
+              this.widget.imagePath,
+              height: this.widget.getHeight(context, percent: this.widget.sizePercent),
+              width: this.widget.getWidth(context, percent: this.widget.sizePercent),
+              color: this.widget.color.withOpacity(this.widget.opacity),
+            ),
           ),
         ),
       ),

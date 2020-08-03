@@ -1,13 +1,13 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:covid19_app/data/models/country_statistics_model.dart';
 
 import '../../../core/blocs/bases/bloc_base.dart';
-import '../../../core/blocs/bases/bloc_state_base.dart';
+import '../../../core/blocs/utils/enums.dart';
+import '../../../data/models/country_statistics_model.dart';
 import 'index.dart';
 
-class HomeBloc extends Bloc<HomeEvent, HomeState> with StateChangerBlocBase {
+class HomeBloc extends Bloc<HomeEvent, HomeState> with AppBlocBase {
   HomeBloc()
       : super(HomeInProgress(
             countryStatisticsList: <CountryStatisticsModel>[],
@@ -21,19 +21,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> with StateChangerBlocBase {
   }
 
   @override
-  void toInProgressState() {
-    this.add(HomeEvent(toState: HomeInProgress.fromOldState(state)));
-  }
-
-  @override
-  void toLoaddedState() {
-    this.add(HomeEvent(toState: HomeLoadded.fromOldState(state)));
-  }
-
-  @override
-  void toOnMessageState(BlocOnMessageStateBase onMessageState) {
+  void toOnMessageState(String message, MessageType type) {
     this.add(HomeEvent(
-        toState: HomeOnMessage.fromOldState(state,
-            type: onMessageState.type, message: onMessageState.message)));
+        toState:
+            HomeOnMessage.fromOldState(state, type: type, message: message)));
   }
 }
