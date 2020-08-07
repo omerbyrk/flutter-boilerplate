@@ -11,8 +11,8 @@ class SplashPageLogoWidget extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(top: this.getHeight(context, percent: .05)),
       child: AppLogoImage(
-        height: 250,
-        width: 250,
+        height: 200,
+        width: 200,
       ),
     );
   }

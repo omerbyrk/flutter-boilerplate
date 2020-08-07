@@ -51,8 +51,12 @@ class _ImageRotaterState extends State<ImageRotater>
           child: SizedBox(
             child: Image.asset(
               this.widget.imagePath,
-              height: this.widget.getHeight(context, percent: this.widget.sizePercent),
-              width: this.widget.getWidth(context, percent: this.widget.sizePercent),
+              height: this
+                  .widget
+                  .getHeight(context, percent: this.widget.sizePercent),
+              width: this
+                  .widget
+                  .getWidth(context, percent: this.widget.sizePercent),
               color: this.widget.color.withOpacity(this.widget.opacity),
             ),
           ),

@@ -1,5 +1,6 @@
 abstract class RemoteServerException {
-  factory RemoteServerException([var message]) => _RemoteServerException(message);
+  factory RemoteServerException([var message]) =>
+      _RemoteServerException(message);
 }
 
 class _RemoteServerException implements RemoteServerException {
@@ -9,6 +10,6 @@ class _RemoteServerException implements RemoteServerException {
 
   String toString() {
     if (message == null) return "RemoteServerException";
-    return message;
+    return message.toString();
   }
 }

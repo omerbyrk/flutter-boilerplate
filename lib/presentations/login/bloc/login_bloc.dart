@@ -25,8 +25,11 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> with AppBlocBase {
 
   @override
   void toOnMessageState(String message, MessageType type) {
-    this.add(LoginEvent(
+    this.add(
+      LoginEvent(
         toState:
-            LoginOnMessage.fromOldState(state, type: type, message: message)));
+            LoginOnMessage.fromOldState(state, type: type, message: message),
+      ),
+    );
   }
 }

@@ -25,9 +25,10 @@ class LoadLoginEvent extends LoginEvent {
     yield LoginOnProgress.fromOldState(currentState);
     var loginResult = await bloc.doLogin(dl.Params(username, password));
     String token = bloc.extractEither<String>(loginResult);
-    if (token != null)
+    if (token != null) {
       bloc.extractEither<void>(await bloc.setToken(st.Params(token)));
-    await Future.delayed(Duration(seconds: 1));
-    yield InLoginState();
+      await Future.delayed(Duration(seconds: 1));
+      yield InLoginState();
+    }
   }
 }

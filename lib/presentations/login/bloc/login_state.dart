@@ -1,7 +1,7 @@
-import 'package:covid19_app/core/blocs/bases/bloc_state_base.dart';
-import 'package:covid19_app/core/blocs/utils/enums.dart';
-import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
+
+import '../../../core/blocs/bases/bloc_state_base.dart';
+import '../../../core/blocs/utils/enums.dart';
 
 // ignore: must_be_immutable
 abstract class LoginState {
@@ -18,10 +18,9 @@ class UnLogin extends LoginState {
 /// UnInitialized
 // ignore: must_be_immutable
 class LoginOnProgress extends LoginState with BlocInProgressStateBase {
-  LoginOnProgress() ;
+  LoginOnProgress();
 
   LoginOnProgress.fromOldState(LoginState loginState);
-    
 }
 
 /// Initialized
@@ -34,8 +33,11 @@ class InLoginState extends LoginState {
 
 // ignore: must_be_immutable
 class LoginOnMessage extends LoginState with BlocOnMessageStateBase {
-  LoginOnMessage() ;
+  LoginOnMessage();
 
   LoginOnMessage.fromOldState(LoginState loginState,
-      {String token, @required String message, type = MessageType.INFO});
+      {@required String message, MessageType type = MessageType.INFO}) {
+    this.message = message;
+    this.type = type;
+  }
 }

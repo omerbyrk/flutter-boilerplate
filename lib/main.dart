@@ -4,10 +4,11 @@ import 'package:get_it/get_it.dart';
 
 import 'core/blocs/authentication/index.dart';
 import 'core/blocs/bootstart/index.dart';
+import 'core/theme/app_theme.dart';
 import 'dependency_injection.dart' as di;
 import 'presentations/home/pages/home_page.dart';
 import 'presentations/login/pages/login_page.dart';
-import 'presentations/splash/pages/SplashPage.dart';
+import 'presentations/splash/pages/splash_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,19 +20,16 @@ class AppBootstart extends StatelessWidget {
   // This widget is the root of your application.
   @override
   StatelessElement createElement() {
-    GetIt.instance.get<BootstartBloc>()
-        .add(LoadBootstartEvent());
+    GetIt.instance.get<BootstartBloc>().add(LoadBootstartEvent());
     return super.createElement();
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Movie BooilerPlate',
+      title: 'FlutMovie Booilerplate',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.purple,
-      ),
+      theme: themeData,
       home: BlocProvider(
         create: (_) => GetIt.instance.get<BootstartBloc>(),
         child: BlocBuilder<BootstartBloc, BootStartState>(

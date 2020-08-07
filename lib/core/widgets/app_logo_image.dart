@@ -1,3 +1,4 @@
+import 'package:covid19_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class AppLogoImage extends StatelessWidget {
@@ -10,7 +11,7 @@ class AppLogoImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return TweenAnimationBuilder<double>(
       tween: _tween,
-      duration: Duration(milliseconds: 500),
+      duration: Duration(milliseconds: 1000),
       curve: Curves.bounceOut,
       builder: (_, scale, child) {
         return Transform.translate(
@@ -22,6 +23,7 @@ class AppLogoImage extends StatelessWidget {
         "assets/images/logo.png",
         height: this.height,
         width: this.width,
+        color: AppColors.white,
         fit: BoxFit.contain,
       ),
     );

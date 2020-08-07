@@ -13,7 +13,7 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => _loginBloc,
-          child: Scaffold(
+      child: Scaffold(
         body: Stack(
           children: <Widget>[
             SingleChildScrollView(
@@ -23,7 +23,7 @@ class LoginPage extends StatelessWidget {
                 children: <Widget>[
                   LoginPageTop(),
                   SizedBox(
-                    height: 20,
+                    height: 15,
                   ),
                   LoginPageFormTitle(),
                   Divider(),

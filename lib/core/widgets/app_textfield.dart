@@ -1,3 +1,4 @@
+import 'package:covid19_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class AppTextField extends StatelessWidget {
@@ -6,8 +7,10 @@ class AppTextField extends StatelessWidget {
   final String Function(String) validator;
   final void Function(String) onChanged;
   final void Function(String) onSaved;
+  final void Function() onIconClick;
   final bool obscureText;
   final ShapeBorder shape;
+  final IconData icon;
 
   const AppTextField(
       {Key key,
@@ -16,8 +19,10 @@ class AppTextField extends StatelessWidget {
       this.validator,
       this.onChanged,
       this.onSaved,
+      this.onIconClick,
       this.obscureText = false,
-      this.shape})
+      this.shape,
+      this.icon})
       : super(key: key);
 
   @override
@@ -34,10 +39,21 @@ class AppTextField extends StatelessWidget {
         style: TextStyle(
           fontSize: 18,
         ),
-        cursorColor: Colors.purple[800],
+        cursorColor: AppColors.black,
         decoration: InputDecoration(
-          contentPadding: const EdgeInsets.symmetric(horizontal: 8),
-          isDense: false,
+          prefix: SizedBox(
+            width: 10,
+          ),
+          suffixIcon: this.icon != null
+              ? InkWell(
+                  onTap: this.onIconClick,
+                  child: Icon(
+                    this.icon,
+                    size: 25.0,
+                    color: AppColors.red,
+                  ),
+                )
+              : null,
           border: InputBorder.none,
           hintText: this.hintText,
         ),

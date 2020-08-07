@@ -14,26 +14,19 @@ class AppCircularProgressIndicator extends StatelessWidget {
     return Stack(
       children: <Widget>[
         ImageRotater(
-          imagePath: "assets/images/progress.png",
+          imagePath: "assets/images/progress.ico",
           sizePercent: this.sizePercent,
-          animationDuration: Duration(seconds: 8),
+          animationDuration: Duration(milliseconds: 7500),
           opacity: .2,
           color: color,
         ),
         ImageRotater(
-          imagePath: "assets/images/progress.png",
-          sizePercent: this.sizePercent / 2,
-          animationDuration: Duration(seconds: 5),
-          opacity: 0.3,
-          color: color,
-          animateToReverse: true,
-        ),
-        ImageRotater(
-          imagePath: "assets/images/progress.png",
-          opacity: 0.4,
+          imagePath: "assets/images/progress.ico",
+          opacity: .5,
           sizePercent: this.sizePercent / 4,
           color: color,
-          animationDuration: Duration(seconds: 3),
+          animateToReverse: true,
+          animationDuration: Duration(milliseconds: 1250),
         ),
       ],
     );

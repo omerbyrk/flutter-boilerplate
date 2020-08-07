@@ -1,3 +1,4 @@
+import 'package:covid19_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class AppGradientButton extends StatelessWidget {
@@ -27,7 +28,7 @@ class AppGradientButton extends StatelessWidget {
             child: Text(
               this.buttonText,
               style: TextStyle(
-                  color: Colors.white,
+                  color: AppColors.white,
                   fontSize: 18,
                   fontWeight: FontWeight.w600),
             ),
@@ -43,9 +44,9 @@ class AppGradientButton extends StatelessWidget {
       begin: Alignment.centerLeft,
       end: Alignment.centerRight,
       colors: <Color>[
-        Colors.purple[200],
-        Colors.purple[500],
-        Colors.purple[700],
+        AppColors.red[300],
+        AppColors.red[800],
+        AppColors.red[600],
       ],
     );
   }

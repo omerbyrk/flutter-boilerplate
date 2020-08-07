@@ -23,15 +23,14 @@ dependencies:
   bloc: ^6.0.0
   equatable: ^1.2.0
   dio: ^3.0.9
-  flushbar: 1.9.1
+  flushbar: ^1.10.4
   dartz: ^0.9.1
   shared_preferences: ^0.5.8
   get_it: ^4.0.4
   sembast: ^2.4.7+4
   path_provider: ^1.6.11
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
+  google_fonts: ^1.1.0
 
 dev_dependencies:
   flutter_test:
@@ -65,11 +64,11 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  fonts:
-    - family: Flamenco
-      fonts:
-        - asset: assets/fonts/Flamenco-Regular.ttf
-        - asset: assets/fonts/Flamenco-Light.ttf
+  #fonts:
+  #  - family: Flamenco
+  #    fonts:
+  #      - asset: assets/fonts/Flamenco-Regular.ttf
+  #      - asset: assets/fonts/Flamenco-Light.ttf
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf

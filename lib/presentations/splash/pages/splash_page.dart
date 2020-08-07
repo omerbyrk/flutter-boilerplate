@@ -1,3 +1,4 @@
+import 'package:covid19_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/widgets/widget_extension.dart';
@@ -19,18 +20,19 @@ class SplashPage extends StatelessWidget {
         decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topLeft,
-            end: Alignment.centerRight,
+            end: Alignment.bottomRight,
             colors: [
-              Colors.purple[800],
-              Colors.purple[200],
-              Colors.purple[600]
+              AppColors.red[300],
+              AppColors.red[900],
+              AppColors.red[600]
             ],
           ),
         ),
         child: Stack(
           children: <Widget>[
             AppCircularProgressIndicator(
-              sizePercent: .7,
+              color: AppColors.white,
+              sizePercent: .6,
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,

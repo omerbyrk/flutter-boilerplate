@@ -1,21 +1,21 @@
+import 'package:covid19_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/widgets/index.dart';
-
 
 class LoginPageFormTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppFadeAnimation(
-      duration: const Duration(milliseconds: 450),
+      duration: const Duration(milliseconds: 800),
       child: Center(
           child: Row(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Icon(
-            Icons.lock,
+            Icons.lock_outline,
             size: 30,
-            color: Colors.black87,
+            color: AppColors.navyBlue,
           ),
           SizedBox(
             width: 5.0,
@@ -23,7 +23,7 @@ class LoginPageFormTitle extends StatelessWidget {
           Text(
             "Login Form",
             style: TextStyle(
-                color: Colors.black87,
+                color: AppColors.black,
                 fontSize: 35,
                 fontWeight: FontWeight.bold),
           ),

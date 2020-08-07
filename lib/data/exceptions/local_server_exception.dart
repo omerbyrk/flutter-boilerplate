@@ -9,6 +9,6 @@ class _LocalServerException implements LocalServerException {
 
   String toString() {
     if (message == null) return "LocalServerException";
-    return message;
+    return message.toString();
   }
 }

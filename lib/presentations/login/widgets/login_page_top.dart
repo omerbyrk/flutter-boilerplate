@@ -1,7 +1,7 @@
+import 'package:covid19_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/widgets/index.dart';
-
 
 class LoginPageTop extends StatelessWidget {
   @override
@@ -12,21 +12,21 @@ class LoginPageTop extends StatelessWidget {
         height: this.getHeight(context, percent: .45),
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            begin: Alignment.topLeft,
+            begin: Alignment.centerLeft,
             end: Alignment.centerRight,
             colors: <Color>[
-              Colors.purple[800],
-              Colors.purple[300],
-              Colors.purple[600]
+              AppColors.red[300],
+              AppColors.red[900],
+              AppColors.red[600]
             ],
           ),
         ),
         child: Center(
           child: AppFadeAnimation(
-            duration: Duration(milliseconds: 300),
+            duration: Duration(milliseconds: 600),
             child: AppLogoImage(
-              width: 250,
-              height: 250,
+              width: 200,
+              height: 200,
               inAnimated: false,
             ),
           ),

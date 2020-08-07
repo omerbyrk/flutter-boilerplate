@@ -1,7 +1,10 @@
+import 'package:covid19_app/core/blocs/authentication/index.dart';
+import 'package:covid19_app/core/theme/app_colors.dart';
 import 'package:covid19_app/core/widgets/index.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
 
 import '../../../core/blocs/widgets/bloc_flushbar_show.dart';
 import '../../../core/blocs/widgets/bloc_progress_indicator.dart';
@@ -27,9 +30,24 @@ class HomePage extends StatelessWidget {
         child: Stack(
           children: <Widget>[
             Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                CountryStaticticsProfileScreen(),
-                CountryStaticticsListScreen(),
+                Center(
+                  child: RaisedButton.icon(
+                    color: AppColors.navyBlue,
+                    textColor: AppColors.sky,
+                    label: Text("Logout"),
+                    icon: Icon(Icons.exit_to_app),
+                    onPressed: () {
+                      GetIt.instance
+                          .get<AuthenticationBloc>()
+                          .add(AuthenticationLogoutEvent());
+                    },
+                  ),
+                ),
+                // CountryStaticticsProfileScreen(),
+                // CountryStaticticsListScreen(),
               ],
             ),
             BlocProgressIndicator<HomeBloc>(),

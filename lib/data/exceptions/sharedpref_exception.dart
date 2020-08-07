@@ -9,6 +9,6 @@ class _SharedPrefException implements SharedPrefException {
 
   String toString() {
     if (message == null) return "SharedPrefException";
-    return message;
+    return message.toString();
   }
 }
