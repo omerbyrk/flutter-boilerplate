@@ -1,16 +1,33 @@
+import 'package:covid19_app/core/consts/enums.dart';
+import 'package:covid19_app/core/utils/screen_utils.dart';
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 
 import '../blocs/utils/enums.dart';
 
 extension WidgetExtension on Widget {
+  ScreenUtils get _screenUtils => GetIt.instance.get<ScreenUtils>();
+
   double getWidth<T>(BuildContext context, {double percent = 1}) {
     return MediaQuery.of(context).size.width * percent;
   }
 
   double getHeight<T>(BuildContext context, {double percent = 1}) {
     return MediaQuery.of(context).size.height * percent;
+  }
+
+  double getFontSize(SizeType type) {
+    return this._screenUtils.getFontSize(type);
+  }
+
+  double getIconSize(SizeType type) {
+    return this._screenUtils.getIconSize(type);
+  }
+
+  double convertSize(double size) {
+    return this._screenUtils.convertToDeviceSize(size);
   }
 
   void doDelayedTask(Function function, {Duration duration: Duration.zero}) {
@@ -37,7 +54,7 @@ extension WidgetExtension on Widget {
       doDelayedTask(() {
         FlushbarHelper.createInformation(
           message: message,
-          title: 'Bilgilendirme',
+          title: 'Notify',
           duration: Duration(seconds: 3),
         )..show(context);
       });

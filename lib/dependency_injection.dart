@@ -1,3 +1,4 @@
+import 'package:covid19_app/core/utils/screen_utils.dart';
 import 'package:covid19_app/data/network/datasources/country_statistics_datasource.dart';
 import 'package:covid19_app/domain/repository/index.dart';
 import 'package:covid19_app/domain/usecases/authentication/clear_token.dart';
@@ -53,7 +54,7 @@ Future<void> init() async {
       () => AuthenticationDataSource(sharedPreferences: sl()));
   sl.registerLazySingleton(() => CountryStatisticsDataSource());
 
-  //! common
+  //! common - utils
   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
   sl.registerFactory(() => sharedPreferences);
 
@@ -61,4 +62,6 @@ Future<void> init() async {
   final dbPath = join(appDocumentDir.path, LocalConsts.DB_NAME);
   Database database = await databaseFactoryIo.openDatabase(dbPath);
   sl.registerLazySingleton(() => database);
+
+  sl.registerLazySingleton(() => ScreenUtils());
 }

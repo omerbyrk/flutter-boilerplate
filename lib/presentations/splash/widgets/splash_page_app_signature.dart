@@ -1,3 +1,5 @@
+import 'package:covid19_app/core/consts/enums.dart';
+import 'package:covid19_app/core/widgets/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -12,7 +14,7 @@ class SplashPageSignature extends StatelessWidget {
         child: Text(
           "Movie APP Example",
           style: GoogleFonts.bitter(
-              fontSize: 25,
+              fontSize: this.getFontSize(SizeType.Middle),
               color: AppColors.white,
               fontWeight: FontWeight.bold),
         ),

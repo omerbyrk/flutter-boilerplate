@@ -25,8 +25,8 @@ class LoginPageTop extends StatelessWidget {
           child: AppFadeAnimation(
             duration: Duration(milliseconds: 600),
             child: AppLogoImage(
-              width: 200,
-              height: 200,
+              width: this.convertSize(200),
+              height: this.convertSize(200),
               inAnimated: false,
             ),
           ),

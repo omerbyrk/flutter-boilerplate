@@ -1,3 +1,4 @@
+import 'package:covid19_app/core/widgets/index.dart';
 import 'package:flutter/material.dart';
 
 import 'image_rotater.dart';
@@ -23,7 +24,7 @@ class AppCircularProgressIndicator extends StatelessWidget {
         ImageRotater(
           imagePath: "assets/images/progress.ico",
           opacity: .5,
-          sizePercent: this.sizePercent / 4,
+          sizePercent: this.sizePercent / this.convertSize(4),
           color: color,
           animateToReverse: true,
           animationDuration: Duration(milliseconds: 1250),

@@ -1,4 +1,6 @@
+import 'package:covid19_app/core/consts/enums.dart';
 import 'package:covid19_app/core/theme/app_colors.dart';
+import 'package:covid19_app/core/widgets/index.dart';
 import 'package:flutter/material.dart';
 
 class AppGradientButton extends StatelessWidget {
@@ -17,9 +19,10 @@ class AppGradientButton extends StatelessWidget {
       onTap: this.onTap,
       child: Material(
         elevation: 5.0,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(this.convertSize(10))),
         child: Container(
-          padding: const EdgeInsets.symmetric(vertical: 8.0),
+          padding: EdgeInsets.symmetric(vertical: this.convertSize(10.0)),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(this.radius),
             gradient: this._gradient,
@@ -29,7 +32,7 @@ class AppGradientButton extends StatelessWidget {
               this.buttonText,
               style: TextStyle(
                   color: AppColors.white,
-                  fontSize: 18,
+                  fontSize: this.getFontSize(SizeType.xSmall),
                   fontWeight: FontWeight.w600),
             ),
           ),

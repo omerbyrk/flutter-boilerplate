@@ -1,3 +1,4 @@
+import 'package:covid19_app/core/consts/enums.dart';
 import 'package:covid19_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -38,7 +39,7 @@ class SplashPageMessageWidget extends StatelessWidget {
                 style: GoogleFonts.bitter(
                     color: AppColors.white,
                     fontWeight: FontWeight.w600,
-                    fontSize: 18),
+                    fontSize: this.getFontSize(SizeType.xSmall)),
               ),
             ),
           ),

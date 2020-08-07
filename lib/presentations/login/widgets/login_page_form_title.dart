@@ -1,3 +1,4 @@
+import 'package:covid19_app/core/consts/enums.dart';
 import 'package:covid19_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,7 @@ class LoginPageFormTitle extends StatelessWidget {
         children: <Widget>[
           Icon(
             Icons.lock_outline,
-            size: 30,
+            size: this.getIconSize(SizeType.xLarge),
             color: AppColors.navyBlue,
           ),
           SizedBox(
@@ -24,7 +25,7 @@ class LoginPageFormTitle extends StatelessWidget {
             "Login Form",
             style: TextStyle(
                 color: AppColors.black,
-                fontSize: 35,
+                fontSize: this.getFontSize(SizeType.xxLarge),
                 fontWeight: FontWeight.bold),
           ),
         ],

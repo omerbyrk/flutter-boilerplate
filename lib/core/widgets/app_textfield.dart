@@ -1,4 +1,6 @@
+import 'package:covid19_app/core/consts/enums.dart';
 import 'package:covid19_app/core/theme/app_colors.dart';
+import 'package:covid19_app/core/widgets/index.dart';
 import 'package:flutter/material.dart';
 
 class AppTextField extends StatelessWidget {
@@ -37,19 +39,19 @@ class AppTextField extends StatelessWidget {
         onSaved: this.onSaved,
         obscureText: this.obscureText,
         style: TextStyle(
-          fontSize: 18,
+          fontSize: this.getFontSize(SizeType.xSmall),
         ),
         cursorColor: AppColors.black,
         decoration: InputDecoration(
           prefix: SizedBox(
-            width: 10,
+            width: this.convertSize(12.0),
           ),
           suffixIcon: this.icon != null
               ? InkWell(
                   onTap: this.onIconClick,
                   child: Icon(
                     this.icon,
-                    size: 25.0,
+                    size: this.getIconSize(SizeType.Small),
                     color: AppColors.red,
                   ),
                 )
@@ -65,8 +67,10 @@ class AppTextField extends StatelessWidget {
     if (this.shape != null) return this.shape;
 
     return RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0),
+        borderRadius: BorderRadius.circular(this.convertSize(12.0)),
         side: BorderSide(
-            color: Colors.grey[400], width: 1.0, style: BorderStyle.solid));
+            color: Colors.grey[400],
+            width: this.convertSize(1.2),
+            style: BorderStyle.solid));
   }
 }

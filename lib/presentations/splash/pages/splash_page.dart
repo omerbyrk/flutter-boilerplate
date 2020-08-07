@@ -46,7 +46,7 @@ class SplashPage extends StatelessWidget {
                     children: <Widget>[
                       SplashPageMessageWidget(message),
                       SizedBox(
-                        height: 75.0,
+                        height: this.convertSize(75.0),
                       ),
                       SplashPageSignature()
                     ],

@@ -5,6 +5,7 @@ import 'package:get_it/get_it.dart';
 import 'core/blocs/authentication/index.dart';
 import 'core/blocs/bootstart/index.dart';
 import 'core/theme/app_theme.dart';
+import 'core/utils/screen_utils.dart';
 import 'dependency_injection.dart' as di;
 import 'presentations/home/pages/home_page.dart';
 import 'presentations/login/pages/login_page.dart';
@@ -33,7 +34,9 @@ class AppBootstart extends StatelessWidget {
       home: BlocProvider(
         create: (_) => GetIt.instance.get<BootstartBloc>(),
         child: BlocBuilder<BootstartBloc, BootStartState>(
-          builder: (_, state) {
+          builder: (context, state) {
+            GetIt.instance.get<ScreenUtils>().init(context);
+
             if (state is BootStartIsOver) {
               return app();
             } else if (state is BootstartStateOnMessage) {

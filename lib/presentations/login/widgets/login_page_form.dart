@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:covid19_app/core/widgets/index.dart';
 import 'package:covid19_app/presentations/login/cubit/login_form_field_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -53,8 +54,8 @@ class _LoginPageFormState extends State<LoginPageForm> {
               icon: Icons.person,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(
-                      topLeft: const Radius.circular(16),
-                      topRight: const Radius.circular(16)),
+                      topLeft: Radius.circular(this.widget.convertSize(20)),
+                      topRight: Radius.circular(this.widget.convertSize(20))),
                   side: BorderSide(color: Colors.grey[200])),
             ),
             BlocBuilder(
@@ -70,13 +71,15 @@ class _LoginPageFormState extends State<LoginPageForm> {
                     },
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.only(
-                            bottomLeft: const Radius.circular(16),
-                            bottomRight: const Radius.circular(16)),
+                            bottomLeft:
+                                Radius.circular(this.widget.convertSize(20)),
+                            bottomRight:
+                                Radius.circular(this.widget.convertSize(20))),
                         side: BorderSide(color: Colors.grey[200])),
                   );
                 }),
             SizedBox(
-              height: 15.0,
+              height: this.widget.convertSize(20.0),
             ),
             AppFadeAnimation(
               duration: const Duration(milliseconds: 1400),
