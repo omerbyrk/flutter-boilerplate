@@ -1,3 +1,5 @@
+import 'package:covid19_app/core/consts/enums.dart';
+import 'package:covid19_app/core/widgets/index.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -13,10 +15,10 @@ class InfoFocusedChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(8),
+      padding: EdgeInsets.all(this.convertSize(8)),
       decoration: BoxDecoration(
           color: color.withOpacity(.25),
-          borderRadius: BorderRadius.circular(8.0)),
+          borderRadius: BorderRadius.circular(this.convertSize(8))),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
@@ -27,7 +29,9 @@ class InfoFocusedChip extends StatelessWidget {
           Text(
             info,
             style: TextStyle(
-                color: textColor, fontWeight: FontWeight.w700, fontSize: 20),
+                color: textColor,
+                fontWeight: FontWeight.w700,
+                fontSize: this.getFontSize(SizeType.Small)),
           )
         ],
       ),

@@ -11,7 +11,7 @@ class ScreenUtils {
   ScreenUtils() {
     _detechDeviceSize();
   }
-
+  // If you change it, please push it to our repository for improving the boilerplate!
   Map<SizeType, double> _deviceSizeRateMultipliers = {
     SizeType.xxSmall: 0.70,
     SizeType.xSmall: 0.80,
@@ -24,6 +24,7 @@ class ScreenUtils {
     SizeType.Mega: 1.70
   };
 
+  // If you change it, please push it to our repository for improving the boilerplate!
   Map<SizeType, double> _fontOrFontSizeRateMultipliers = {
     SizeType.xxSmall: 1,
     SizeType.xSmall: 1.03,
