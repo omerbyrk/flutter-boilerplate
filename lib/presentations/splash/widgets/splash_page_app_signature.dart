@@ -12,7 +12,7 @@ class SplashPageSignature extends StatelessWidget {
       child: Opacity(
         opacity: 0.7,
         child: Text(
-          "Movie APP Example",
+          t("sp_signature"),
           style: GoogleFonts.bitter(
               fontSize: this.getFontSize(SizeType.Middle),
               color: AppColors.white,

@@ -1,4 +1,4 @@
-import '../utils/enums.dart';
+import '../../consts/enums.dart';
 
 abstract class BlocOnMessageStateBase {
   String message;

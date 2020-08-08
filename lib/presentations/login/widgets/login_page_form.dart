@@ -49,7 +49,7 @@ class _LoginPageFormState extends State<LoginPageForm> {
         child: Column(
           children: <Widget>[
             AppTextField(
-              hintText: "Username",
+              hintText: widget.t("lp_username_hint"),
               controller: usernameTextController,
               icon: Icons.person,
               shape: RoundedRectangleBorder(
@@ -62,7 +62,7 @@ class _LoginPageFormState extends State<LoginPageForm> {
                 cubit: this._loginFormFieldCubit,
                 builder: (context, state) {
                   return AppTextField(
-                    hintText: "Password",
+                    hintText: widget.t("lp_password_hint"),
                     controller: passwordTextController,
                     obscureText: !state.showPassword,
                     icon: Icons.remove_red_eye,
@@ -79,12 +79,12 @@ class _LoginPageFormState extends State<LoginPageForm> {
                   );
                 }),
             SizedBox(
-              height: this.widget.convertSize(20.0),
+              height: widget.convertSize(20.0),
             ),
             AppFadeAnimation(
               duration: const Duration(milliseconds: 1400),
               child: AppGradientButton(
-                buttonText: "Tab to login",
+                buttonText: widget.t("lp_login_button"),
                 onTap: () {
                   _loginBloc.add(LoadLoginEvent(usernameTextController.text,
                       passwordTextController.text));

@@ -3,7 +3,7 @@ import 'package:covid19_app/core/widgets/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../widgets/app_circular_progress_indicator.dart';
+import 'app_circular_progress_indicator.dart';
 
 class BlocProgressIndicator<BlocType extends Bloc> extends StatelessWidget {
   @override

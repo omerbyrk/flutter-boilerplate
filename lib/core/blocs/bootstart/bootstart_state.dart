@@ -1,8 +1,7 @@
 import 'package:flutter/foundation.dart';
 
+import '../../consts/enums.dart';
 import '../bases/bloc_state_base.dart';
-import '../utils/enums.dart';
-
 
 abstract class BootStartState {}
 

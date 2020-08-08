@@ -1,0 +1,17 @@
+{
+    "app_title": "FlutMovie Booilerplate",
+    "lp_title": "Login Form",
+    "lp_username_hint": "Username",
+    "lp_password_hint": "Password",
+    "lp_login_button": "Tab to login",
+    "sp_signature": "Movie APP Example",
+    "logout": "Logout",
+    "app_starting": "App Starting",
+    "looking_authentication": "Looking for authentication",
+    "fetching_info": "Fetching Info",
+    "redirecting_to_page": "Redirecting to {0} page",
+    "exiting": "Exiting",
+    "error_when_save": "There has been an error when save the {0}",
+    "incorrect_username_or_password": "Username or password are incorrect, [username: admin, password: admin]",
+    "token_invalid": "Token Invalid"
+}

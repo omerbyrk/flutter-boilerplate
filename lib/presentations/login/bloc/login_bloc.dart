@@ -4,7 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
 
 import '../../../core/blocs/bases/bloc_base.dart';
-import '../../../core/blocs/utils/enums.dart';
+import '../../../core/consts/enums.dart';
 import '../../../domain/usecases/authentication/set_token.dart';
 import '../../../domain/usecases/user/do_login.dart';
 import 'index.dart';

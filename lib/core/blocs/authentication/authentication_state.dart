@@ -1,9 +1,8 @@
-import 'package:covid19_app/core/blocs/bases/bloc_state_base.dart';
-import 'package:covid19_app/data/models/user_model.dart';
-import 'package:covid19_app/domain/entities/user_entity.dart';
 import 'package:flutter/foundation.dart';
 
-import '../utils/enums.dart';
+import '../../../domain/entities/user_entity.dart';
+import '../../consts/enums.dart';
+import '../bases/bloc_state_base.dart';
 
 abstract class AuthenticationState {
   final String token;

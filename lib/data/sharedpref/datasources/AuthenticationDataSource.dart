@@ -1,3 +1,4 @@
+import 'package:covid19_app/core/localization/localization_base.dart';
 import 'package:covid19_app/data/sharedpref/sharedpref_consts.dart';
 import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -5,7 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../exceptions/sharedpref_exception.dart';
 
 @immutable
-class AuthenticationDataSource {
+class AuthenticationDataSource extends Localization {
   final SharedPreferences sharedPreferences;
 
   AuthenticationDataSource({@required this.sharedPreferences});
@@ -16,8 +17,7 @@ class AuthenticationDataSource {
           .sharedPreferences
           .setString(SharedPrefConsts.TOKEN_KEY, token);
       if (!result) {
-        throw SharedPrefException(
-            "There has been an error when save the token");
+        throw SharedPrefException(t("error_when_save", params: ["token"]));
       }
     } catch (err) {
       throw SharedPrefException(err);

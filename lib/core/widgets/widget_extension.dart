@@ -1,14 +1,19 @@
-import 'package:covid19_app/core/consts/enums.dart';
-import 'package:covid19_app/core/utils/screen_utils.dart';
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
-import '../blocs/utils/enums.dart';
+import '../consts/enums.dart';
+import '../localization/app_localizations.dart';
+import '../utils/screen_utils.dart';
 
 extension WidgetExtension on Widget {
   ScreenUtils get _screenUtils => GetIt.instance.get<ScreenUtils>();
+  AppLocalizations get _appLocalizations =>
+      GetIt.instance.get<AppLocalizations>();
+
+  String t(String key, {List<String> params}) =>
+      _appLocalizations.translate(key, params: params);
 
   double getWidth<T>(BuildContext context, {double percent = 1}) {
     return MediaQuery.of(context).size.width * percent;

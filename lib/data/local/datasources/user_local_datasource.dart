@@ -1,3 +1,4 @@
+import 'package:covid19_app/core/localization/localization_base.dart';
 import 'package:flutter/foundation.dart';
 import 'package:sembast/sembast.dart';
 
@@ -5,7 +6,7 @@ import '../../exceptions/local_server_exception.dart';
 import '../../models/user_model.dart';
 import '../local_consts.dart';
 
-class UserLocalDataSource {
+class UserLocalDataSource extends Localization {
   final _usersStore = intMapStoreFactory.store(LocalConsts.USER_STORE_NAME);
   final Database database;
 
@@ -33,8 +34,7 @@ class UserLocalDataSource {
           await _usersStore.findFirst(database, finder: finder);
 
       if (recordSnapshot == null) {
-        throw LocalServerException(
-            "Username or password are incorrect... [username= admin,password= admin]");
+        throw LocalServerException(t("incorrect_username_or_password"));
       }
 
       final userModel = UserModel.fromMap(recordSnapshot.value);
@@ -54,7 +54,7 @@ class UserLocalDataSource {
           await _usersStore.findFirst(database, finder: finder);
 
       if (recordSnapshot == null) {
-        throw LocalServerException("Invalid Token");
+        throw LocalServerException(t("token_invalid"));
       }
 
       UserModel userModel = UserModel.fromMap(recordSnapshot.value);

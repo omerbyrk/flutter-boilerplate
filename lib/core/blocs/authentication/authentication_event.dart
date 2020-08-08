@@ -57,7 +57,7 @@ class AuthenticationLogoutEvent extends AuthenticationEvent {
   Stream<AuthenticationState> applyAsync(
       {AuthenticationState currentState, AuthenticationBloc bloc}) async* {
     yield AuthenticationStateOnMessage.fromOldState(currentState,
-        message: "Exiting");
+        message: t("exiting"));
     await bloc.clearUserToken(NoParams());
     await Future.delayed(Duration(seconds: 1));
     yield UnAuthentication(token: null, user: null);

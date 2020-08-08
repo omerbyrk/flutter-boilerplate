@@ -1,0 +1,17 @@
+{
+    "app_title": "FlutMovie Booilerplate",
+    "lp_title": "Giriş Formu",
+    "lp_username_hint": "Kullanıcı adı",
+    "lp_password_hint": "Şifre",
+    "lp_login_button": "Giriş",
+    "sp_signature": "Movie APP Example",
+    "logout": "Çıkış",
+    "app_starting": "Uygulama başlatılıyor",
+    "looking_authentication": "Giriş bilgileri taranıyor",
+    "fetching_info": "Bilgiler çekiliyor",
+    "redirecting_to_page": "{0} sayfasına yönlendiriliyor",
+    "exiting": "Çıkış yapılıyor",
+    "error_when_save": "{0} kayıt edilirken bir hata oluştu",
+    "incorrect_username_or_password": "Kullanıcı adı veya şifre yanlış [Kullanıcı adı: admin, şifre: admin]",
+    "token_invalid": "Token Geçersiz"
+}

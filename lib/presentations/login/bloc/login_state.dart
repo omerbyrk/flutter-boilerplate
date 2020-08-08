@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 
 import '../../../core/blocs/bases/bloc_state_base.dart';
-import '../../../core/blocs/utils/enums.dart';
+import '../../../core/consts/enums.dart';
 
 // ignore: must_be_immutable
 abstract class LoginState {

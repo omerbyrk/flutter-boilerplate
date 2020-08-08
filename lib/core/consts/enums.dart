@@ -9,3 +9,5 @@ enum SizeType {
   Ultra,
   Mega
 }
+
+enum MessageType { SUCCESS, ERROR, INFO }

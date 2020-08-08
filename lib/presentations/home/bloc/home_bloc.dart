@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 
 import '../../../core/blocs/bases/bloc_base.dart';
-import '../../../core/blocs/utils/enums.dart';
+import '../../../core/consts/enums.dart';
 import '../../../data/models/country_statistics_model.dart';
 import 'index.dart';
 

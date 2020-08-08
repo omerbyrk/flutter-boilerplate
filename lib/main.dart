@@ -1,11 +1,13 @@
+import 'package:covid19_app/core/localization/app_localizations.dart';
+import 'package:covid19_app/core/widgets/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get_it/get_it.dart';
 
 import 'core/blocs/authentication/index.dart';
 import 'core/blocs/bootstart/index.dart';
 import 'core/theme/app_theme.dart';
-import 'core/utils/screen_utils.dart';
 import 'dependency_injection.dart' as di;
 import 'presentations/home/pages/home_page.dart';
 import 'presentations/login/pages/login_page.dart';
@@ -19,26 +21,45 @@ void main() async {
 
 class AppBootstart extends StatelessWidget {
   // This widget is the root of your application.
-  @override
-  StatelessElement createElement() {
-    GetIt.instance.get<BootstartBloc>().add(LoadBootstartEvent());
-    return super.createElement();
-  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'FlutMovie Booilerplate',
       debugShowCheckedModeBanner: false,
+      onGenerateTitle: (context) {
+        // I know it is a wrong place but It would be woderful if Material app has an onStart event. You can create a custom Material App widget
+        // Register all depenencies in there which depends on the context
+        di.registerLocalizations(context);
+        di.registerScreenUtils(context);
+        GetIt.instance.get<BootstartBloc>().add(LoadBootstartEvent());
+        return t("app_title");
+      },
       theme: themeData,
+      supportedLocales: [
+        Locale("en", "US"),
+        Locale("tr", "US"),
+        Locale("tr", "TR")
+      ],
+      localizationsDelegates: [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      localeResolutionCallback: (locale, supportedLocales) {
+        for (var supportedLocale in supportedLocales) {
+          if (supportedLocale.languageCode == locale.languageCode &&
+              supportedLocale.countryCode == locale.countryCode) {
+            return supportedLocale;
+          }
+        }
+        return supportedLocales.first;
+      },
       home: BlocProvider(
         create: (_) => GetIt.instance.get<BootstartBloc>(),
         child: BlocBuilder<BootstartBloc, BootStartState>(
           builder: (context, state) {
-            GetIt.instance.get<ScreenUtils>().init(context);
-
             if (state is BootStartIsOver) {
-              return app();
+              return app(context);
             } else if (state is BootstartStateOnMessage) {
               return SplashPage(state.message);
             } else
@@ -49,7 +70,7 @@ class AppBootstart extends StatelessWidget {
     );
   }
 
-  Widget app() {
+  Widget app(BuildContext context) {
     return BlocProvider(
       create: (_) => GetIt.instance.get<AuthenticationBloc>(),
       child: BlocBuilder<AuthenticationBloc, AuthenticationState>(

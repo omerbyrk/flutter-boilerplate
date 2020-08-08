@@ -22,7 +22,7 @@ class LoginPageFormTitle extends StatelessWidget {
             width: 5.0,
           ),
           Text(
-            "Login Form",
+            this.t("lp_title"),
             style: TextStyle(
                 color: AppColors.black,
                 fontSize: this.getFontSize(SizeType.xxLarge),

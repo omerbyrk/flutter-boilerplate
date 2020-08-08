@@ -1,9 +1,9 @@
-import 'package:covid19_app/core/blocs/bases/bloc_state_base.dart';
-import 'package:covid19_app/core/blocs/utils/enums.dart';
-import 'package:covid19_app/data/models/country_statistics_model.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 
+import '../../../core/blocs/bases/bloc_state_base.dart';
+import '../../../core/consts/enums.dart';
+import '../../../data/models/country_statistics_model.dart';
 
 abstract class HomeState extends Equatable {
   final List<CountryStatisticsModel> countryStatisticsList;
@@ -61,6 +61,3 @@ class HomeOnMessage extends HomeState with BlocOnMessageStateBase {
     this.type = type;
   }
 }
-
-
-

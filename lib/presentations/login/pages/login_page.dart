@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 
-import '../../../core/blocs/widgets/bloc_flushbar_show.dart';
-import '../../../core/blocs/widgets/bloc_progress_indicator.dart';
+import '../../../core/widgets/bloc_flushbar_show.dart';
+import '../../../core/widgets/bloc_progress_indicator.dart';
 import '../bloc/index.dart';
 import '../widgets/index.dart';
 

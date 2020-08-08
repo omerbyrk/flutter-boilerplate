@@ -1,8 +1,10 @@
+import 'package:covid19_app/core/localization/app_localizations.dart';
 import 'package:covid19_app/core/utils/screen_utils.dart';
 import 'package:covid19_app/data/network/datasources/country_statistics_datasource.dart';
 import 'package:covid19_app/domain/repository/index.dart';
 import 'package:covid19_app/domain/usecases/authentication/clear_token.dart';
 import 'package:covid19_app/domain/usecases/authentication/is_authenticated_user.dart';
+import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
@@ -62,6 +64,16 @@ Future<void> init() async {
   final dbPath = join(appDocumentDir.path, LocalConsts.DB_NAME);
   Database database = await databaseFactoryIo.openDatabase(dbPath);
   sl.registerLazySingleton(() => database);
+}
 
-  sl.registerLazySingleton(() => ScreenUtils());
+void registerLocalizations(BuildContext context) {
+  if (!sl.isRegistered<AppLocalizations>())
+    sl.registerLazySingleton(() => AppLocalizations.of(context));
+}
+
+void registerScreenUtils(BuildContext context) {
+  ScreenUtils screenUtils = ScreenUtils();
+  screenUtils.init(context);
+  if (!sl.isRegistered<ScreenUtils>())
+    sl.registerLazySingleton(() => screenUtils);
 }
