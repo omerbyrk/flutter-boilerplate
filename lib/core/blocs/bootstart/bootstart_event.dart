@@ -20,10 +20,25 @@ class LoadBootstartEvent extends BootstartEvent {
         message: t("app_starting"));
     await Future.delayed(Duration(seconds: 2));
 
+    bool isLocalMovieListEmpty =
+        bloc.extractEither(await bloc.isLocalMovieEmpty(NoParams()));
+    if (isLocalMovieListEmpty) {
+      if (await bloc.connectivityUtils.isDeviceOnline) {
+        var movieSyncResult =
+            bloc.extractEither(await bloc.movieBootstartSync(NoParams()));
+        if (movieSyncResult == null) {
+          return;
+        }
+      } else {
+        yield BootstartStateOnMessage.fromOldSettingState(
+            message: t("need_network_connection"));
+        return;
+      }
+    }
+
     yield BootstartStateOnMessage.fromOldSettingState(
         message: t("looking_authentication"));
     await Future.delayed(Duration(seconds: 1));
-
     bool isAuthenticated =
         bloc.extractEither(await bloc.isAuthenticatedUser(NoParams()));
 

@@ -9,8 +9,7 @@ import '../usecase.dart';
 class GetAuthenticatedUser implements UseCase<UserEntity, NoParams> {
   Repository repository;
 
-  GetAuthenticatedUser(
-      {@required this.repository});
+  GetAuthenticatedUser({@required this.repository});
 
   @override
   Future<Either<Failure, UserEntity>> call(NoParams noParams) async {
@@ -18,6 +17,6 @@ class GetAuthenticatedUser implements UseCase<UserEntity, NoParams> {
 
     return tokenResult.fold<Future<Either<Failure, UserEntity>>>(
         (failure) => Future.value(Left(failure)),
-        (token) async => await repository.getByToken(token));
+        (token) async => await repository.getUserByToken(token));
   }
 }

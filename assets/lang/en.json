@@ -13,5 +13,6 @@
     "exiting": "Exiting",
     "error_when_save": "There has been an error when save the {0}",
     "incorrect_username_or_password": "Username or password are incorrect, [username: admin, password: admin]",
-    "token_invalid": "Token Invalid"
+    "token_invalid": "Token Invalid",
+    "need_network_connection": "Can't access to the internet..."
 }

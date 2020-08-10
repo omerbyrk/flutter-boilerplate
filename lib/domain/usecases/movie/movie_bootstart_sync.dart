@@ -1,0 +1,38 @@
+import 'package:dartz/dartz.dart';
+import 'package:flutter/foundation.dart';
+
+import '../../../core/exceptions/failure.dart';
+import '../../repository/index.dart';
+import '../usecase.dart';
+
+class MovieBootstartSync implements UseCase<bool, NoParams> {
+  Repository repository;
+  List<String> synchronizedMovies = [
+    "The Pianist",
+    "Amelie",
+    "Life is Beautiful",
+    "Sin City",
+    "Black Swan",
+    "King's Speech",
+    "District 9",
+    "The Girl with the Dragon Tattoo",
+    "The Truman Show",
+    "A Beautiful Mind",
+    "Shutter Island",
+    "Big Fish",
+    "Hugo"
+  ];
+  MovieBootstartSync({@required this.repository});
+
+  @override
+  Future<Either<Failure, bool>> call(NoParams params) async {
+    for (var title in synchronizedMovies) {
+      var result = await repository
+          .getOmdbMovieByTitle(title); // for saving the movie to local
+      if (result.isLeft()) {
+        return result.map<bool>((r) => false);
+      }
+    }
+    return Right(true);
+  }
+}

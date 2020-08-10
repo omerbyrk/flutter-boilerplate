@@ -1,23 +1,23 @@
-import 'package:covid19_app/core/blocs/authentication/index.dart';
-import 'package:covid19_app/core/theme/app_colors.dart';
-import 'package:covid19_app/core/widgets/index.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 
+import '../../../core/blocs/authentication/index.dart';
+import '../../../core/theme/app_colors.dart';
 import '../../../core/widgets/bloc_flushbar_show.dart';
 import '../../../core/widgets/bloc_progress_indicator.dart';
+import '../../../core/widgets/index.dart';
+import '../../../domain/entities/movie_entity.dart';
 import '../bloc/index.dart';
-import '../widgets/index.dart';
 
 // ignore: must_be_immutable
 class HomePage extends StatelessWidget {
-  HomeBloc _homeBloc = new HomeBloc();
+  HomeBloc _homeBloc = GetIt.instance.get<HomeBloc>();
 
   @override
   StatelessElement createElement() {
-    _homeBloc.add(LoadCountryStatisticsList());
+    _homeBloc.add(LoadLocalMovieList());
     return super.createElement();
   }
 
@@ -31,9 +31,9 @@ class HomePage extends StatelessWidget {
           children: <Widget>[
             Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Center(
+                Container(
+                  alignment: Alignment.topRight,
                   child: RaisedButton.icon(
                     color: AppColors.navyBlue,
                     textColor: AppColors.sky,
@@ -46,8 +46,20 @@ class HomePage extends StatelessWidget {
                     },
                   ),
                 ),
-                // CountryStaticticsProfileScreen(),
-                // CountryStaticticsListScreen(),
+                BlocBuilder(
+                    cubit: _homeBloc,
+                    builder: (_, state) {
+                      if ((state as HomeState).movieList != null) {
+                        List<MovieEntity> movieList = state.movieList;
+
+                        return Column(
+                          children:
+                              movieList.map((e) => Text(e.title)).toList(),
+                        );
+                      }
+
+                      return Container();
+                    })
               ],
             ),
             BlocProgressIndicator<HomeBloc>(),

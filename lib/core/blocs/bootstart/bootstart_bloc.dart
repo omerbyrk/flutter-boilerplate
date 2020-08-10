@@ -1,6 +1,9 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:covid19_app/core/utils/connectivity_utils.dart';
+import 'package:covid19_app/domain/usecases/movie/is_local_movie_empty.dart';
+import 'package:covid19_app/domain/usecases/movie/movie_bootstart_sync.dart';
 import 'package:flutter/foundation.dart';
 
 import '../../../domain/usecases/authentication/get_authenticated_user.dart';
@@ -12,15 +15,21 @@ import 'index.dart';
 
 class BootstartBloc extends Bloc<BootstartEvent, BootStartState>
     with AppBlocBase {
+  final ConnectivityUtils connectivityUtils;
   final IsAuthenticatedUser isAuthenticatedUser;
-  final GetToken getToken;
+  final GetUserToken getToken;
   final GetAuthenticatedUser getAuthenticatedUser;
+  final IsLocalMovieEmpty isLocalMovieEmpty;
+  final MovieBootstartSync movieBootstartSync;
 
-  BootstartBloc(
-      {@required this.isAuthenticatedUser,
-      @required this.getToken,
-      @required this.getAuthenticatedUser})
-      : super(UnBootstart());
+  BootstartBloc({
+    @required this.connectivityUtils,
+    @required this.isAuthenticatedUser,
+    @required this.getToken,
+    @required this.getAuthenticatedUser,
+    @required this.isLocalMovieEmpty,
+    @required this.movieBootstartSync,
+  }) : super(UnBootstart());
 
   @override
   Stream<BootStartState> mapEventToState(

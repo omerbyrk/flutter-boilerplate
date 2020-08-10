@@ -14,10 +14,10 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState>
     with AppBlocBase {
   ClearUserToken clearUserToken;
   GetAuthenticatedUser getAuthenticatedUser;
-  GetToken getToken;
+  GetUserToken getUserToken;
   AuthenticationBloc(
       {@required this.getAuthenticatedUser,
-      @required this.getToken,
+      @required this.getUserToken,
       @required this.clearUserToken})
       : super(UnAuthentication());
 

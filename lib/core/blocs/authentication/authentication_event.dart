@@ -29,7 +29,7 @@ class LoadAuthenticationEvent extends AuthenticationEvent {
     UserEntity userEntity = bloc.extractEither(resultUser);
     if (userEntity != null) {
       String token =
-          bloc.extractEither<String>(await bloc.getToken(NoParams()));
+          bloc.extractEither<String>(await bloc.getUserToken(NoParams()));
       yield InAuthentication(user: userEntity, token: token);
     } else {
       await Future.delayed(Duration(seconds: 1));

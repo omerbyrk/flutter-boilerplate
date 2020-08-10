@@ -1,11 +1,30 @@
 class NetworkConsts {
-  static final String apiURL = "https://coronavirus-monitor.p.rapidapi.com";
-  static final String apiHost = "coronavirus-monitor.p.rapidapi.com";
-  static final String apiKey =
-      "7edd53a105mshcda105da4306e55p1d2e96jsnbbf7afe41c4d";
   static final int apiTimeout = 10000;
 
+  // all api list
+  static final Map<APIType, API> apiList = {
+    APIType.OMDB: API("http://www.omdbapi.com", "860ea9f0")
+  };
 
-  // urls
-  static final String casesByCountry = "/coronavirus/cases_by_country.php";
+  // endpoints
+  static final EndPoints endPoints = EndPoints();
+}
+
+class EndPoints {
+  String get _omdbBaseURL {
+    API api = NetworkConsts.apiList[APIType.OMDB];
+    return "${api.url}/?apikey=${api.apiKey}";
+  }
+
+  String omdbGetByTitle(String title) => "${_omdbBaseURL}&t=$title";
+  String omdbGetByImdbID(String imdbID) => "${_omdbBaseURL}&i=$imdbID";
+}
+
+enum APIType { OMDB }
+
+class API {
+  final String url;
+  final String apiKey;
+
+  API(this.url, this.apiKey);
 }

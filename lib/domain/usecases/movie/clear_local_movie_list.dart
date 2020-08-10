@@ -5,13 +5,13 @@ import '../../../core/exceptions/failure.dart';
 import '../../repository/index.dart';
 import '../usecase.dart';
 
-class GetUserToken implements UseCase<String, NoParams> {
+class ClearLocalMovieList implements UseCase<bool, NoParams> {
   Repository repository;
 
-  GetUserToken({@required this.repository});
+  ClearLocalMovieList({@required this.repository});
 
   @override
-  Future<Either<Failure, String>> call(NoParams params) async {
-    return await repository.getToken();
+  Future<Either<Failure, bool>> call(NoParams params) async {
+    return await repository.clearLocalMovieList();
   }
 }

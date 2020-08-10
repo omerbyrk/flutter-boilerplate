@@ -14,7 +14,7 @@ class GetByToken implements UseCase<UserModel, Params> {
 
   @override
   Future<Either<Failure, UserEntity>> call(Params params) async {
-    return await repository.getByToken(params.token);
+    return await repository.getUserByToken(params.token);
   }
 }
 

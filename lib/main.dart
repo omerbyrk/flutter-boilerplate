@@ -29,9 +29,7 @@ class AppBootstart extends StatelessWidget {
       onGenerateTitle: (context) {
         // I know it is a wrong place but It would be woderful if Material app has an onStart event. You can create a custom Material App widget
         // Register all depenencies in there which depends on the context
-        di.registerLocalizations(context);
-        di.registerScreenUtils(context);
-        GetIt.instance.get<BootstartBloc>().add(LoadBootstartEvent());
+        this.dInjectionAndBootEventStart(context);
         return t("app_title");
       },
       theme: themeData,
@@ -86,5 +84,13 @@ class AppBootstart extends StatelessWidget {
         },
       ),
     );
+  }
+
+  void dInjectionAndBootEventStart(BuildContext context) {
+    di.registerLocalizations(context);
+    di.registerScreenUtils(context);
+    // If not start the event, we start it.(this method can run twice)
+    if (GetIt.instance.get<BootstartBloc>().state is UnBootstart)
+      GetIt.instance.get<BootstartBloc>().add(LoadBootstartEvent());
   }
 }

@@ -7,8 +7,7 @@ extension UserRepository on Repository {
     });
   }
 
-  @override
-  Future<Either<Failure, UserEntity>> getByToken(String token) {
+  Future<Either<Failure, UserEntity>> getUserByToken(String token) {
     return this.convertToEither<UserEntity>(() async {
       return UserEntity.fromModel(
           await this.d.userLocalDataSource.getByToken(token));

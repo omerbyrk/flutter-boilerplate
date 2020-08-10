@@ -1,37 +1,32 @@
 import 'dart:async';
 
-import 'package:covid19_app/core/blocs/bases/bloc_event_base.dart';
-import 'package:covid19_app/data/models/country_statistics_model.dart';
-import 'package:covid19_app/data/network/datasources/country_statistics_datasource.dart';
+import 'package:covid19_app/domain/entities/movie_entity.dart';
+import 'package:covid19_app/domain/usecases/usecase.dart';
 
+import '../../../core/blocs/bases/bloc_event_base.dart';
+import '../../../data/models/movie_model.dart';
 import 'index.dart';
 
 class HomeEvent extends BlocEventBase<HomeState, HomeBloc> {
   HomeEvent({HomeState toState}) : super(toState: toState);
 }
 
-class LoadCountryStatisticsList extends HomeEvent {
+class LoadLocalMovieList extends HomeEvent {
   @override
   Stream<HomeState> applyAsync({HomeState currentState, HomeBloc bloc}) async* {
     yield HomeInProgress.fromOldState(currentState);
-    var countryStatisticsList = await CountryStatisticsDataSource().getAll();
-    var selectedCountryStatictics = countryStatisticsList
-        .singleWhere((statictics) => statictics.countryName == "Turkey");
-    yield HomeLoadded.fromOldState(currentState,
-        countryStatisticsList: countryStatisticsList,
-        selectedCountryStatistics: selectedCountryStatictics);
+    List<MovieEntity> movieList =
+        bloc.extractEither(await bloc.getLocalMovieList(NoParams()));
+    //bloc.extractEither(await bloc.clearLocalMovieList(NoParams()));
+    yield HomeLoadded.fromOldState(currentState, movieList: movieList);
   }
 }
 
-class SelectCountryStatistics extends HomeEvent {
-  final CountryStatisticsModel countryStatistics;
-  SelectCountryStatistics(this.countryStatistics);
+class SearchMovie extends HomeEvent {
+  final MovieModel countryStatistics;
+  SearchMovie(this.countryStatistics);
 
   @override
-  Stream<HomeState> applyAsync({HomeState currentState, HomeBloc bloc}) async* {
-    yield HomeInProgress.fromOldState(currentState);
-    await Future.delayed(Duration(milliseconds: 500));
-    yield HomeLoadded.fromOldState(currentState,
-        selectedCountryStatistics: countryStatistics);
-  }
+  Stream<HomeState> applyAsync(
+      {HomeState currentState, HomeBloc bloc}) async* {}
 }

@@ -3,9 +3,9 @@ import 'package:dio/dio.dart';
 import 'network_consts.dart';
 
 class DioClient {
-  static final DioClient _homeBlocSingleton = DioClient._internal();
+  static final DioClient _dioClient = DioClient._internal();
   factory DioClient() {
-    return _homeBlocSingleton;
+    return _dioClient;
   }
   DioClient._internal();
 
@@ -16,13 +16,8 @@ class DioClient {
       _dio = Dio();
 
       dio.options
-        ..baseUrl = NetworkConsts.apiURL
         ..connectTimeout = NetworkConsts.apiTimeout //5s
-        ..receiveTimeout = NetworkConsts.apiTimeout
-        ..headers = {
-          "x-rapidapi-host": NetworkConsts.apiHost,
-          "x-rapidapi-key": NetworkConsts.apiKey
-        };
+        ..receiveTimeout = NetworkConsts.apiTimeout;
     }
 
     return _dio;
