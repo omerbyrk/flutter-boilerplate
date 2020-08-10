@@ -1,7 +1,8 @@
-import 'package:covid19_app/core/consts/enums.dart';
-import 'package:covid19_app/core/widgets/index.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../consts/enums.dart';
+import 'index.dart';
 
 class InfoFocusedChip extends StatelessWidget {
   final String title;

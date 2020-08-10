@@ -1,7 +1,8 @@
-import 'package:covid19_app/core/consts/enums.dart';
-import 'package:covid19_app/core/theme/app_colors.dart';
-import 'package:covid19_app/core/widgets/index.dart';
 import 'package:flutter/material.dart';
+
+import '../consts/enums.dart';
+import '../theme/app_colors.dart';
+import 'index.dart';
 
 class AppGradientButton extends StatelessWidget {
   final Gradient gradient;

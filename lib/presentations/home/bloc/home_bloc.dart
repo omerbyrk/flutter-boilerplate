@@ -1,13 +1,12 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:covid19_app/domain/usecases/movie/clear_local_movie_list.dart';
-import 'package:covid19_app/domain/usecases/movie/get_local_movie_list.dart';
 import 'package:flutter/foundation.dart';
 
 import '../../../core/blocs/bases/bloc_base.dart';
 import '../../../core/consts/enums.dart';
 import '../../../domain/entities/movie_entity.dart';
+import '../../../domain/usecases/movie/get_local_movie_list.dart';
 import 'index.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> with AppBlocBase {

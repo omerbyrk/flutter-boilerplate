@@ -1,7 +1,7 @@
-import 'package:covid19_app/core/consts/enums.dart';
-import 'package:covid19_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
+import '../../../core/consts/enums.dart';
+import '../../../core/theme/app_colors.dart';
 import '../../../core/widgets/index.dart';
 
 class LoginPageFormTitle extends StatelessWidget {

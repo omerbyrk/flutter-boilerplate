@@ -1,7 +1,7 @@
-import 'package:covid19_app/data/network/network_consts.dart';
 import 'package:dio/dio.dart';
 
 import 'common/../dio_client.dart';
+import 'network_consts.dart';
 
 abstract class ApiDataSourceBase {
   DioClient _dioClient = DioClient();

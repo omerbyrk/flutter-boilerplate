@@ -11,7 +11,7 @@ import 'index.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> with AppBlocBase {
   final DoLogin doLogin;
-  final SetToken setToken;
+  final SetUserToken setToken;
 
   LoginBloc({@required this.doLogin, @required this.setToken})
       : super(UnLogin());

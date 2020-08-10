@@ -54,7 +54,7 @@ Future<void> init() async {
   sl.registerLazySingleton(() => DoLogin(repository: sl()));
   sl.registerLazySingleton(() => GetByToken(repository: sl()));
   sl.registerLazySingleton(() => GetAuthenticatedUser(repository: sl()));
-  sl.registerLazySingleton(() => SetToken(repository: sl()));
+  sl.registerLazySingleton(() => SetUserToken(repository: sl()));
   sl.registerLazySingleton(() => GetUserToken(repository: sl()));
   sl.registerLazySingleton(() => IsAuthenticatedUser(repository: sl()));
   sl.registerLazySingleton(() => ClearUserToken(repository: sl()));

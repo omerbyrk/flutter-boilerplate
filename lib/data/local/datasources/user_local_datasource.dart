@@ -1,7 +1,7 @@
-import 'package:covid19_app/core/localization/localization_base.dart';
 import 'package:flutter/foundation.dart';
 import 'package:sembast/sembast.dart';
 
+import '../../../core/localization/localization_base.dart';
 import '../../exceptions/local_server_exception.dart';
 import '../../models/user_model.dart';
 import '../local_consts.dart';

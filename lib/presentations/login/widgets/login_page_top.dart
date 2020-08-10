@@ -1,6 +1,6 @@
-import 'package:covid19_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
+import '../../../core/theme/app_colors.dart';
 import '../../../core/widgets/index.dart';
 
 class LoginPageTop extends StatelessWidget {

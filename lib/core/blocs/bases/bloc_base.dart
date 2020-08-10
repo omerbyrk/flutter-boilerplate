@@ -1,6 +1,6 @@
-import 'package:covid19_app/core/consts/enums.dart';
 import 'package:dartz/dartz.dart';
 
+import '../../consts/enums.dart';
 import '../../exceptions/failure.dart';
 
 abstract class AppBlocBase {

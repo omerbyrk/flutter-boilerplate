@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
-import 'package:covid19_app/core/blocs/bases/bloc_state_base.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../blocs/bases/bloc_state_base.dart';
 import 'widget_extension.dart';
 
 class BlocFlushbarShow<BlocType extends Bloc> extends StatelessWidget {

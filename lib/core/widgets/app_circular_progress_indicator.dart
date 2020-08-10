@@ -1,7 +1,7 @@
-import 'package:covid19_app/core/widgets/index.dart';
 import 'package:flutter/material.dart';
 
 import 'image_rotater.dart';
+import 'index.dart';
 
 class AppCircularProgressIndicator extends StatelessWidget {
   final Color color;

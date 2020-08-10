@@ -1,7 +1,8 @@
 import 'dart:ui';
 
-import 'package:covid19_app/core/consts/enums.dart';
 import 'package:flutter/material.dart';
+
+import '../consts/enums.dart';
 
 class ScreenUtils {
   SizeType deviceSize;

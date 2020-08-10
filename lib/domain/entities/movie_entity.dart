@@ -1,4 +1,4 @@
-import 'package:covid19_app/data/models/movie_model.dart';
+import '../../data/models/movie_model.dart';
 
 class MovieEntity extends MovieModel {
   MovieEntity();

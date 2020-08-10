@@ -13,10 +13,10 @@ import 'package:covid19_app/domain/entities/user_entity.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 
-part 'user_repository.dart';
 part 'authentication_repository.dart';
-part 'utils.dart';
 part 'movie_repository.dart';
+part 'user_repository.dart';
+part 'utils.dart';
 
 class RepositoryDependencies {
   final ConnectivityUtils connectivityUtils;

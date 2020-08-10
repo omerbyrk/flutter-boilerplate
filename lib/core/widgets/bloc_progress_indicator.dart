@@ -1,9 +1,9 @@
-import 'package:covid19_app/core/blocs/bases/bloc_state_base.dart';
-import 'package:covid19_app/core/widgets/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../blocs/bases/bloc_state_base.dart';
 import 'app_circular_progress_indicator.dart';
+import 'index.dart';
 
 class BlocProgressIndicator<BlocType extends Bloc> extends StatelessWidget {
   @override

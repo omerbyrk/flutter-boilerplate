@@ -1,8 +1,8 @@
-import 'package:covid19_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
-import '../../../core/widgets/widget_extension.dart';
+import '../../../core/theme/app_colors.dart';
 import '../../../core/widgets/app_circular_progress_indicator.dart';
+import '../../../core/widgets/widget_extension.dart';
 import '../widgets/index.dart';
 
 // ignore: must_be_immutable

@@ -5,10 +5,10 @@ import '../../../core/exceptions/failure.dart';
 import '../../repository/index.dart';
 import '../usecase.dart';
 
-class SetToken implements UseCase<void, Params> {
+class SetUserToken implements UseCase<void, Params> {
   Repository repository;
 
-  SetToken({@required this.repository});
+  SetUserToken({@required this.repository});
 
   @override
   Future<Either<Failure, void>> call(Params params) async {

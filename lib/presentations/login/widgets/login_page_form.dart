@@ -1,7 +1,5 @@
 import 'dart:async';
 
-import 'package:covid19_app/core/widgets/index.dart';
-import 'package:covid19_app/presentations/login/cubit/login_form_field_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
@@ -11,8 +9,10 @@ import '../../../core/blocs/authentication/authentication_event.dart';
 import '../../../core/widgets/app_fade_animation.dart';
 import '../../../core/widgets/app_gradient_button.dart';
 import '../../../core/widgets/app_textfield.dart';
+import '../../../core/widgets/index.dart';
 import '../bloc/index.dart';
 import '../bloc/login_state.dart';
+import '../cubit/login_form_field_cubit.dart';
 
 class LoginPageForm extends StatefulWidget {
   @override

@@ -1,6 +1,4 @@
-import 'package:covid19_app/core/localization/app_localizations.dart';
-import 'package:covid19_app/core/localization/localization_base.dart';
-import 'package:get_it/get_it.dart';
+import '../../localization/localization_base.dart';
 
 abstract class BlocEventBase<State, Bloc> extends Localization {
   final State toState;

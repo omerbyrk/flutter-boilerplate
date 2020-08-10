@@ -1,10 +1,9 @@
 import 'dart:async';
 
-import 'package:covid19_app/domain/entities/movie_entity.dart';
-import 'package:covid19_app/domain/usecases/usecase.dart';
-
 import '../../../core/blocs/bases/bloc_event_base.dart';
 import '../../../data/models/movie_model.dart';
+import '../../../domain/entities/movie_entity.dart';
+import '../../../domain/usecases/usecase.dart';
 import 'index.dart';
 
 class HomeEvent extends BlocEventBase<HomeState, HomeBloc> {
