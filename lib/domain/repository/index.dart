@@ -12,12 +12,14 @@ import 'package:covid19_app/domain/entities/movie_entity.dart';
 import 'package:covid19_app/domain/entities/user_entity.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
+import 'package:injectable/injectable.dart';
 
 part 'authentication_repository.dart';
 part 'movie_repository.dart';
 part 'user_repository.dart';
 part 'utils.dart';
 
+@lazySingleton
 class RepositoryDependencies {
   final ConnectivityUtils connectivityUtils;
   final AuthenticationDataSource authenticationDataSource;
@@ -33,6 +35,7 @@ class RepositoryDependencies {
       @required this.movieLocalDataSource});
 }
 
+@lazySingleton
 class Repository {
   RepositoryDependencies d;
   Repository({@required this.d});

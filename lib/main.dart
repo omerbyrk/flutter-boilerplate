@@ -15,13 +15,12 @@ import 'presentations/splash/pages/splash_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await di.init();
+  await di.configure(di.Env.dev);
   runApp(AppBootstart());
 }
 
+// This widget is the root of your application.
 class AppBootstart extends StatelessWidget {
-  // This widget is the root of your application.
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -29,7 +28,7 @@ class AppBootstart extends StatelessWidget {
       onGenerateTitle: (context) {
         // I know it is a wrong place but It would be woderful if Material app has an onStart event. You can create a custom Material App widget
         // Register all depenencies in there which depends on the context
-        this.dInjectionAndBootEventStart(context);
+        this.dInjectionUIThenBoostart(context);
         return t("app_title");
       },
       theme: themeData,
@@ -86,9 +85,8 @@ class AppBootstart extends StatelessWidget {
     );
   }
 
-  void dInjectionAndBootEventStart(BuildContext context) {
-    di.registerLocalizations(context);
-    di.registerScreenUtils(context);
+  void dInjectionUIThenBoostart(BuildContext context) {
+    di.configureUI(context);
     // If not start the event, we start it.(this method can run twice)
     if (GetIt.instance.get<BootstartBloc>().state is UnBootstart)
       GetIt.instance.get<BootstartBloc>().add(LoadBootstartEvent());

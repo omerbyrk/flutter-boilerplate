@@ -5,6 +5,7 @@ import 'package:get_it/get_it.dart';
 
 import '../../../core/blocs/authentication/index.dart';
 import '../../../core/theme/app_colors.dart';
+import '../../../core/utils/validations.dart';
 import '../../../core/widgets/bloc_flushbar_show.dart';
 import '../../../core/widgets/bloc_progress_indicator.dart';
 import '../../../core/widgets/index.dart';
@@ -13,11 +14,9 @@ import '../bloc/index.dart';
 
 // ignore: must_be_immutable
 class HomePage extends StatelessWidget {
-  HomeBloc _homeBloc = GetIt.instance.get<HomeBloc>();
-
   @override
   StatelessElement createElement() {
-    _homeBloc.add(LoadLocalMovieList());
+    GetIt.instance.get<HomeBloc>().add(LoadLocalMovieList());
     return super.createElement();
   }
 
@@ -26,7 +25,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: BlocProvider<HomeBloc>(
-        create: (_) => _homeBloc,
+        create: (_) => GetIt.instance.get<HomeBloc>(),
         child: Stack(
           children: <Widget>[
             Column(
@@ -46,10 +45,10 @@ class HomePage extends StatelessWidget {
                     },
                   ),
                 ),
-                BlocBuilder(
-                    cubit: _homeBloc,
+                BlocBuilder<HomeBloc, HomeState>(
+                    cubit: GetIt.instance.get<HomeBloc>(),
                     builder: (_, state) {
-                      if ((state as HomeState).movieList != null) {
+                      if (Validations.notNullOrEmpty(state.movieList)) {
                         List<MovieEntity> movieList = state.movieList;
 
                         return Column(

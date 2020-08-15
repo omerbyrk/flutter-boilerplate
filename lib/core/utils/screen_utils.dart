@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:injectable/injectable.dart';
 
 import '../consts/enums.dart';
 
@@ -9,8 +10,9 @@ class ScreenUtils {
   BuildContext context;
   double textScaleFactor = 1.0;
 
-  ScreenUtils() {
+  ScreenUtils(this.context) {
     _detechDeviceSize();
+    this.textScaleFactor = MediaQuery.of(context).textScaleFactor;
   }
   // If you change it, please push it to our repository for improving the boilerplate!
   Map<SizeType, double> _deviceSizeRateMultipliers = {
@@ -61,12 +63,6 @@ class ScreenUtils {
     SizeType.Ultra: 40,
     SizeType.Mega: 50
   };
-
-  // It inits in bootstart component in build method
-  init(BuildContext context) {
-    this.context = context;
-    this.textScaleFactor = MediaQuery.of(context).textScaleFactor;
-  }
 
   _detechDeviceSize() {
     double width = window.physicalSize.width;

@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:injectable/injectable.dart';
+
 import '../../exceptions/remote_server_exception.dart';
 import '../../models/movie_model.dart';
 import '../api_datasource_base.dart';
@@ -9,6 +11,7 @@ abstract class IMovieDataSource {
   Future<MovieModel> getByImdbID(String imdbID);
 }
 
+@lazySingleton
 class MovieOmdbDataSource extends IMovieDataSource with ApiDataSourceBase {
   Future<MovieModel> getByTitle(String title) async {
     try {

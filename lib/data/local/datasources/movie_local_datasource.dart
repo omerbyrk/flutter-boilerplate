@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:injectable/injectable.dart';
 import 'package:sembast/sembast.dart';
 
 import '../../exceptions/local_server_exception.dart';
@@ -6,6 +7,7 @@ import '../../models/movie_model.dart';
 import '../../network/datasources/movie_omdb_datasource.dart';
 import '../local_consts.dart';
 
+@lazySingleton
 class MovieLocalDataSource extends IMovieDataSource {
   final _moviesStore = intMapStoreFactory.store(LocalConsts.MOVIE_STORE_NAME);
   final Database database;

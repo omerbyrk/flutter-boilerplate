@@ -1,10 +1,12 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../../core/exceptions/failure.dart';
 import '../../repository/index.dart';
 import '../usecase.dart';
 
+@lazySingleton
 class MovieBootstartSync implements UseCase<bool, NoParams> {
   Repository repository;
   List<String> synchronizedMovies = [

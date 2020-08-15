@@ -1,3 +1,4 @@
+import 'package:covid19_app/core/utils/validations.dart';
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +10,7 @@ import '../utils/screen_utils.dart';
 
 extension WidgetExtension on Widget {
   ScreenUtils get _screenUtils => GetIt.instance.get<ScreenUtils>();
+
   AppLocalizations get _appLocalizations =>
       GetIt.instance.get<AppLocalizations>();
 

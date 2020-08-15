@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../../domain/usecases/authentication/clear_token.dart';
 import '../../../domain/usecases/authentication/get_authenticated_user.dart';
@@ -10,6 +11,7 @@ import '../../consts/enums.dart';
 import '../bases/bloc_base.dart';
 import 'index.dart';
 
+@lazySingleton
 class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState>
     with AppBlocBase {
   ClearUserToken clearUserToken;

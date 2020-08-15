@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../../core/blocs/bases/bloc_base.dart';
 import '../../../core/consts/enums.dart';
@@ -9,6 +10,7 @@ import '../../../domain/entities/movie_entity.dart';
 import '../../../domain/usecases/movie/get_local_movie_list.dart';
 import 'index.dart';
 
+@lazySingleton
 class HomeBloc extends Bloc<HomeEvent, HomeState> with AppBlocBase {
   final GetLocalMovieList getLocalMovieList;
 

@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../../core/exceptions/failure.dart';
 import '../../../data/models/user_model.dart';
@@ -7,6 +8,7 @@ import '../../entities/user_entity.dart';
 import '../../repository/index.dart';
 import '../usecase.dart';
 
+@lazySingleton
 class GetByToken implements UseCase<UserModel, Params> {
   Repository repository;
 
