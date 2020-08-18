@@ -19,7 +19,7 @@ class LoginPageFormTitle extends StatelessWidget {
             color: AppColors.navyBlue,
           ),
           SizedBox(
-            width: 5.0,
+            width: convertSize(5.0),
           ),
           Text(
             this.t("lp_title"),

@@ -1,16 +1,16 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:flutmovie/core/utils/connectivity_utils.dart';
-import 'package:flutmovie/domain/usecases/movie/is_local_movie_empty.dart';
-import 'package:flutmovie/domain/usecases/movie/movie_bootstart_sync.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../domain/usecases/authentication/get_authenticated_user.dart';
 import '../../../domain/usecases/authentication/get_token.dart';
 import '../../../domain/usecases/authentication/is_authenticated_user.dart';
+import '../../../domain/usecases/movie/is_local_movie_empty.dart';
+import '../../../domain/usecases/movie/movie_bootstart_sync.dart';
 import '../../consts/enums.dart';
+import '../../utils/connectivity_utils.dart';
 import '../bases/bloc_base.dart';
 import 'index.dart';
 

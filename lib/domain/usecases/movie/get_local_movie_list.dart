@@ -2,16 +2,16 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../core/exceptions/failure.dart';
+import '../../../core/failures.dart/failure.dart';
 import '../../entities/movie_entity.dart';
-import '../../repository/index.dart';
+import '../../repository/repository.dart';
 import '../usecase.dart';
 
 @lazySingleton
-class GetMovieList implements UseCase<List<MovieEntity>, NoParams> {
+class GetLocalMovieList implements UseCase<List<MovieEntity>, NoParams> {
   Repository repository;
 
-  GetMovieList({@required this.repository});
+  GetLocalMovieList({@required this.repository});
 
   @override
   Future<Either<Failure, List<MovieEntity>>> call(NoParams params) async {

@@ -2,8 +2,8 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../core/exceptions/failure.dart';
-import '../../repository/index.dart';
+import '../../../core/failures.dart/failure.dart';
+import '../../repository/repository.dart';
 import '../usecase.dart';
 
 @lazySingleton
@@ -30,7 +30,7 @@ class MovieBootstartSync implements UseCase<bool, NoParams> {
   Future<Either<Failure, bool>> call(NoParams params) async {
     for (var title in synchronizedMovies) {
       var result = await repository
-          .getOmdbMovieByTitle(title); // for saving the movie to local
+          .getMovieByTitle(title); // for saving the movie to local
       if (result.isLeft()) {
         return result.map<bool>((r) => false);
       }

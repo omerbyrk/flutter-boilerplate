@@ -7,7 +7,7 @@ import '../consts/enums.dart';
 import '../localization/app_localizations.dart';
 import '../utils/screen_utils.dart';
 
-extension WidgetExtension on Widget {
+extension AppWidgetExtension on Widget {
   ScreenUtils get _screenUtils => GetIt.instance.get<ScreenUtils>();
 
   AppLocalizations get _appLocalizations =>

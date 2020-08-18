@@ -6,6 +6,7 @@ import 'package:get_it/get_it.dart';
 
 import '../../../core/blocs/authentication/authentication_bloc.dart';
 import '../../../core/blocs/authentication/authentication_event.dart';
+import '../../../core/theme/app_colors.dart';
 import '../../../core/widgets/app_fade_animation.dart';
 import '../../../core/widgets/app_gradient_button.dart';
 import '../../../core/widgets/app_textfield.dart';
@@ -56,7 +57,7 @@ class _LoginPageFormState extends State<LoginPageForm> {
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(this.widget.convertSize(20)),
                       topRight: Radius.circular(this.widget.convertSize(20))),
-                  side: BorderSide(color: Colors.grey[200])),
+                  side: BorderSide(color: AppColors.grey[200])),
             ),
             BlocBuilder(
                 cubit: this._loginFormFieldCubit,
@@ -75,7 +76,7 @@ class _LoginPageFormState extends State<LoginPageForm> {
                                 Radius.circular(this.widget.convertSize(20)),
                             bottomRight:
                                 Radius.circular(this.widget.convertSize(20))),
-                        side: BorderSide(color: Colors.grey[200])),
+                        side: BorderSide(color: AppColors.grey[200])),
                   );
                 }),
             SizedBox(

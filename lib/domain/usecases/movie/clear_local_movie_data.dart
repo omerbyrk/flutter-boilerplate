@@ -2,8 +2,8 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../core/exceptions/failure.dart';
-import '../../repository/index.dart';
+import '../../../core/failures.dart/failure.dart';
+import '../../repository/repository.dart';
 import '../usecase.dart';
 
 @lazySingleton

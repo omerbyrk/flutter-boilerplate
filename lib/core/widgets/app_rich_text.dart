@@ -1,9 +1,10 @@
-import 'package:flutmovie/core/consts/app_consts.dart';
-import 'package:flutmovie/core/consts/enums.dart';
-import 'package:flutmovie/core/theme/app_colors.dart';
-import 'package:flutmovie/core/widgets/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../consts/app_consts.dart';
+import '../consts/enums.dart';
+import '../theme/app_colors.dart';
+import 'index.dart';
 
 class AppRichText extends StatelessWidget {
   final String text;

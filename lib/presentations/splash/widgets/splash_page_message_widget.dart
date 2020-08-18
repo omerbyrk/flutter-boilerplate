@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../core/consts/enums.dart';
 import '../../../core/theme/app_colors.dart';
-import '../../../core/widgets/widget_extension.dart';
+import '../../../core/widgets/app_widget_extension.dart';
 import '../cubit/splash_cubit.dart';
 
 // ignore: must_be_immutable

@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 
 import '../../consts/enums.dart';
-import '../../exceptions/failure.dart';
+import '../../failures.dart/failure.dart';
 
 abstract class AppBlocBase {
   // its a optional methods

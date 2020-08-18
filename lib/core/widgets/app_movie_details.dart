@@ -1,11 +1,10 @@
-import 'package:flutmovie/core/widgets/google_translated_text.dart';
 import 'package:flutter/material.dart';
 
 import '../../domain/entities/movie_entity.dart';
 import '../consts/enums.dart';
 import '../theme/app_colors.dart';
+import 'app_google_translated_text.dart';
 import 'app_image_hero.dart';
-import 'app_rich_text.dart';
 import 'index.dart';
 
 class AppMovieDetails extends StatelessWidget {
@@ -87,7 +86,7 @@ class AppMovieDetails extends StatelessWidget {
           ),
         ),
         Expanded(
-          child: GtText(
+          child: AppGTText(
             text: content,
             align: TextAlign.justify,
             color: AppColors.black,
@@ -114,7 +113,7 @@ class AppMovieDetails extends StatelessWidget {
         },
         child: Container(
           decoration: BoxDecoration(
-              color: Colors.black.withOpacity(.5),
+              color: AppColors.black.withOpacity(.5),
               borderRadius: BorderRadius.circular(convertSize(8))),
           child: Icon(
             Icons.close,

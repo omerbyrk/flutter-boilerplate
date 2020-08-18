@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 
-import '../../../core/widgets/bloc_flushbar_show.dart';
-import '../../../core/widgets/bloc_progress_indicator.dart';
+import '../../../core/widgets/index.dart';
 import '../bloc/index.dart';
 import '../widgets/index.dart';
 
@@ -23,19 +22,19 @@ class LoginPage extends StatelessWidget {
                 children: <Widget>[
                   LoginPageTop(),
                   SizedBox(
-                    height: 15,
+                    height: convertSize(15),
                   ),
                   LoginPageFormTitle(),
                   Divider(),
                   SizedBox(
-                    height: 10,
+                    height: convertSize(10),
                   ),
                   LoginPageForm()
                 ],
               ),
             ),
-            BlocProgressIndicator<LoginBloc>(),
-            BlocFlushbarShow<LoginBloc>()
+            AppBlocProgressIndicator<LoginBloc>(),
+            AppBlocFlushbarShow<LoginBloc>()
           ],
         ),
       ),

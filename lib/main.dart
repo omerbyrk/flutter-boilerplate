@@ -15,7 +15,7 @@ import 'presentations/splash/pages/splash_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await di.configure(di.Env.dev);
+  await di.configure(di.Env.prod);
   runApp(AppBootstart());
 }
 

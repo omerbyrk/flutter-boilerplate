@@ -1,4 +1,4 @@
-import 'package:flutmovie/core/consts/app_consts.dart';
+import '../consts/app_consts.dart';
 
 class Validations {
   static bool lNotNullOrEmpty(List<dynamic> list) =>

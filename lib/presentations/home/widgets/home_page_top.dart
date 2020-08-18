@@ -1,13 +1,14 @@
-import 'package:flutmovie/core/blocs/authentication/authentication_bloc.dart';
-import 'package:flutmovie/core/blocs/authentication/index.dart';
-import 'package:flutmovie/core/consts/enums.dart';
-import 'package:flutmovie/core/theme/app_colors.dart';
-import 'package:flutmovie/core/utils/validations.dart';
-import 'package:flutmovie/core/widgets/index.dart';
-import 'package:flutmovie/presentations/home/bloc/home_bloc.dart';
-import 'package:flutmovie/presentations/home/bloc/home_event.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+
+import '../../../core/blocs/authentication/authentication_bloc.dart';
+import '../../../core/blocs/authentication/index.dart';
+import '../../../core/consts/enums.dart';
+import '../../../core/theme/app_colors.dart';
+import '../../../core/utils/validations.dart';
+import '../../../core/widgets/index.dart';
+import '../bloc/home_bloc.dart';
+import '../bloc/home_event.dart';
 
 class HomePageTop extends StatelessWidget {
   final TextEditingController txtSearchMovieController =
@@ -25,8 +26,11 @@ class HomePageTop extends StatelessWidget {
             colors: [AppColors.red[800], AppColors.red[400]],
           ),
         ),
-        padding: EdgeInsets.symmetric(
-            horizontal: this.convertSize(10), vertical: this.convertSize(40)),
+        padding: EdgeInsets.only(
+            left: this.convertSize(10),
+            right: convertSize(10),
+            top: convertSize(5),
+            bottom: this.convertSize(20)),
         child: Column(
           children: [
             buildTopIcons(),
@@ -59,15 +63,16 @@ class HomePageTop extends StatelessWidget {
   Image buildLogoImage(BuildContext context) {
     return Image.asset(
       "assets/images/logo.png",
-      height: this.getHeight(context, percent: .17),
+      height: this.getHeight(context, percent: .16),
       width: this.getWidth(context, percent: .30),
       fit: BoxFit.fitWidth,
-      color: Colors.white,
+      color: AppColors.white,
     );
   }
 
-  Container buildTopIcons() {
-    return Container(
+  SafeArea buildTopIcons() {
+    return SafeArea(
+      bottom: false,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

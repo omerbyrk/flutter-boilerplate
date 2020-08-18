@@ -73,7 +73,7 @@ class AppTextField extends StatelessWidget {
     return RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(this.convertSize(12.0)),
         side: BorderSide(
-            color: Colors.grey[400],
+            color: AppColors.grey[400],
             width: this.convertSize(1.2),
             style: BorderStyle.solid));
   }

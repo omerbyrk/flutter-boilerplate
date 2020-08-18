@@ -7,7 +7,7 @@ class LoginPageTop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipPath(
-      clipper: WavyBottomCLipper(),
+      clipper: AppWavyBottomCLipper(),
       child: Container(
         height: this.getHeight(context, percent: .45),
         decoration: BoxDecoration(

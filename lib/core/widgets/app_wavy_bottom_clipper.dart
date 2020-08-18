@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class WavyBottomCLipper extends CustomClipper<Path> {
+class AppWavyBottomCLipper extends CustomClipper<Path> {
   @override
   getClip(Size size) {
     final Path path = Path();

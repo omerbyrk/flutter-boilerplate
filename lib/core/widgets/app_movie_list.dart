@@ -1,11 +1,11 @@
-import 'package:flutmovie/core/widgets/app_image_hero.dart';
-import 'package:flutmovie/core/widgets/app_movie_details.dart';
 import 'package:flutter/material.dart';
 
 import '../../domain/entities/movie_entity.dart';
 import '../consts/enums.dart';
 import '../theme/app_colors.dart';
 import '../utils/validations.dart';
+import 'app_image_hero.dart';
+import 'app_movie_details.dart';
 import 'app_raw_chip.dart';
 import 'index.dart';
 
@@ -17,6 +17,7 @@ class AppMovieList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
+      padding: EdgeInsets.symmetric(vertical: convertSize(15)),
       shrinkWrap: true,
       addAutomaticKeepAlives: true,
       children: movieList
@@ -43,7 +44,7 @@ class AppMovieList extends StatelessWidget {
   }
 
   Widget movieCard(BuildContext context, MovieEntity movie) => Container(
-        padding: EdgeInsets.symmetric(vertical: convertSize(15)),
+        padding: EdgeInsets.symmetric(vertical: convertSize(20)),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -134,7 +135,7 @@ class AppMovieList extends StatelessWidget {
             padding: EdgeInsets.only(
               right: this.convertSize(15.0),
             ),
-            child: GtText(
+            child: AppGTText(
               maxLines: 1,
               sizeType: SizeType.xxSmall,
               text: movie.genre,
@@ -151,8 +152,8 @@ class AppMovieList extends StatelessWidget {
     );
   }
 
-  GtText buildPlot(MovieEntity movie) {
-    return GtText(
+  AppGTText buildPlot(MovieEntity movie) {
+    return AppGTText(
       text: movie.plot,
       sizeType: SizeType.xxSmall,
       maxLines: 2,
@@ -162,7 +163,7 @@ class AppMovieList extends StatelessWidget {
 
   Center buildTitle(MovieEntity movie) {
     return Center(
-      child: GtText(
+      child: AppGTText(
         text: movie.title,
         maxLines: 1,
         fontWeight: FontWeight.w500,

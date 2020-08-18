@@ -20,7 +20,7 @@ import 'domain/usecases/authentication/get_authenticated_user.dart';
 import 'domain/usecases/user/get_by_token.dart';
 import 'domain/usecases/movie/get_movie_by_imdb_id.dart';
 import 'domain/usecases/movie/get_movie_by_title.dart';
-import 'domain/usecases/movie/get_movie_list.dart';
+import 'domain/usecases/movie/get_local_movie_list.dart';
 import 'domain/usecases/authentication/get_token.dart';
 import 'presentations/home/bloc/home_bloc.dart';
 import 'domain/usecases/authentication/is_authenticated_user.dart';
@@ -30,7 +30,7 @@ import 'presentations/login/cubit/login_form_field_cubit.dart';
 import 'domain/usecases/movie/movie_bootstart_sync.dart';
 import 'data/local/datasources/movie_local_datasource.dart';
 import 'data/network/datasources/movie_omdb_datasource.dart';
-import 'domain/repository/index.dart';
+import 'domain/repository/repository.dart';
 import 'domain/usecases/movie/search_movie_by_title.dart';
 import 'domain/usecases/authentication/set_token.dart';
 import 'presentations/splash/cubit/splash_cubit.dart';
@@ -56,7 +56,8 @@ GetIt $initGetIt(
   gh.lazySingleton<GetByToken>(() => GetByToken(repository: get()));
   gh.lazySingleton<GetMovieByImdbID>(() => GetMovieByImdbID(repository: get()));
   gh.lazySingleton<GetMovieByTitle>(() => GetMovieByTitle(repository: get()));
-  gh.lazySingleton<GetMovieList>(() => GetMovieList(repository: get()));
+  gh.lazySingleton<GetLocalMovieList>(
+      () => GetLocalMovieList(repository: get()));
   gh.lazySingleton<GetUserToken>(() => GetUserToken(repository: get()));
   gh.lazySingleton<IsAuthenticatedUser>(
       () => IsAuthenticatedUser(repository: get()));
@@ -88,7 +89,7 @@ GetIt $initGetIt(
         movieBootstartSync: get<MovieBootstartSync>(),
       ));
   gh.lazySingleton<HomeBloc>(() => HomeBloc(
-      getLocalMovieList: get<GetMovieList>(),
+      getLocalMovieList: get<GetLocalMovieList>(),
       searchMovieByTitle: get<SearchMovieByTitle>()));
   gh.factory<LoginBloc>(
       () => LoginBloc(doLogin: get<DoLogin>(), setToken: get<SetUserToken>()));

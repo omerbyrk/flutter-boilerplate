@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/widgets/widget_extension.dart';
 import '../../../core/widgets/app_logo_image.dart';
+import '../../../core/widgets/app_widget_extension.dart';
 
 class SplashPageLogoWidget extends StatelessWidget {
   @override

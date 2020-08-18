@@ -1,7 +1,6 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:injectable/injectable.dart';
 
 import '../consts/enums.dart';
 
@@ -29,13 +28,13 @@ class ScreenUtils {
 
   // If you change it, please push it to our repository for improving the boilerplate!
   Map<SizeType, double> _fontOrFontSizeRateMultipliers = {
-    SizeType.xxSmall: 1,
-    SizeType.xSmall: 1.03,
-    SizeType.Small: 1.03,
-    SizeType.Middle: 1.08,
-    SizeType.Large: 1.15,
-    SizeType.xLarge: 1.20,
-    SizeType.xxLarge: 1.25,
+    SizeType.xxSmall: 1.12,
+    SizeType.xSmall: 1.15,
+    SizeType.Small: 1.17,
+    SizeType.Middle: 1.20,
+    SizeType.Large: 1.23,
+    SizeType.xLarge: 1.25,
+    SizeType.xxLarge: 1.27,
     SizeType.Ultra: 1.30,
     SizeType.Mega: 1.50
   };

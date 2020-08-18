@@ -1,9 +1,9 @@
 import 'dart:async';
 
-import 'package:flutmovie/domain/usecases/authentication/set_token.dart' as st;
 import 'package:meta/meta.dart';
 
 import '../../../core/blocs/bases/bloc_event_base.dart';
+import '../../../domain/usecases/authentication/set_token.dart' as st;
 import '../../../domain/usecases/user/do_login.dart' as dl;
 import 'index.dart';
 

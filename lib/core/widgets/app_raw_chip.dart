@@ -1,7 +1,8 @@
-import 'package:flutmovie/core/consts/enums.dart';
-import 'package:flutmovie/core/theme/app_colors.dart';
-import 'package:flutmovie/core/widgets/index.dart';
 import 'package:flutter/material.dart';
+
+import '../consts/enums.dart';
+import '../theme/app_colors.dart';
+import 'index.dart';
 
 class AppRawChip extends StatelessWidget {
   final String label;

@@ -40,5 +40,7 @@ class AppColors {
 
   static const Color white = Colors.white;
 
+  static const MaterialColor grey = Colors.grey;
+
   static const Color navyBlue = const Color(0xFF33425b);
 }

@@ -1,11 +1,11 @@
-import 'package:flutmovie/core/consts/app_consts.dart';
-import 'package:flutmovie/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
+import '../consts/app_consts.dart';
 import '../consts/enums.dart';
+import '../theme/app_colors.dart';
 import 'index.dart';
 
-class GtText extends StatelessWidget {
+class AppGTText extends StatelessWidget {
   final String text;
   final TextAlign align;
   final FontWeight fontWeight;
@@ -13,7 +13,7 @@ class GtText extends StatelessWidget {
   final int maxLines;
   final SizeType sizeType;
 
-  const GtText(
+  const AppGTText(
       {Key key,
       this.text,
       this.align = TextAlign.start,

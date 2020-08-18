@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'widget_extension.dart';
+import 'app_widget_extension.dart';
 
-class ImageRotater extends StatefulWidget {
+class AppImageRotater extends StatefulWidget {
   final double sizePercent;
   final bool animateToReverse;
   final double opacity;
@@ -10,7 +10,7 @@ class ImageRotater extends StatefulWidget {
   final Color color;
   final String imagePath;
 
-  const ImageRotater(
+  const AppImageRotater(
       {Key key,
       this.sizePercent = 0.5,
       this.animateToReverse = false,
@@ -21,10 +21,10 @@ class ImageRotater extends StatefulWidget {
       : super(key: key);
 
   @override
-  _ImageRotaterState createState() => _ImageRotaterState();
+  _AppImageRotaterState createState() => _AppImageRotaterState();
 }
 
-class _ImageRotaterState extends State<ImageRotater>
+class _AppImageRotaterState extends State<AppImageRotater>
     with SingleTickerProviderStateMixin {
   AnimationController _controller;
 

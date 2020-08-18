@@ -1,7 +1,7 @@
 part of repository;
 
 extension MovieRepository on Repository {
-  Future<Either<Failure, MovieEntity>> getOmdbMovieByTitle(String title) async {
+  Future<Either<Failure, MovieEntity>> getMovieByTitle(String title) async {
     if (await isDeviceOnline) {
       // device is online -- we will fetch it from api
       return await this.convertToEither<MovieEntity>(() async {
@@ -18,8 +18,7 @@ extension MovieRepository on Repository {
     }
   }
 
-  Future<Either<Failure, MovieEntity>> getOmdbMovieByImdbID(
-      String imdbID) async {
+  Future<Either<Failure, MovieEntity>> getMovieByImdbID(String imdbID) async {
     if (await isDeviceOnline) {
       // device is online -- we will fetch it from api
       return await this.convertToEither<MovieEntity>(() async {
@@ -62,7 +61,7 @@ extension MovieRepository on Repository {
     });
   }
 
-  Future<Either<Failure, List<MovieEntity>>> searchOmdbMovieByTitle(
+  Future<Either<Failure, List<MovieEntity>>> searchMovieByTitle(
       String title) async {
     if (await isDeviceOnline) {
       return this.convertToEither<List<MovieEntity>>(() async {

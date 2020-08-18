@@ -1,10 +1,10 @@
 import 'dart:async';
 
-import 'package:flutmovie/domain/usecases/movie/search_movie_by_title.dart';
 import 'package:flutter/foundation.dart';
 
 import '../../../core/blocs/bases/bloc_event_base.dart';
 import '../../../domain/entities/movie_entity.dart';
+import '../../../domain/usecases/movie/search_movie_by_title.dart';
 import '../../../domain/usecases/usecase.dart';
 import 'index.dart';
 
