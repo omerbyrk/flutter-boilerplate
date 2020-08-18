@@ -21,7 +21,7 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState>
       {@required this.getAuthenticatedUser,
       @required this.getUserToken,
       @required this.clearUserToken})
-      : super(UnAuthentication());
+      : super(UnAuthenticationState());
 
   @override
   Future<void> close() async {
@@ -39,7 +39,7 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState>
   @override
   void toOnMessageState(String message, MessageType type) {
     this.add(AuthenticationEvent(
-        toState: AuthenticationStateOnMessage.fromOldState(state,
+        toState: AuthenticationStateOnMessageState.fromOldState(state,
             message: message, type: type)));
   }
 }

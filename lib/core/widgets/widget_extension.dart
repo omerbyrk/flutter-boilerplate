@@ -1,4 +1,3 @@
-import 'package:covid19_app/core/utils/validations.dart';
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +15,9 @@ extension WidgetExtension on Widget {
 
   String t(String key, {List<String> params}) =>
       _appLocalizations.translate(key, params: params);
+
+  Future<String> tg(String text) async =>
+      await _appLocalizations.translateFromGoogle(text);
 
   double getWidth<T>(BuildContext context, {double percent = 1}) {
     return MediaQuery.of(context).size.width * percent;
@@ -35,6 +37,12 @@ extension WidgetExtension on Widget {
 
   double convertSize(double size) {
     return this._screenUtils.convertToDeviceSize(size);
+  }
+
+  void navPush(BuildContext context, Widget widget) {
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (_) => widget),
+    );
   }
 
   void doDelayedTask(Function function, {Duration duration: Duration.zero}) {

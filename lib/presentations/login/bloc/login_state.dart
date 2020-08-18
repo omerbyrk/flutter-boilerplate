@@ -9,33 +9,33 @@ abstract class LoginState {
 }
 
 // ignore: must_be_immutable
-class UnLogin extends LoginState {
-  UnLogin();
+class UnLoginState extends LoginState {
+  UnLoginState();
 
-  UnLogin.fromOldState(LoginState loginState);
+  UnLoginState.fromOldState(LoginState loginState);
 }
 
 /// UnInitialized
 // ignore: must_be_immutable
-class LoginOnProgress extends LoginState with BlocInProgressStateBase {
-  LoginOnProgress();
+class LoginOnProgressState extends LoginState with BlocInProgressStateBase {
+  LoginOnProgressState();
 
-  LoginOnProgress.fromOldState(LoginState loginState);
+  LoginOnProgressState.fromOldState(LoginState loginState);
 }
 
 /// Initialized
 // ignore: must_be_immutable
-class InLoginState extends LoginState {
-  InLoginState();
+class InLoginStateState extends LoginState {
+  InLoginStateState();
 
-  InLoginState.fromOldState(LoginState loginState);
+  InLoginStateState.fromOldState(LoginState loginState);
 }
 
 // ignore: must_be_immutable
-class LoginOnMessage extends LoginState with BlocOnMessageStateBase {
-  LoginOnMessage();
+class LoginOnMessageState extends LoginState with BlocOnMessageStateBase {
+  LoginOnMessageState();
 
-  LoginOnMessage.fromOldState(LoginState loginState,
+  LoginOnMessageState.fromOldState(LoginState loginState,
       {@required String message, MessageType type = MessageType.INFO}) {
     this.message = message;
     this.type = type;

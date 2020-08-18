@@ -65,6 +65,12 @@ class MovieLocalDataSource extends IMovieDataSource {
     }
   }
 
+  Future<void> saveList(List<MovieModel> movieModels) async {
+    for (var i = 0; i < movieModels.length; i++) {
+      await save(movieModels[i]);
+    }
+  }
+
   Future<bool> get isEmpty async {
     try {
       int count = await _moviesStore.count(database);
@@ -78,6 +84,17 @@ class MovieLocalDataSource extends IMovieDataSource {
     try {
       int count = await _moviesStore.delete(database);
       return count > 0;
+    } catch (err) {
+      throw LocalServerException(err);
+    }
+  }
+
+  @override
+  Future<List<MovieModel>> searchByTitle(String title) async {
+    try {
+      final finder = Finder(filter: Filter.equals("title", title));
+      final recordSnapshots = await _moviesStore.find(database, finder: finder);
+      return recordSnapshots.map((e) => MovieModel.fromMap(e.value)).toList();
     } catch (err) {
       throw LocalServerException(err);
     }

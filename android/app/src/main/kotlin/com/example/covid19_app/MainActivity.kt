@@ -1,4 +1,4 @@
-package com.example.covid19_app
+package com.example.flutmovie
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity

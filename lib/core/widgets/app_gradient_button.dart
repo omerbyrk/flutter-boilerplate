@@ -33,7 +33,7 @@ class AppGradientButton extends StatelessWidget {
               this.buttonText,
               style: TextStyle(
                   color: AppColors.white,
-                  fontSize: this.getFontSize(SizeType.xSmall),
+                  fontSize: this.getFontSize(SizeType.Middle),
                   fontWeight: FontWeight.w600),
             ),
           ),

@@ -15,7 +15,7 @@ class LoginPageFormTitle extends StatelessWidget {
         children: <Widget>[
           Icon(
             Icons.lock_outline,
-            size: this.getIconSize(SizeType.xLarge),
+            size: this.getIconSize(SizeType.Ultra),
             color: AppColors.navyBlue,
           ),
           SizedBox(
@@ -25,7 +25,7 @@ class LoginPageFormTitle extends StatelessWidget {
             this.t("lp_title"),
             style: TextStyle(
                 color: AppColors.black,
-                fontSize: this.getFontSize(SizeType.xxLarge),
+                fontSize: this.getFontSize(SizeType.Ultra),
                 fontWeight: FontWeight.bold),
           ),
         ],

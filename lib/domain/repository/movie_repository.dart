@@ -61,4 +61,28 @@ extension MovieRepository on Repository {
       return await d.movieLocalDataSource.clear();
     });
   }
+
+  Future<Either<Failure, List<MovieEntity>>> searchOmdbMovieByTitle(
+      String title) async {
+    if (await isDeviceOnline) {
+      return this.convertToEither<List<MovieEntity>>(() async {
+        List<MovieModel> movieModels =
+            await d.movieOmdbDataSource.searchByTitle(title);
+
+        await d.movieLocalDataSource.saveList(movieModels);
+        return movieModels
+            .map((model) => MovieEntity.fromModel(model))
+            .toList();
+      });
+    } else {
+      return this.convertToEither<List<MovieEntity>>(() async {
+        List<MovieModel> movieModels =
+            await d.movieLocalDataSource.searchByTitle(title);
+
+        return movieModels
+            .map((model) => MovieEntity.fromModel(model))
+            .toList();
+      });
+    }
+  }
 }

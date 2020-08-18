@@ -6,13 +6,13 @@ import '../bases/bloc_state_base.dart';
 abstract class BootStartState {}
 
 /// UnInitialized
-class UnBootstart extends BootStartState {}
+class UnBootstartState extends BootStartState {}
 
-class BootStartIsOver extends BootStartState {}
+class BootStartIsOverState extends BootStartState {}
 
-class BootstartStateOnMessage extends BootStartState
+class BootstartStateOnMessageState extends BootStartState
     with BlocOnMessageStateBase {
-  BootstartStateOnMessage.fromOldSettingState(
+  BootstartStateOnMessageState.fromOldSettingState(
       {@required String message, type = MessageType.INFO}) {
     this.message = message;
     this.type = type;

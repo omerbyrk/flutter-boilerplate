@@ -55,9 +55,9 @@ class AppBootstart extends StatelessWidget {
         create: (_) => GetIt.instance.get<BootstartBloc>(),
         child: BlocBuilder<BootstartBloc, BootStartState>(
           builder: (context, state) {
-            if (state is BootStartIsOver) {
+            if (state is BootStartIsOverState) {
               return app(context);
-            } else if (state is BootstartStateOnMessage) {
+            } else if (state is BootstartStateOnMessageState) {
               return SplashPage(state.message);
             } else
               return Container();
@@ -72,11 +72,11 @@ class AppBootstart extends StatelessWidget {
       create: (_) => GetIt.instance.get<AuthenticationBloc>(),
       child: BlocBuilder<AuthenticationBloc, AuthenticationState>(
         builder: (_, state) {
-          if (state is UnAuthentication) {
+          if (state is UnAuthenticationState) {
             return LoginPage();
-          } else if (state is InAuthentication) {
+          } else if (state is InAuthenticationState) {
             return HomePage();
-          } else if (state is AuthenticationStateOnMessage) {
+          } else if (state is AuthenticationStateOnMessageState) {
             return SplashPage(state.message);
           } else
             return Container();
@@ -88,7 +88,7 @@ class AppBootstart extends StatelessWidget {
   void dInjectionUIThenBoostart(BuildContext context) {
     di.configureUI(context);
     // If not start the event, we start it.(this method can run twice)
-    if (GetIt.instance.get<BootstartBloc>().state is UnBootstart)
+    if (GetIt.instance.get<BootstartBloc>().state is UnBootstartState)
       GetIt.instance.get<BootstartBloc>().add(LoadBootstartEvent());
   }
 }

@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:covid19_app/core/utils/connectivity_utils.dart';
-import 'package:covid19_app/domain/usecases/movie/is_local_movie_empty.dart';
-import 'package:covid19_app/domain/usecases/movie/movie_bootstart_sync.dart';
+import 'package:flutmovie/core/utils/connectivity_utils.dart';
+import 'package:flutmovie/domain/usecases/movie/is_local_movie_empty.dart';
+import 'package:flutmovie/domain/usecases/movie/movie_bootstart_sync.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 
@@ -31,7 +31,7 @@ class BootstartBloc extends Bloc<BootstartEvent, BootStartState>
     @required this.getAuthenticatedUser,
     @required this.isLocalMovieEmpty,
     @required this.movieBootstartSync,
-  }) : super(UnBootstart());
+  }) : super(UnBootstartState());
 
   @override
   Stream<BootStartState> mapEventToState(
@@ -43,7 +43,7 @@ class BootstartBloc extends Bloc<BootstartEvent, BootStartState>
   @override
   void toOnMessageState(String message, MessageType type) {
     this.add(BootstartEvent(
-        toState: BootstartStateOnMessage.fromOldSettingState(
+        toState: BootstartStateOnMessageState.fromOldSettingState(
             message: message, type: type)));
   }
 }

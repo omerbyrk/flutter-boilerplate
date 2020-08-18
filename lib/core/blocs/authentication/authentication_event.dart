@@ -15,7 +15,7 @@ class UnAuthenticationEvent extends AuthenticationEvent {
   Stream<AuthenticationState> applyAsync(
       {AuthenticationState currentState, AuthenticationBloc bloc}) async* {
     // token will be deleted!
-    yield UnAuthentication(user: null, token: null);
+    yield UnAuthenticationState(user: null, token: null);
   }
 }
 
@@ -30,10 +30,10 @@ class LoadAuthenticationEvent extends AuthenticationEvent {
     if (userEntity != null) {
       String token =
           bloc.extractEither<String>(await bloc.getUserToken(NoParams()));
-      yield InAuthentication(user: userEntity, token: token);
+      yield InAuthenticationState(user: userEntity, token: token);
     } else {
       await Future.delayed(Duration(seconds: 1));
-      yield UnAuthentication();
+      yield UnAuthenticationState();
     }
   }
 }
@@ -46,7 +46,7 @@ class BootStartLoadAuthenticationEvent extends AuthenticationEvent {
   @override
   Stream<AuthenticationState> applyAsync(
       {AuthenticationState currentState, AuthenticationBloc bloc}) async* {
-    yield InAuthentication(user: user, token: token);
+    yield InAuthenticationState(user: user, token: token);
   }
 }
 
@@ -56,10 +56,10 @@ class AuthenticationLogoutEvent extends AuthenticationEvent {
   @override
   Stream<AuthenticationState> applyAsync(
       {AuthenticationState currentState, AuthenticationBloc bloc}) async* {
-    yield AuthenticationStateOnMessage.fromOldState(currentState,
+    yield AuthenticationStateOnMessageState.fromOldState(currentState,
         message: t("exiting"));
     await bloc.clearUserToken(NoParams());
     await Future.delayed(Duration(seconds: 1));
-    yield UnAuthentication(token: null, user: null);
+    yield UnAuthenticationState(token: null, user: null);
   }
 }

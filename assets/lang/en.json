@@ -14,5 +14,10 @@
     "error_when_save": "There has been an error when save the {0}",
     "incorrect_username_or_password": "Username or password are incorrect, [username: admin, password: admin]",
     "token_invalid": "Token Invalid",
-    "need_network_connection": "Can't access to the internet..."
+    "need_network_connection": "Can't access to the internet...",
+    "home_search_movie_hint": "Search Movie",
+    "home_open_button": "Open",
+    "profile": "Profile",
+    "movie_not_fount": "We can not fount the movie({0})"
+
 }

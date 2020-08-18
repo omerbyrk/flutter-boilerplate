@@ -1,5 +1,5 @@
 class NetworkConsts {
-  static final int apiTimeout = 10000;
+  static final int apiTimeout = 5000;
 
   // all api list
   static final Map<APIType, API> apiList = {
@@ -18,6 +18,7 @@ class EndPoints {
 
   String omdbGetByTitle(String title) => "${_omdbBaseURL}&t=$title";
   String omdbGetByImdbID(String imdbID) => "${_omdbBaseURL}&i=$imdbID";
+  String omdbSearchTitle(String title) => "${_omdbBaseURL}&s=$title";
 }
 
 enum APIType { OMDB }

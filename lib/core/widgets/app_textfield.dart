@@ -40,7 +40,7 @@ class AppTextField extends StatelessWidget {
         onSaved: this.onSaved,
         obscureText: this.obscureText,
         style: TextStyle(
-          fontSize: this.getFontSize(SizeType.xSmall),
+          fontSize: this.getFontSize(SizeType.Middle),
         ),
         cursorColor: AppColors.black,
         decoration: InputDecoration(
@@ -50,10 +50,13 @@ class AppTextField extends StatelessWidget {
           suffixIcon: this.icon != null
               ? InkWell(
                   onTap: this.onIconClick,
-                  child: Icon(
-                    this.icon,
-                    size: this.getIconSize(SizeType.Small),
-                    color: AppColors.red,
+                  child: Container(
+                    padding: EdgeInsets.only(right: convertSize(8)),
+                    child: Icon(
+                      this.icon,
+                      size: this.getIconSize(SizeType.Middle),
+                      color: AppColors.red,
+                    ),
                   ),
                 )
               : null,

@@ -13,5 +13,10 @@
     "exiting": "Çıkış yapılıyor",
     "error_when_save": "{0} kayıt edilirken bir hata oluştu",
     "incorrect_username_or_password": "Kullanıcı adı veya şifre yanlış [Kullanıcı adı: admin, şifre: admin]",
-    "token_invalid": "Token Geçersiz"
+    "token_invalid": "Token Geçersiz",
+    "need_network_connection": "İnternete erişilemiyor",
+    "home_search_movie_hint": "Film Ara",
+    "home_open_button": "Git",
+    "profile": "Profil",
+    "movie_not_fount": "Film bulunamadı({0})"
 }

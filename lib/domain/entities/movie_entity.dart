@@ -7,14 +7,14 @@ class MovieEntity extends MovieModel {
     ..year = model.year
     ..rated = model.rated
     ..released = model.released
-    ..runtime = model.runtime
+    ..runtime = model.runtime //
     ..genre = model.genre
-    ..director = model.director
+    ..director = model.director //
     ..writer = model.writer
     ..actors = model.actors
     ..plot = model.plot
     ..language = model.language
-    ..country = model.country
+    ..country = model.country //
     ..poster = model.poster
     ..imdbID = model.imdbID;
 }

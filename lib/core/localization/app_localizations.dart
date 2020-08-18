@@ -2,10 +2,12 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:translator/translator.dart';
 
 class AppLocalizations {
   final Locale locale;
   Map<String, String> _localizedStrings;
+  final googleTranslator = GoogleTranslator(client: ClientType.siteGT);
 
   AppLocalizations(this.locale);
 
@@ -33,7 +35,23 @@ class AppLocalizations {
         localizedString = localizedString.replaceFirst("{$i}", param);
       }
     }
-    return localizedString;
+    if (localizedString == null) {
+      debugPrint("Localization: $key - not fount");
+    }
+    return localizedString ?? key;
+  }
+
+  // You need to implement your google translator api with your api key!
+  // otherwise, It will error! after some times...
+  Future<String> translateFromGoogle(String text) async {
+    try {
+      /*return (await googleTranslator.translate(text, to: locale.languageCode))
+          .text;*/
+      return Future.value(text);
+    } catch (ex) {
+      debugPrint("Google Translate Error for: " + text);
+      return Future.value(text);
+    }
   }
 }
 

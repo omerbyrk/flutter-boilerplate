@@ -1,4 +1,5 @@
 enum SizeType {
+  Tiny,
   xxSmall,
   xSmall,
   Middle,

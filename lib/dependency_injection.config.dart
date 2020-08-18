@@ -12,15 +12,15 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'core/blocs/authentication/authentication_bloc.dart';
 import 'data/sharedpref/datasources/authentication_datasource.dart';
 import 'core/blocs/bootstart/bootstart_bloc.dart';
-import 'domain/usecases/movie/clear_local_movie_list.dart';
+import 'domain/usecases/movie/clear_local_movie_data.dart';
 import 'domain/usecases/authentication/clear_token.dart';
 import 'core/utils/connectivity_utils.dart';
 import 'domain/usecases/user/do_login.dart';
 import 'domain/usecases/authentication/get_authenticated_user.dart';
 import 'domain/usecases/user/get_by_token.dart';
-import 'domain/usecases/movie/get_local_movie_list.dart';
-import 'domain/usecases/movie/get_omdb_movie_by_imdbid.dart';
-import 'domain/usecases/movie/get_omdb_movie_by_title.dart';
+import 'domain/usecases/movie/get_movie_by_imdb_id.dart';
+import 'domain/usecases/movie/get_movie_by_title.dart';
+import 'domain/usecases/movie/get_movie_list.dart';
 import 'domain/usecases/authentication/get_token.dart';
 import 'presentations/home/bloc/home_bloc.dart';
 import 'domain/usecases/authentication/is_authenticated_user.dart';
@@ -31,6 +31,7 @@ import 'domain/usecases/movie/movie_bootstart_sync.dart';
 import 'data/local/datasources/movie_local_datasource.dart';
 import 'data/network/datasources/movie_omdb_datasource.dart';
 import 'domain/repository/index.dart';
+import 'domain/usecases/movie/search_movie_by_title.dart';
 import 'domain/usecases/authentication/set_token.dart';
 import 'presentations/splash/cubit/splash_cubit.dart';
 import 'data/local/datasources/user_local_datasource.dart';
@@ -46,22 +47,17 @@ GetIt $initGetIt(
   final gh = GetItHelper(get, environment, environmentFilter);
   gh.lazySingleton<AuthenticationDataSource>(() =>
       AuthenticationDataSource(sharedPreferences: get<SharedPreferences>()));
-  gh.lazySingleton<ClearLocalMovieList>(
-      () => ClearLocalMovieList(repository: get()));
+  gh.lazySingleton<ClearLocalMovieData>(
+      () => ClearLocalMovieData(repository: get()));
   gh.lazySingleton<ClearUserToken>(() => ClearUserToken(repository: get()));
   gh.lazySingleton<DoLogin>(() => DoLogin(repository: get()));
   gh.lazySingleton<GetAuthenticatedUser>(
       () => GetAuthenticatedUser(repository: get()));
   gh.lazySingleton<GetByToken>(() => GetByToken(repository: get()));
-  gh.lazySingleton<GetLocalMovieList>(
-      () => GetLocalMovieList(repository: get()));
-  gh.lazySingleton<GetOmdbMovieByImdbID>(
-      () => GetOmdbMovieByImdbID(repository: get()));
-  gh.lazySingleton<GetOmdbMovieByTitle>(
-      () => GetOmdbMovieByTitle(repository: get()));
+  gh.lazySingleton<GetMovieByImdbID>(() => GetMovieByImdbID(repository: get()));
+  gh.lazySingleton<GetMovieByTitle>(() => GetMovieByTitle(repository: get()));
+  gh.lazySingleton<GetMovieList>(() => GetMovieList(repository: get()));
   gh.lazySingleton<GetUserToken>(() => GetUserToken(repository: get()));
-  gh.lazySingleton<HomeBloc>(
-      () => HomeBloc(getLocalMovieList: get<GetLocalMovieList>()));
   gh.lazySingleton<IsAuthenticatedUser>(
       () => IsAuthenticatedUser(repository: get()));
   gh.lazySingleton<IsLocalMovieEmpty>(
@@ -72,6 +68,8 @@ GetIt $initGetIt(
   gh.lazySingleton<MovieLocalDataSource>(
       () => MovieLocalDataSource(database: get<Database>()));
   gh.lazySingleton<MovieOmdbDataSource>(() => MovieOmdbDataSource());
+  gh.lazySingleton<SearchMovieByTitle>(
+      () => SearchMovieByTitle(repository: get()));
   gh.lazySingleton<SetUserToken>(() => SetUserToken(repository: get()));
   gh.factory<SplashCubit>(() => SplashCubit());
   gh.lazySingleton<UserLocalDataSource>(
@@ -89,6 +87,9 @@ GetIt $initGetIt(
         isLocalMovieEmpty: get<IsLocalMovieEmpty>(),
         movieBootstartSync: get<MovieBootstartSync>(),
       ));
+  gh.lazySingleton<HomeBloc>(() => HomeBloc(
+      getLocalMovieList: get<GetMovieList>(),
+      searchMovieByTitle: get<SearchMovieByTitle>()));
   gh.factory<LoginBloc>(
       () => LoginBloc(doLogin: get<DoLogin>(), setToken: get<SetUserToken>()));
   gh.lazySingleton<RepositoryDependencies>(() => RepositoryDependencies(

@@ -8,16 +8,16 @@ class AppColors {
   static const MaterialColor red = MaterialColor(
     _redPrimaryValue,
     <int, Color>{
-      50: Color(0xFFfee7e8),
-      100: Color(0xFFfcb6b9),
-      200: Color(0xFFfa858a),
-      300: Color(0xFFf8545c),
-      400: Color(0xFFf6232d),
-      500: Color(_redPrimaryValue),
-      600: Color(0xFFc40812),
-      700: Color(0xFFab070f),
-      800: Color(0xFF93060d),
-      900: Color(0xFF7a050b),
+      50: const Color(0xFFfee7e8),
+      100: const Color(0xFFfcb6b9),
+      200: const Color(0xFFfa858a),
+      300: const Color(0xFFf8545c),
+      400: const Color(0xFFf6232d),
+      500: const Color(_redPrimaryValue),
+      600: const Color(0xFFc40812),
+      700: const Color(0xFFab070f),
+      800: const Color(0xFF93060d),
+      900: const Color(0xFF7a050b),
     },
   );
   static const int _redPrimaryValue = 0xFFe50914;

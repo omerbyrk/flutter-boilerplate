@@ -16,7 +16,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> with AppBlocBase {
   final SetUserToken setToken;
 
   LoginBloc({@required this.doLogin, @required this.setToken})
-      : super(UnLogin());
+      : super(UnLoginState());
 
   @override
   Stream<LoginState> mapEventToState(
@@ -29,8 +29,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> with AppBlocBase {
   void toOnMessageState(String message, MessageType type) {
     this.add(
       LoginEvent(
-        toState:
-            LoginOnMessage.fromOldState(state, type: type, message: message),
+        toState: LoginOnMessageState.fromOldState(state,
+            type: type, message: message),
       ),
     );
   }

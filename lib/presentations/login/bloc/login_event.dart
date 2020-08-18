@@ -1,7 +1,6 @@
 import 'dart:async';
 
-import 'package:covid19_app/domain/usecases/authentication/set_token.dart'
-    as st;
+import 'package:flutmovie/domain/usecases/authentication/set_token.dart' as st;
 import 'package:meta/meta.dart';
 
 import '../../../core/blocs/bases/bloc_event_base.dart';
@@ -22,13 +21,13 @@ class LoadLoginEvent extends LoginEvent {
   @override
   Stream<LoginState> applyAsync(
       {LoginState currentState, LoginBloc bloc}) async* {
-    yield LoginOnProgress.fromOldState(currentState);
+    yield LoginOnProgressState.fromOldState(currentState);
     var loginResult = await bloc.doLogin(dl.Params(username, password));
     String token = bloc.extractEither<String>(loginResult);
     if (token != null) {
       bloc.extractEither<void>(await bloc.setToken(st.Params(token)));
       await Future.delayed(Duration(seconds: 1));
-      yield InLoginState();
+      yield InLoginStateState();
     }
   }
 }

@@ -8,46 +8,41 @@ import '../../../domain/entities/movie_entity.dart';
 
 abstract class HomeState extends Equatable {
   final List<MovieEntity> movieList;
-  final MovieEntity selectedMovie;
-  const HomeState({this.movieList, this.selectedMovie});
+  const HomeState({this.movieList});
 
   @override
-  List<Object> get props => ([movieList, selectedMovie]);
+  List<Object> get props => ([movieList]);
 }
 
-class UnHome extends HomeState {
-  const UnHome({movieList, selectedMovie})
-      : super(movieList: movieList, selectedMovie: selectedMovie);
+class UnHomeState extends HomeState {
+  const UnHomeState({movieList, selectedMovie}) : super(movieList: movieList);
 }
 
-class HomeInProgress extends HomeState with BlocInProgressStateBase {
-  HomeInProgress.fromOldState(HomeState oldState,
+class HomeInProgressState extends HomeState with BlocInProgressStateBase {
+  HomeInProgressState.fromOldState(HomeState oldState,
       {List<MovieModel> movieList, MovieModel selectedMovie})
       : super(
           movieList: movieList ?? oldState.movieList,
-          selectedMovie: selectedMovie ?? oldState.selectedMovie,
         );
 }
 
-class HomeLoadded extends HomeState {
-  HomeLoadded.fromOldState(HomeState oldState,
+class HomeLoaddedState extends HomeState {
+  HomeLoaddedState.fromOldState(HomeState oldState,
       {List<MovieModel> movieList, MovieModel selectedMovie})
       : super(
           movieList: movieList ?? oldState.movieList,
-          selectedMovie: selectedMovie ?? oldState.selectedMovie,
         );
 }
 
 // ignore: must_be_immutable
-class HomeOnMessage extends HomeState with BlocOnMessageStateBase {
-  HomeOnMessage.fromOldState(HomeState oldState,
+class HomeOnMessageState extends HomeState with BlocOnMessageStateBase {
+  HomeOnMessageState.fromOldState(HomeState oldState,
       {List<MovieModel> movieList,
       MovieModel selectedMovie,
       @required String message,
       type = MessageType.INFO})
       : super(
           movieList: movieList ?? oldState.movieList,
-          selectedMovie: selectedMovie ?? oldState.selectedMovie,
         ) {
     this.message = message;
     this.type = type;

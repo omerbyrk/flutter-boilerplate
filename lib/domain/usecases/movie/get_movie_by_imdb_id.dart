@@ -8,10 +8,10 @@ import '../../repository/index.dart';
 import '../usecase.dart';
 
 @lazySingleton
-class GetOmdbMovieByImdbID implements UseCase<MovieEntity, Params> {
+class GetMovieByImdbID implements UseCase<MovieEntity, Params> {
   Repository repository;
 
-  GetOmdbMovieByImdbID({@required this.repository});
+  GetMovieByImdbID({@required this.repository});
 
   @override
   Future<Either<Failure, MovieEntity>> call(Params params) async {

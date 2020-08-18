@@ -16,7 +16,7 @@ class LoadBootstartEvent extends BootstartEvent {
   @override
   Stream<BootStartState> applyAsync(
       {BootStartState currentState, BootstartBloc bloc}) async* {
-    yield BootstartStateOnMessage.fromOldSettingState(
+    yield BootstartStateOnMessageState.fromOldSettingState(
         message: t("app_starting"));
     await Future.delayed(Duration(seconds: 2));
 
@@ -30,35 +30,35 @@ class LoadBootstartEvent extends BootstartEvent {
           return;
         }
       } else {
-        yield BootstartStateOnMessage.fromOldSettingState(
+        yield BootstartStateOnMessageState.fromOldSettingState(
             message: t("need_network_connection"));
         return;
       }
     }
 
-    yield BootstartStateOnMessage.fromOldSettingState(
+    yield BootstartStateOnMessageState.fromOldSettingState(
         message: t("looking_authentication"));
     await Future.delayed(Duration(seconds: 1));
     bool isAuthenticated =
         bloc.extractEither(await bloc.isAuthenticatedUser(NoParams()));
 
     if (isAuthenticated) {
-      yield BootstartStateOnMessage.fromOldSettingState(
+      yield BootstartStateOnMessageState.fromOldSettingState(
           message: t("fetching_info"));
       String token =
           bloc.extractEither<String>(await bloc.getToken(NoParams()));
       UserEntity userEntity = bloc.extractEither<UserEntity>(
           await bloc.getAuthenticatedUser(NoParams()));
-      yield BootstartStateOnMessage.fromOldSettingState(
+      yield BootstartStateOnMessageState.fromOldSettingState(
           message: t("redirecting_to_page", params: ["home"]));
       GetIt.instance.get<AuthenticationBloc>().add(
           BootStartLoadAuthenticationEvent(user: userEntity, token: token));
       await Future.delayed(Duration(seconds: 1));
     } else {
-      yield BootstartStateOnMessage.fromOldSettingState(
+      yield BootstartStateOnMessageState.fromOldSettingState(
           message: t("redirecting_to_page", params: ["login"]));
       await Future.delayed(Duration(seconds: 1));
     }
-    yield BootStartIsOver();
+    yield BootStartIsOverState();
   }
 }

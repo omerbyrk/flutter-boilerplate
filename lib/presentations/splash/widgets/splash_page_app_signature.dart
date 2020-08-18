@@ -14,7 +14,7 @@ class SplashPageSignature extends StatelessWidget {
         child: Text(
           t("sp_signature"),
           style: GoogleFonts.bitter(
-              fontSize: this.getFontSize(SizeType.Middle),
+              fontSize: this.getFontSize(SizeType.xxLarge),
               color: AppColors.white,
               fontWeight: FontWeight.bold),
         ),

@@ -1,3 +1,4 @@
+import 'package:flutmovie/core/localization/app_localization_base.dart';
 import 'package:dio/dio.dart';
 
 import 'common/../dio_client.dart';

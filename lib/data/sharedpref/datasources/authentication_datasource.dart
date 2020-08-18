@@ -2,13 +2,13 @@ import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../../core/localization/localization_base.dart';
+import '../../../core/localization/app_localization_base.dart';
 import '../../exceptions/sharedpref_exception.dart';
 import '../sharedpref_consts.dart';
 
 @immutable
 @lazySingleton
-class AuthenticationDataSource extends Localization {
+class AuthenticationDataSource extends AppLocalizationBase {
   final SharedPreferences sharedPreferences;
 
   AuthenticationDataSource({@required this.sharedPreferences});

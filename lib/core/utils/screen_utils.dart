@@ -32,36 +32,38 @@ class ScreenUtils {
     SizeType.xxSmall: 1,
     SizeType.xSmall: 1.03,
     SizeType.Small: 1.03,
-    SizeType.Middle: 1.07,
-    SizeType.Large: 1.12,
-    SizeType.xLarge: 1.15,
-    SizeType.xxLarge: 1.18,
-    SizeType.Ultra: 1.21,
+    SizeType.Middle: 1.08,
+    SizeType.Large: 1.15,
+    SizeType.xLarge: 1.20,
+    SizeType.xxLarge: 1.25,
+    SizeType.Ultra: 1.30,
     SizeType.Mega: 1.50
   };
 
   Map<SizeType, double> _deviceFontSizes = {
-    SizeType.xxSmall: 16,
-    SizeType.xSmall: 18,
-    SizeType.Small: 20,
-    SizeType.Middle: 24,
-    SizeType.Large: 26,
-    SizeType.xLarge: 28,
-    SizeType.xxLarge: 30,
-    SizeType.Ultra: 35,
-    SizeType.Mega: 40
+    SizeType.Tiny: 10,
+    SizeType.xxSmall: 12,
+    SizeType.xSmall: 14,
+    SizeType.Small: 16,
+    SizeType.Middle: 18,
+    SizeType.Large: 20,
+    SizeType.xLarge: 22,
+    SizeType.xxLarge: 24,
+    SizeType.Ultra: 26,
+    SizeType.Mega: 35
   };
 
   Map<SizeType, double> _deviceIconSizes = {
-    SizeType.xxSmall: 20,
-    SizeType.xSmall: 22,
-    SizeType.Small: 24,
-    SizeType.Middle: 26,
-    SizeType.Large: 28,
-    SizeType.xLarge: 30,
-    SizeType.xxLarge: 35,
-    SizeType.Ultra: 40,
-    SizeType.Mega: 50
+    SizeType.Tiny: 12,
+    SizeType.xxSmall: 16,
+    SizeType.xSmall: 18,
+    SizeType.Small: 20,
+    SizeType.Middle: 22,
+    SizeType.Large: 24,
+    SizeType.xLarge: 26,
+    SizeType.xxLarge: 28,
+    SizeType.Ultra: 28,
+    SizeType.Mega: 37
   };
 
   _detechDeviceSize() {

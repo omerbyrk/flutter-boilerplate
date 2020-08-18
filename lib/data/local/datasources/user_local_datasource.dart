@@ -2,13 +2,13 @@ import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:sembast/sembast.dart';
 
-import '../../../core/localization/localization_base.dart';
+import '../../../core/localization/app_localization_base.dart';
 import '../../exceptions/local_server_exception.dart';
 import '../../models/user_model.dart';
 import '../local_consts.dart';
 
 @lazySingleton
-class UserLocalDataSource extends Localization {
+class UserLocalDataSource extends AppLocalizationBase {
   final _usersStore = intMapStoreFactory.store(LocalConsts.USER_STORE_NAME);
   final Database database;
 

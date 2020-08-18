@@ -11,19 +11,19 @@ abstract class AuthenticationState {
 }
 
 /// UnInitialized
-class UnAuthentication extends AuthenticationState {
-  UnAuthentication({String token, UserEntity user})
+class UnAuthenticationState extends AuthenticationState {
+  UnAuthenticationState({String token, UserEntity user})
       : super(token: token, user: user);
-  UnAuthentication.fromOldState(AuthenticationState state,
+  UnAuthenticationState.fromOldState(AuthenticationState state,
       {String token, UserEntity user})
       : super(token: token ?? state.token, user: user ?? state.user);
 }
 
-class AuthenticationStateOnMessage extends AuthenticationState
+class AuthenticationStateOnMessageState extends AuthenticationState
     with BlocOnMessageStateBase {
-  AuthenticationStateOnMessage({String token, UserEntity user})
+  AuthenticationStateOnMessageState({String token, UserEntity user})
       : super(token: token, user: user);
-  AuthenticationStateOnMessage.fromOldState(AuthenticationState state,
+  AuthenticationStateOnMessageState.fromOldState(AuthenticationState state,
       {String token,
       UserEntity user,
       @required String message,
@@ -35,10 +35,10 @@ class AuthenticationStateOnMessage extends AuthenticationState
 }
 
 /// Initialized
-class InAuthentication extends AuthenticationState {
-  InAuthentication({String token, UserEntity user})
+class InAuthenticationState extends AuthenticationState {
+  InAuthenticationState({String token, UserEntity user})
       : super(token: token, user: user);
-  InAuthentication.fromOldState(AuthenticationState state,
+  InAuthenticationState.fromOldState(AuthenticationState state,
       {String token, UserEntity user})
       : super(token: token ?? state.token, user: user ?? state.user);
 }

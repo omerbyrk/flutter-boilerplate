@@ -39,7 +39,7 @@ class SplashPageMessageWidget extends StatelessWidget {
                 style: GoogleFonts.bitter(
                     color: AppColors.white,
                     fontWeight: FontWeight.w600,
-                    fontSize: this.getFontSize(SizeType.xSmall)),
+                    fontSize: this.getFontSize(SizeType.Middle)),
               ),
             ),
           ),
