@@ -1,16 +1,20 @@
+import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 
 import '../../../domain/entities/user_entity.dart';
 import '../../consts/enums.dart';
 import '../bases/bloc_state_base.dart';
 
-abstract class AuthenticationState {
+class AuthenticationState extends Equatable {
   final String token;
   final UserEntity user;
   AuthenticationState({this.token, this.user});
+
+  @override
+  List<Object> get props => [token, user];
 }
 
-/// UnInitialized
+/// Initial State
 class UnAuthenticationState extends AuthenticationState {
   UnAuthenticationState({String token, UserEntity user})
       : super(token: token, user: user);
@@ -19,11 +23,12 @@ class UnAuthenticationState extends AuthenticationState {
       : super(token: token ?? state.token, user: user ?? state.user);
 }
 
-class AuthenticationStateOnMessageState extends AuthenticationState
+// ignore: must_be_immutable
+class AuthenticationOnMessageState extends AuthenticationState
     with BlocOnMessageStateBase {
-  AuthenticationStateOnMessageState({String token, UserEntity user})
+  AuthenticationOnMessageState({String token, UserEntity user})
       : super(token: token, user: user);
-  AuthenticationStateOnMessageState.fromOldState(AuthenticationState state,
+  AuthenticationOnMessageState.fromOldState(AuthenticationState state,
       {String token,
       UserEntity user,
       @required String message,

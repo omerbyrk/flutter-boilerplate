@@ -6,9 +6,12 @@ import '../../../core/failures.dart/failure.dart';
 import '../../repository/repository.dart';
 import '../usecase.dart';
 
+/// [MovieBootstartSync] add local db the [synchronizedMovies] if there is no movie-data on local.
 @lazySingleton
 class MovieBootstartSync implements UseCase<bool, NoParams> {
   Repository repository;
+
+  /// the movie titles which is fetched from the api, and added to local db.
   List<String> synchronizedMovies = [
     "The Pianist",
     "Amelie",

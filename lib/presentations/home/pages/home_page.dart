@@ -10,9 +10,11 @@ import '../widgets/index.dart';
 
 // ignore: must_be_immutable
 class HomePage extends StatelessWidget {
+  HomeBloc _homeBloc = GetIt.instance.get<HomeBloc>();
+
   @override
   StatelessElement createElement() {
-    GetIt.instance.get<HomeBloc>().add(LoadLocalMovieListEvent());
+    _homeBloc.add(LoadLocalMovieListEvent());
     return super.createElement();
   }
 
@@ -21,15 +23,15 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.white,
       body: BlocProvider<HomeBloc>(
-        create: (_) => GetIt.instance.get<HomeBloc>(),
+        create: (_) => _homeBloc,
         child: Stack(
           children: <Widget>[
             Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[HomePageTop(), HomePageBottom()],
             ),
-            AppBlocProgressIndicator<HomeBloc>(),
-            AppBlocFlushbarShow<HomeBloc>()
+            blocMessageBuilder(context, _homeBloc),
+            blocProgressBuilder(context, _homeBloc)
           ],
         ),
       ),

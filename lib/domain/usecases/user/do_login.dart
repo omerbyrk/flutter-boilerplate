@@ -6,6 +6,8 @@ import '../../../core/failures.dart/failure.dart';
 import '../../repository/repository.dart';
 import '../usecase.dart';
 
+/// [DoLogin] login user and returns user-token from server If operations is succesfull.
+/// If not, then return Failure.
 @lazySingleton
 class DoLogin implements UseCase<String, Params> {
   Repository repository;

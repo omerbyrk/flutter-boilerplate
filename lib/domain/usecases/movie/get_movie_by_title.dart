@@ -7,6 +7,7 @@ import '../../entities/movie_entity.dart';
 import '../../repository/repository.dart';
 import '../usecase.dart';
 
+/// [GetMovieByTitle] get movie by title
 @lazySingleton
 class GetMovieByTitle implements UseCase<MovieEntity, Params> {
   Repository repository;

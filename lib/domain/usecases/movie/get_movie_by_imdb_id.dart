@@ -7,6 +7,7 @@ import '../../entities/movie_entity.dart';
 import '../../repository/repository.dart';
 import '../usecase.dart';
 
+/// [GetMovieByImdbID] get movie by imdb id
 @lazySingleton
 class GetMovieByImdbID implements UseCase<MovieEntity, Params> {
   Repository repository;

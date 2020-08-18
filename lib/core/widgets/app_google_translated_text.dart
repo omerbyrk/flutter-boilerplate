@@ -5,7 +5,9 @@ import '../consts/enums.dart';
 import '../theme/app_colors.dart';
 import 'index.dart';
 
+/// [AppGTText] translated the [text] string from the google, and show it a [AppRichText] component.
 class AppGTText extends StatelessWidget {
+  /// the string value which gonna be translated from google!
   final String text;
   final TextAlign align;
   final FontWeight fontWeight;

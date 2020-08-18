@@ -7,11 +7,12 @@ import '../../entities/user_entity.dart';
 import '../../repository/repository.dart';
 import '../usecase.dart';
 
+/// [GetUserByToken] get authenticated user if there is a user-token.
 @lazySingleton
-class GetAuthenticatedUser implements UseCase<UserEntity, NoParams> {
+class GetUserByToken implements UseCase<UserEntity, NoParams> {
   Repository repository;
 
-  GetAuthenticatedUser({@required this.repository});
+  GetUserByToken({@required this.repository});
 
   @override
   Future<Either<Failure, UserEntity>> call(NoParams noParams) async {

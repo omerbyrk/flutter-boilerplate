@@ -7,6 +7,7 @@ import '../../entities/movie_entity.dart';
 import '../../repository/repository.dart';
 import '../usecase.dart';
 
+/// [SearchMovieByTitle] searchs  movies with [title] condition from repository.
 @lazySingleton
 class SearchMovieByTitle implements UseCase<List<MovieEntity>, Params> {
   Repository repository;
@@ -20,6 +21,7 @@ class SearchMovieByTitle implements UseCase<List<MovieEntity>, Params> {
 }
 
 class Params {
+  /// dsad
   final String title;
 
   Params(this.title);

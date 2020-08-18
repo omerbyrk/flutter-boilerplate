@@ -7,6 +7,7 @@ import '../../entities/movie_entity.dart';
 import '../../repository/repository.dart';
 import '../usecase.dart';
 
+/// [GetLocalMovieList] get all movie list from local dbs
 @lazySingleton
 class GetLocalMovieList implements UseCase<List<MovieEntity>, NoParams> {
   Repository repository;

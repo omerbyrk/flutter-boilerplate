@@ -18,6 +18,7 @@ GetIt getIt = GetIt.instance;
 
 @injectableInit
 Future<void> configure(String environment) async {
+  // we await for async dependencies.
   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
   getIt.registerFactory<SharedPreferences>(() => sharedPreferences);
 
@@ -37,6 +38,7 @@ abstract class Env {
   static const prod = "prod";
 }
 
+/// [configureUI] Registers the ui dependencies like localization, screenutils(reposiveness) which depends on the context.
 void configureUI(BuildContext context) {
   if (!getIt.isRegistered<AppLocalizations>()) {
     getIt.registerLazySingleton(() => AppLocalizations.of(context));

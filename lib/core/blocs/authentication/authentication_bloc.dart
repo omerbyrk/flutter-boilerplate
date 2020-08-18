@@ -5,7 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../domain/usecases/authentication/clear_token.dart';
-import '../../../domain/usecases/authentication/get_authenticated_user.dart';
+import '../../../domain/usecases/user/get_user_by_token.dart';
 import '../../../domain/usecases/authentication/get_token.dart';
 import '../../consts/enums.dart';
 import '../bases/bloc_base.dart';
@@ -15,7 +15,7 @@ import 'index.dart';
 class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState>
     with AppBlocBase {
   ClearUserToken clearUserToken;
-  GetAuthenticatedUser getAuthenticatedUser;
+  GetUserByToken getAuthenticatedUser;
   GetUserToken getUserToken;
   AuthenticationBloc(
       {@required this.getAuthenticatedUser,
@@ -39,7 +39,7 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState>
   @override
   void toOnMessageState(String message, MessageType type) {
     this.add(AuthenticationEvent(
-        toState: AuthenticationStateOnMessageState.fromOldState(state,
+        toState: AuthenticationOnMessageState.fromOldState(state,
             message: message, type: type)));
   }
 }

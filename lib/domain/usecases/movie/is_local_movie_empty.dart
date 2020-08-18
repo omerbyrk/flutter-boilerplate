@@ -6,6 +6,7 @@ import '../../../core/failures.dart/failure.dart';
 import '../../repository/repository.dart';
 import '../usecase.dart';
 
+/// [IsLocalMovieEmpty] return true if there is no movie-data on local db
 @lazySingleton
 class IsLocalMovieEmpty implements UseCase<bool, NoParams> {
   Repository repository;

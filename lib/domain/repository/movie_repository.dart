@@ -55,12 +55,6 @@ extension MovieRepository on Repository {
     });
   }
 
-  Future<Either<Failure, bool>> clearLocalMovieList() async {
-    return await this.convertToEither<bool>(() async {
-      return await d.movieLocalDataSource.clear();
-    });
-  }
-
   Future<Either<Failure, List<MovieEntity>>> searchMovieByTitle(
       String title) async {
     if (await isDeviceOnline) {

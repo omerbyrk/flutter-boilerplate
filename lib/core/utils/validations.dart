@@ -1,5 +1,6 @@
 import '../consts/app_consts.dart';
 
+/// [Validations] is validation class all application level.
 class Validations {
   static bool lNotNullOrEmpty(List<dynamic> list) =>
       list != null && list.length > 0;

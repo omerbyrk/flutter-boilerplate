@@ -19,6 +19,7 @@ part 'movie_repository.dart';
 part 'repository_utils.dart';
 part 'user_repository.dart';
 
+/// [RepositoryDependencies] contains the dependencies for the [Repository].
 @lazySingleton
 class RepositoryDependencies {
   final ConnectivityUtils connectivityUtils;
@@ -35,6 +36,7 @@ class RepositoryDependencies {
       @required this.movieLocalDataSource});
 }
 
+/// [Repository] connects to the services/datasources which are in the [RepositoryDependencies] for api/local data operations.
 @lazySingleton
 class Repository {
   RepositoryDependencies d;

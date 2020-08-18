@@ -8,14 +8,16 @@ import '../authentication/index.dart';
 import '../bases/bloc_event_base.dart';
 import 'index.dart';
 
-class BootstartEvent extends BlocEventBase<BootStartState, BootstartBloc> {
+class BootstartEvent extends BlocEventBase<BootStartState, BootStartBloc> {
   BootstartEvent({BootStartState toState}) : super(toState: toState);
 }
 
-class LoadBootstartEvent extends BootstartEvent {
+/// [LoadBootStartEvent] is used for booting start the app essentials in the begining.
+/// [LoadBootStartEvent] fetchs Movie list from the API to local If not before, and authenticates user If has token
+class LoadBootStartEvent extends BootstartEvent {
   @override
   Stream<BootStartState> applyAsync(
-      {BootStartState currentState, BootstartBloc bloc}) async* {
+      {BootStartState currentState, BootStartBloc bloc}) async* {
     yield BootstartStateOnMessageState.fromOldSettingState(
         message: t("app_starting"));
     await Future.delayed(Duration(seconds: 2));

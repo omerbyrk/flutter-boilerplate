@@ -3,7 +3,12 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 import '../consts/enums.dart';
+import '../widgets/index.dart';
 
+/// [ScreenUtils] is a library for the responsiveness.
+/// [ScreenUtils] converts font, icon, padding size across devices to get responsiveness.
+/// I adjusted the [_deviceSizeRateMultipliers] and [_fontOrFontSizeRateMultipliers] values but they may  not performs well in every situations.
+/// Example: [AppWidgetExtension]
 class ScreenUtils {
   SizeType deviceSize;
   BuildContext context;
@@ -13,7 +18,8 @@ class ScreenUtils {
     _detechDeviceSize();
     this.textScaleFactor = MediaQuery.of(context).textScaleFactor;
   }
-  // If you change it, please push it to our repository for improving the boilerplate!
+
+  /// If you would change it and get positive result, please push it to our repository for improving the boilerplate!
   Map<SizeType, double> _deviceSizeRateMultipliers = {
     SizeType.xxSmall: 0.70,
     SizeType.xSmall: 0.80,
@@ -26,7 +32,7 @@ class ScreenUtils {
     SizeType.Mega: 1.70
   };
 
-  // If you change it, please push it to our repository for improving the boilerplate!
+  /// If you would change it and get positive result, please push it to our repository for improving the boilerplate!
   Map<SizeType, double> _fontOrFontSizeRateMultipliers = {
     SizeType.xxSmall: 1.12,
     SizeType.xSmall: 1.15,

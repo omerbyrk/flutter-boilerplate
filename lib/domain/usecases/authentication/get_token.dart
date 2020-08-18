@@ -6,6 +6,7 @@ import '../../../core/failures.dart/failure.dart';
 import '../../repository/repository.dart';
 import '../usecase.dart';
 
+/// [GetUserToken] gets user-token, If he/she was singin before.
 @lazySingleton
 class GetUserToken implements UseCase<String, NoParams> {
   Repository repository;

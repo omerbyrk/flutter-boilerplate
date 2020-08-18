@@ -1,16 +1,20 @@
 import 'package:dartz/dartz.dart';
 
 import '../../core/failures.dart/failure.dart';
+import 'movie/movie_bootstart_sync.dart';
 
-// Use caseler bloclar için iş katmanını oluşturuyor. Bu Classlar ile repositorylere bağlanıp uzun soluklu işler yapabiliriz.
-// Kod tekrarını azaltır ve kodu daha okunabilir kılar
-// Parameters have to be put into a container object so that they can be
-// included in this abstract base class method definition.
-// Usecaseleri kendi aralarında bile kullanabilirsin, birbirlerine bağımlılığı olabilir
+/// [UseCase] a busnisses layer for blocs.
+/// You should'nt connect directly to repository from bloc, you should use [UseCase].
+/// in [UseCase], you can do long term process.
+/// [Type] is return type if There is no error.
+/// [Params] is parameter type which call method accepts.
+/// Example: [MovieBootstartSync] for long term process
 abstract class UseCase<Type, Params> {
   Future<Either<Failure, Type>> call(Params params);
 }
 
 // This will be used by the code calling the use case whenever the use case
 // doesn't accept any parameters.
+/// If there is no need for params in the call method. You should use [NoParams] class.
+/// Example: [ExampleUseSase<ExampleType, NoParams>]
 class NoParams {}

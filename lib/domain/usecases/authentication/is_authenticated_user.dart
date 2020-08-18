@@ -6,6 +6,7 @@ import '../../../core/failures.dart/failure.dart';
 import '../../repository/repository.dart';
 import '../usecase.dart';
 
+/// [IsAuthenticatedUser] returns true, If he/she was singin before.
 @lazySingleton
 class IsAuthenticatedUser implements UseCase<bool, NoParams> {
   Repository repository;

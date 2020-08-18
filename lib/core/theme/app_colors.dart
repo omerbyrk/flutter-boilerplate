@@ -2,8 +2,11 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
+/// [AppColors] contains all application level colors.
 class AppColors {
-  AppColors._(); // this basically makes it so you can't instantiate this class
+  AppColors._();
+
+  /// this basically makes it singleton, so you can't instantiate this class
 
   static const MaterialColor red = MaterialColor(
     _redPrimaryValue,

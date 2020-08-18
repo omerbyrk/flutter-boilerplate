@@ -33,8 +33,8 @@ class LoginPage extends StatelessWidget {
                 ],
               ),
             ),
-            AppBlocProgressIndicator<LoginBloc>(),
-            AppBlocFlushbarShow<LoginBloc>()
+            blocMessageBuilder(context, _loginBloc),
+            blocProgressBuilder(context, _loginBloc)
           ],
         ),
       ),

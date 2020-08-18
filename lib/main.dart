@@ -16,19 +16,17 @@ import 'presentations/splash/pages/splash_page.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await di.configure(di.Env.prod);
-  runApp(AppBootstart());
+  runApp(AppBootStart());
 }
 
-// This widget is the root of your application.
-class AppBootstart extends StatelessWidget {
+/// [AppBootStart] is the root of your application.
+class AppBootStart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       onGenerateTitle: (context) {
-        // I know it is a wrong place but It would be woderful if Material app has an onStart event. You can create a custom Material App widget
-        // Register all depenencies in there which depends on the context
-        this.dInjectionUIThenBoostart(context);
+        this.dInjectionUIThenLoadBootStart(context);
         return t("app_title");
       },
       theme: themeData,
@@ -52,8 +50,8 @@ class AppBootstart extends StatelessWidget {
         return supportedLocales.first;
       },
       home: BlocProvider(
-        create: (_) => GetIt.instance.get<BootstartBloc>(),
-        child: BlocBuilder<BootstartBloc, BootStartState>(
+        create: (_) => GetIt.instance.get<BootStartBloc>(),
+        child: BlocBuilder<BootStartBloc, BootStartState>(
           builder: (context, state) {
             if (state is BootStartIsOverState) {
               return app(context);
@@ -67,6 +65,7 @@ class AppBootstart extends StatelessWidget {
     );
   }
 
+  /// [app] runs after BootStart is over.
   Widget app(BuildContext context) {
     return BlocProvider(
       create: (_) => GetIt.instance.get<AuthenticationBloc>(),
@@ -76,7 +75,7 @@ class AppBootstart extends StatelessWidget {
             return LoginPage();
           } else if (state is InAuthenticationState) {
             return HomePage();
-          } else if (state is AuthenticationStateOnMessageState) {
+          } else if (state is AuthenticationOnMessageState) {
             return SplashPage(state.message);
           } else
             return Container();
@@ -85,10 +84,11 @@ class AppBootstart extends StatelessWidget {
     );
   }
 
-  void dInjectionUIThenBoostart(BuildContext context) {
+  /// [dInjectionUIThenLoadBootStart] Registers the ui dependencies like localization, screenutils(reposiveness) which depends on the context.
+  /// Then, fires the [LoadBootStartEvent]
+  void dInjectionUIThenLoadBootStart(BuildContext context) {
     di.configureUI(context);
-    // If not start the event, we start it.(this method can run twice)
-    if (GetIt.instance.get<BootstartBloc>().state is UnBootstartState)
-      GetIt.instance.get<BootstartBloc>().add(LoadBootstartEvent());
+    if (GetIt.instance.get<BootStartBloc>().state is UnBootstartState)
+      GetIt.instance.get<BootStartBloc>().add(LoadBootStartEvent());
   }
 }

@@ -1,16 +1,6 @@
 name: flutmovie
-description: A flutter boilder plate.
+description: A flutter boilder plate which implements DDD principles.
 
-# The following defines the version and build number for your application.
-# A version number is three numbers separated by dots, like 1.2.43
-# followed by an optional build number separated by a +.
-# Both the version and the builder number may be overridden in flutter
-# build by specifying --build-name and --build-number, respectively.
-# In Android, build-name is used as versionName while build-number used as versionCode.
-# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
-# In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
-# Read more about iOS versioning at
-# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 version: 1.0.0+1
 
 environment:
@@ -21,20 +11,43 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
+  
+  # google translator
   translator: ^0.1.5
+  
+  # bloc is for state managment
   flutter_bloc: ^6.0.0
   bloc: ^6.0.0
   equatable: ^1.2.0
+  
+  # dio is for api/network connections
   dio: ^3.0.9
+
+  # flushbar is for showing message on screen
   flushbar: ^1.10.4
-  dartz: ^0.9.1
+
+  # shared_preferences is for storing data on local
   shared_preferences: ^0.5.8
+
+  #get_it is for dependency injection
   get_it: ^4.0.4
+
+  # injectable is for code generation 
   injectable: ^1.0.4
+
+  # sembast is for create db on local
   sembast: ^2.4.7+4
+  
+  # path_provider is for getting application path from device.
   path_provider: ^1.6.11
-  cupertino_icons: ^0.1.2
+
+  # google_fonts is for installing google fonts from the internet easly.
   google_fonts: ^1.1.0
+
+  # dartz is for using Either class
+  dartz: ^0.9.1
+
+  # connectivity is for checking if device connected to the internet
   connectivity: ^0.4.9
 
 dependency_overrides:
@@ -44,7 +57,8 @@ dependency_overrides:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
+    
+  # build_runner, injectable_generator is for code generation
   build_runner:
   injectable_generator: ^1.0.4
 

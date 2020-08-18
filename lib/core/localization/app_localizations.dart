@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:translator/translator.dart';
 
+/// [AppLocalizations] is default implementation of the localization in flutter.
 class AppLocalizations {
   final Locale locale;
   Map<String, String> _localizedStrings;
@@ -27,6 +28,8 @@ class AppLocalizations {
     return true;
   }
 
+  /// localize the key from the [assets/lang/${locale.languageCode}.json] json assets.
+  /// If not fount, then print it to notify you.
   String translate(String key, {List<String> params}) {
     String localizedString = _localizedStrings[key];
     if (params != null) {
@@ -41,8 +44,7 @@ class AppLocalizations {
     return localizedString ?? key;
   }
 
-  // You need to implement your google translator api with your api key!
-  // otherwise, It will error! after some times...
+  /// You need to implement your google translator api with your api key!
   Future<String> translateFromGoogle(String text) async {
     try {
       /*return (await googleTranslator.translate(text, to: locale.languageCode))

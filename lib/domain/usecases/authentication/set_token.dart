@@ -6,6 +6,7 @@ import '../../../core/failures.dart/failure.dart';
 import '../../repository/repository.dart';
 import '../usecase.dart';
 
+/// [SetUserToken] sets user-token to the local.
 @lazySingleton
 class SetUserToken implements UseCase<void, Params> {
   Repository repository;

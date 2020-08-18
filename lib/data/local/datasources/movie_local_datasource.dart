@@ -80,15 +80,6 @@ class MovieLocalDataSource extends IMovieDataSource {
     }
   }
 
-  Future<bool> clear() async {
-    try {
-      int count = await _moviesStore.delete(database);
-      return count > 0;
-    } catch (err) {
-      throw LocalServerException(err);
-    }
-  }
-
   @override
   Future<List<MovieModel>> searchByTitle(String title) async {
     try {
