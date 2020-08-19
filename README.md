@@ -69,13 +69,9 @@ This project also uses extensions feature in dart. In case, If it doesn't work, 
   <li>Multilingual Support (new)</li>
   <li>A project example (new)</li>
 <ul>
-    
-<h1>Screenshoots</h1>
-<div>
-  <div style="float:left">
-    <iframe src="https://giphy.com/embed/j0T063RiCsyADbYiFs" width="354" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/j0T063RiCsyADbYiFs">via GIPHY</a></p>
-  </div>
-</div>
+   
+   
+<iframe src="https://giphy.com/embed/j0T063RiCsyADbYiFs" width="354" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/j0T063RiCsyADbYiFs">via GIPHY</a></p>
 
 
 
