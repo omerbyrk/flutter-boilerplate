@@ -13,17 +13,18 @@ A flutter boilerplate project can be used both <b>enterprise</b> & <b>individual
   <li>has a clean architecture, and is <b>doc-commented</b> for the most class in it. </li>
   <li>uses a <b>BLoC state managment</b> which is recommended by Flutter.</li>
   <li>has ready-to-use cachable system in it.</li>
-  <li>presents an example movie project for both <b>api</b> & <b>local db</b> connections</li>
+  <li>presents an example movie project</li>
   <li>presents built-in animations and widgets</li>
+  <li><b>supports responsive mobile design, and compatible every device even tablet!</b></li>
   <li>.</li>
   <li>.</li>
   <li>so on</li>
 </ul>
 
 <h3>How to Use</h3>
-</ hr>
-<b>Step 1:</b>
 
+<b>Step 1:</b>
+<br />
 Download or clone this repository by using the link below:
 
 <code><a href="https://github.com/omerbyrk/flutmovie-boilerplate.git">https://github.com/omerbyrk/flutmovie-boilerplate.git</a></code>
@@ -49,5 +50,27 @@ or watch command in order to keep the source code synced automatically:
 This project also uses extensions feature in dart. In case, If it doesn't work, you need do run the below code in the project root.
 
 <code>dartanalyzer .</code>
+
+<h3>Features</h3>
+
+<ul>
+  <li>Splash</li>
+  <li>Login</li>
+  <li>Home</li>
+  <li>Bloc Statemanagment</li>
+  <li>Provider (State Management)</li>
+  <li>Responsive</li>
+  <li>Theme</li>
+  <li>Dio</li>
+  <li>Database</li>
+  <li>Connectivity Support</li>
+  <li>Validation</li>
+  <li>Dependency Injection</li>
+  <li>Multilingual Support (new)</li>
+  <li>A project example (new)</li>
+<ul>
+    
+    
+
 
 
