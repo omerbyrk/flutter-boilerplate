@@ -72,8 +72,6 @@ This project also uses extensions feature in dart. In case, If it doesn't work, 
    
    
 <img src="https://media.giphy.com/media/h4wzDbG3GPzCkyLOW6/giphy.gif"  />
-
-
 <img src="https://media.giphy.com/media/KffxSFEsf0qJ65CEYC/giphy.gif"  />
 
 
