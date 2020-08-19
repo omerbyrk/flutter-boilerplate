@@ -8,7 +8,7 @@ A flutter boilerplate project can be used both <b>enterprise</b> & <b>individual
 <b>FlutMovie...👇👇</b>
 
 <ul>
-  <li>presents minimal required for a new  <b>enterprise</b> & <b>individual</b> application.</li>
+  <li>presents minimal requirement for creating a new  <b>enterprise</b> & <b>individual</b> application.</li>
   <li>has been developed by using <b>Domain-driven design</b> concept. </li>
   <li>has a clean architecture, and is <b>doc-commented</b> for the most class in it. </li>
   <li>uses a <b>BLoC state managment</b> which is recommended by Flutter.</li>
