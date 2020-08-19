@@ -21,7 +21,7 @@ A flutter boilerplate project can be used both <b>enterprise</b> & <b>individual
   <li>so on</li>
 </ul>
 
-<h3>How to Use</h3>
+<h1>How to Use</h1>
 
 <b>Step 1:</b>
 <br />
@@ -51,7 +51,7 @@ This project also uses extensions feature in dart. In case, If it doesn't work, 
 
 <code>dartanalyzer .</code>
 
-<h3>Features</h3>
+<h1>Boilerplate Features</h1>
 
 <ul>
   <li>Splash</li>
