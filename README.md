@@ -1,6 +1,6 @@
-# covid19_app
+# Flutmovie
 
-A new Flutter project.
+A flutter boilerplate with movie example
 
 ## Getting Started
 
