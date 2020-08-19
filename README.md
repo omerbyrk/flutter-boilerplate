@@ -28,6 +28,6 @@ or watch command in order to keep the source code synced automatically:
 
 <b>Step 4:</b>
 
-This project also uses extensions future in dart. In case, If it doesn't work, you need do run the below code in project root.
+This project also uses extensions feature in dart. In case, If it doesn't work, you need do run the below code in project root.
 
-<code> dartanalyzer .</code>
+<code>dartanalyzer .</code>
