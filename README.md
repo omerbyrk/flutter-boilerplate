@@ -21,7 +21,7 @@ A flutter boilerplate project can be used both <b>enterprise</b> & <b>individual
 </ul>
 
 <h3>How to Use</h3>
-<hr />
+</ hr>
 <b>Step 1:</b>
 
 Download or clone this repository by using the link below:
@@ -32,7 +32,7 @@ Download or clone this repository by using the link below:
 
 Go to project root and execute the following command in console to get the required dependencies:
 
-flutter pub get 
+<code>flutter pub get</code> 
 
 <b>Step 3:</b>
 
