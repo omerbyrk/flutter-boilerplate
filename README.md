@@ -19,8 +19,9 @@ A flutter boilerplate project can be used both <b>enterprise</b> & <b>individual
   <li>.</li>
   <li>so on</li>
 </ul>
-# <h3>How to Use</h3>
 
+<h3>How to Use</h3>
+<hr />
 <b>Step 1:</b>
 
 Download or clone this repository by using the link below:
