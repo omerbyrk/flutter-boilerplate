@@ -1,12 +1,13 @@
 # Flutmovie Boilerplate Project
 </hr>
 A flutter boilerplate project can be used both <b>enterprise</b> & <b>individual</b> application.
-The boilerplate has been developed by using Domain-driven design concept. 
+<br />
+The boilerplate has been developed by using <b>Domain-driven design</b> concept. 
 
 # Getting Started
 </hr>
 
-# <h5>How to Use</h3>
+# <h3>How to Use</h3>
 
 <b>Step 1:</b>
 
