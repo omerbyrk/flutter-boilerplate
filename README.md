@@ -71,7 +71,7 @@ This project also uses extensions feature in dart. In case, If it doesn't work, 
 <ul>
    
    
-![Alt Text](https://media.giphy.com/media/j0T063RiCsyADbYiFs/giphy.gif)
+<img src="https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif" width="40" height="40" />
 
 
 
