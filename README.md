@@ -71,8 +71,10 @@ This project also uses extensions feature in dart. In case, If it doesn't work, 
 <ul>
    
    
-<img src="https://media.giphy.com/media/j0T063RiCsyADbYiFs/giphy.gif" width="40" height="40" />
+<img src="https://media.giphy.com/media/j0T063RiCsyADbYiFs/giphy.gif"  />
 
+
+<img src="https://media.giphy.com/media/KffxSFEsf0qJ65CEYC/giphy.gif"  />
 
 
 
