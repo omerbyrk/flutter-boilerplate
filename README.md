@@ -73,7 +73,7 @@ This project also uses extensions feature in dart. In case, If it doesn't work, 
 <h1>Screenshoots</h1>
 <div>
   <div style="float:left">
-    <img src="https://media.giphy.com/media/j0T063RiCsyADbYiFs/giphy.gif"></img>
+    <iframe src="https://giphy.com/embed/j0T063RiCsyADbYiFs" width="354" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/j0T063RiCsyADbYiFs">via GIPHY</a></p>
   </div>
 </div>
 
