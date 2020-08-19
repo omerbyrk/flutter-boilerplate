@@ -1,14 +1,18 @@
 # Flutmovie Boilerplate Project
+</hr>
+A flutter boilerplate project can be used both <b>enterprise</b> & <b>individual</b> application.
+The boilerplate has been developed by using Domain-driven design concept. 
 
-A boilerplate project created in flutter using Bloc Statemanagment
+# Getting Started
+</hr>
 
-# How to Use
+# <h5>How to Use</h3>
 
 <b>Step 1:</b>
 
-Download or clone this repo by using the link below:
+Download or clone this repository by using the link below:
 
-<code>https://github.com/omerbyrk/flutmovie-boilerplate.git</code>
+<code><a href="https://github.com/omerbyrk/flutmovie-boilerplate.git">https://github.com/omerbyrk/flutmovie-boilerplate.git</a></code>
 
 <b>Step 2:</b>
 
@@ -28,6 +32,8 @@ or watch command in order to keep the source code synced automatically:
 
 <b>Step 4:</b>
 
-This project also uses extensions feature in dart. In case, If it doesn't work, you need do run the below code in project root.
+This project also uses extensions feature in dart. In case, If it doesn't work, you need do run the below code in the project root.
 
 <code>dartanalyzer .</code>
+
+
