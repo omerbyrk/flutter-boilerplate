@@ -1,16 +1,33 @@
-# Flutmovie
+# Flutmovie Boilerplate Project
 
-A flutter boilerplate with movie example
+A boilerplate project created in flutter using Bloc Statemanagment
 
-## Getting Started
+# How to Use
 
-This project is a starting point for a Flutter application.
+<b>Step 1:</b>
 
-A few resources to get you started if this is your first Flutter project:
+Download or clone this repo by using the link below:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+<code>https://github.com/omerbyrk/flutmovie-boilerplate.git</code>
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<b>Step 2:</b>
+
+Go to project root and execute the following command in console to get the required dependencies:
+
+flutter pub get 
+
+<b>Step 3:</b>
+
+This project uses inject library that works with code generation, execute the following command to generate files:
+
+<code>flutter packages pub run build_runner build --delete-conflicting-outputs</code>
+
+or watch command in order to keep the source code synced automatically:
+
+<code>flutter packages pub run build_runner watch</code>
+
+<b>Step 4:</b>
+
+This project also uses extensions future in dart. In case, If it doesn't work, you need do run the below code in project root.
+
+<code> dartanalyzer .</code>
