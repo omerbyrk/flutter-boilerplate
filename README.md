@@ -2,7 +2,11 @@
 A flutter boilerplate project can be used both <b>enterprise</b> & <b>individual</b> application.
 
 >>>>>>>>>>>>>>> ---
+<br />
+
 ## Getting Started
+<br />
+
 
 <dl>
   <dt><b>Enterprise & Individual App </b></dt>
@@ -18,13 +22,17 @@ A flutter boilerplate project can be used both <b>enterprise</b> & <b>individual
 </dl>
 
 >>>>>>>>>>>>>>> ---
+<br />
 
 ## How to Use
+<br />
+
+
 
 ### Step 1:
 Download or clone this repository by using the link below:
 
-> [https://github.com/omerbyrk/flutmovie-boilerplate.git](https://github.com/omerbyrk/flutmovie-boilerplate.git)
+<code>[https://github.com/omerbyrk/flutmovie-boilerplate.git](https://github.com/omerbyrk/flutmovie-boilerplate.git)</code>
 
 ### Step 2:
 
@@ -49,9 +57,10 @@ This project also uses extensions feature in dart. In case, If it doesn't work, 
 `dartanalyzer .`
 
 >>>>>>>>>>>>>>> ---
+<br />
 
 ## Boilerplate Features
-
+<br />
 
 * Splash
 * Login
@@ -70,11 +79,17 @@ This project also uses extensions feature in dart. In case, If it doesn't work, 
 * A project example
 
 >>>>>>>>>>>>>>> ---
+<br />
+
 ## Multilingual And Responsive  Support
+<br />
+
 ![IphoneTable](https://media.giphy.com/media/h4wzDbG3GPzCkyLOW6/giphy.gif)
 >>>>>>>>>>>>>>> ---
+<br />
 
 ## Folder Structure
+<br />
 
 Here is the lib folder which contains the main code for the application.
 
@@ -147,7 +162,7 @@ presentation (layer) -  contains the ui-pages and BLoCs of the application.
 >>>>>>>>>>>>>>> ---
 <br />
 
-## Data Folder
+## Data (layer) Folder
 <br />
 
 `data/`<br />
@@ -176,7 +191,7 @@ presentation (layer) -  contains the ui-pages and BLoCs of the application.
 >>>>>>>>>>>>>>> ---
 <br />
 
-## Domain Folder
+## Domain (layel )Folder
 <br />
 
 `domain/`<br />
@@ -201,7 +216,7 @@ presentation (layer) -  contains the ui-pages and BLoCs of the application.
 >>>>>>>>>>>>>>> ---
 <br />
 
-## Presentation Folder
+## Presentation (layer) Folder
 <br />
 
 `presentations/`<br />
@@ -244,6 +259,119 @@ presentation (layer) -  contains the ui-pages and BLoCs of the application.
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; `|- splash_page_logo_widget.dart` <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; `|- splash_page_message_widget.dart` <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; `|- index.dart` <br/>
+
+>>>>>>>>>>>>>>> ---
+<br />
+
+## Flow
+<br />
+
+![CallFlow](https://i0.wp.com/resocoder.com/wp-content/uploads/2019/08/Clean-Architecture-Flutter-Diagram.png?resize=556%2C707&ssl=1)
+
+>>>>>>>>>>>>>>> ---
+<br />
+
+## main.dart
+<br />
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:get_it/get_it.dart';
+
+import 'core/blocs/authentication/index.dart';
+import 'core/blocs/bootstart/index.dart';
+import 'core/localization/app_localizations.dart';
+import 'core/theme/app_theme.dart';
+import 'core/widgets/index.dart';
+import 'dependency_injection.dart' as di;
+import 'presentations/home/pages/home_page.dart';
+import 'presentations/login/pages/login_page.dart';
+import 'presentations/splash/pages/splash_page.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await di.configure(di.Env.prod);
+  runApp(AppBootStart());
+}
+
+/// [AppBootStart] is the root of your application.
+class AppBootStart extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      onGenerateTitle: (context) {
+        this.dInjectionUIThenLoadBootStart(context);
+        return t("app_title");
+      },
+      theme: themeData,
+      supportedLocales: [
+        Locale("en", "US"),
+        Locale("tr", "US"),
+        Locale("tr", "TR")
+      ],
+      localizationsDelegates: [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      localeResolutionCallback: (locale, supportedLocales) {
+        for (var supportedLocale in supportedLocales) {
+          if (supportedLocale.languageCode == locale.languageCode &&
+              supportedLocale.countryCode == locale.countryCode) {
+            return supportedLocale;
+          }
+        }
+        return supportedLocales.first;
+      },
+      home: BlocProvider(
+        create: (_) => GetIt.instance.get<BootStartBloc>(),
+        child: BlocBuilder<BootStartBloc, BootStartState>(
+          builder: (context, state) {
+            if (state is BootStartIsOverState) {
+              return app(context);
+            } else if (state is BootstartStateOnMessageState) {
+              return SplashPage(state.message);
+            } else
+              return Container();
+          },
+        ),
+      ),
+    );
+  }
+
+  /// [app] runs after BootStart is over.
+  Widget app(BuildContext context) {
+    return BlocProvider(
+      create: (_) => GetIt.instance.get<AuthenticationBloc>(),
+      child: BlocBuilder<AuthenticationBloc, AuthenticationState>(
+        builder: (_, state) {
+          if (state is UnAuthenticationState) {
+            return LoginPage();
+          } else if (state is InAuthenticationState) {
+            return HomePage();
+          } else if (state is AuthenticationOnMessageState) {
+            return SplashPage(state.message);
+          } else
+            return Container();
+        },
+      ),
+    );
+  }
+
+  /// [dInjectionUIThenLoadBootStart] Registers the ui dependencies like localization, screenutils(reposiveness) which depends on the context.
+  /// Then, fires the [LoadBootStartEvent]
+  void dInjectionUIThenLoadBootStart(BuildContext context) {
+    di.configureUI(context);
+    if (GetIt.instance.get<BootStartBloc>().state is UnBootstartState)
+      GetIt.instance.get<BootStartBloc>().add(LoadBootStartEvent());
+  }
+}
+```
+
+
 
 
 
