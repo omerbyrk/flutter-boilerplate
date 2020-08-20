@@ -87,13 +87,20 @@ Here is the lib folder which contains the main code for the application.
 `|- main.dart` <br/>
 
 <br />
-<code>core -  contains the objects that is used all across the application. </code>
+<code>
+core -  contains the objects that is used all across the application. 
+</code>
 <br />
-<code>data -  contains the services, databases and shared preferences of your project. Namely, the data layer of the application. </code>
+<code>
+data (layer) -  contains the services, databases and shared preferences of your project. </code>
 <br />
-<code>domain - contains the usecases, repositories and entities of your project. Namely, the domain layer of the application. </code>
+<code>
+domain (layer) - contains the usecases, repositories and entities of your project.
+</code>
 <br />
-<code>presentation -  contains the pages and Blocs of your project. Namely, the presentation layer of the application. </code>
+<code>
+presentation (layer) -  contains the pages and Blocs of your project.
+</code>
 
 >>>>>>>>>>>>>>> ---
 <br />
