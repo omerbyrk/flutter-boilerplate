@@ -36,7 +36,7 @@ Go to project root and execute the following command in console to get the requi
 
 This project uses inject library that works with code generation, execute the following command to generate files:
 
-`lutter packages pub run build_runner build --delete-conflicting-outputs`
+`flutter packages pub run build_runner build --delete-conflicting-outputs`
 
 or watch command in order to keep the source code synced automatically:
 
@@ -76,7 +76,7 @@ This project also uses extensions feature in dart. In case, If it doesn't work, 
 
 ## Folder Structure
 
-Here is the lib folder which has the main code for the application.
+Here is the lib folder which contains the main code for the application.
 
 `lib/` <br />
 `|- core/`<br />
@@ -87,13 +87,13 @@ Here is the lib folder which has the main code for the application.
 `|- main.dart` <br/>
 
 <br />
-<code>core -  contains the objects that is used all across application. </code>
+<code>core -  contains the objects that is used all across the application. </code>
 <br />
-<code>data -  contains the services, databases and shared preferences of your project. Namely, the data layer of your project. </code>
+<code>data -  contains the services, databases and shared preferences of your project. Namely, the data layer of the application. </code>
 <br />
-<code>domain - contains the usecases, repositories and entities of your project. Namely, the domain layer of your project. </code>
+<code>domain - contains the usecases, repositories and entities of your project. Namely, the domain layer of the application. </code>
 <br />
-<code>presentation -  contains the pages and Blocs of your project. Namely, the presentation layer of your project. </code>
+<code>presentation -  contains the pages and Blocs of your project. Namely, the presentation layer of the application. </code>
 
 >>>>>>>>>>>>>>> ---
 <br />
