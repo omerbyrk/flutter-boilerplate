@@ -214,7 +214,7 @@ presentation (layer) -  contains the ui-pages and BLoCs of the application.
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; `|- user/` <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; `|- do_login.dart` <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; `|- get_user_by_token.dart` <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; `|- usercase.dart` <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; `|- usercase.dart` <br/>
 
 >>>>>>>>>>>>>>> ---
 <br />
@@ -229,7 +229,7 @@ presentation (layer) -  contains the ui-pages and BLoCs of the application.
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; `|- home_event.dart` <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; `|- home_state.dart` <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; `|- index.dart` <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`|- pages/` <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; `|- pages/` <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; `|- home_page.dart` <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; `|- widgets/` <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; `|- home_page_bottom.dart` <br/>
