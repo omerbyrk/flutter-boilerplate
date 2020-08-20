@@ -2,7 +2,7 @@ library repository;
 
 import 'package:connectivity/connectivity.dart';
 import 'package:dartz/dartz.dart';
-import 'package:flutmovie/core/failures.dart/failure.dart';
+import 'package:flutmovie/core/failures/failure.dart';
 import 'package:flutmovie/core/utils/connectivity_utils.dart';
 import 'package:flutmovie/data/local/datasources/movie_local_datasource.dart';
 import 'package:flutmovie/data/local/datasources/user_local_datasource.dart';

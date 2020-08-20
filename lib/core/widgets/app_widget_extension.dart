@@ -11,7 +11,7 @@ import '../theme/app_colors.dart';
 import '../utils/screen_utils.dart';
 import 'app_circular_progress_indicator.dart';
 
-/// It is a helpful functions which should be available on [StatelessWidget] and [StatefullWidget]
+/// It is a helpful functions which should be available on [StatelessWidget] and [StatefulWidget]
 extension AppWidgetExtension on Widget {
   /// [_screenUtils] return the instance of [ScreenUtils] for reponsiveness.
   ScreenUtils get _screenUtils => GetIt.instance.get<ScreenUtils>();

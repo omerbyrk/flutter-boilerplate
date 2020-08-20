@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 
-import '../../core/failures.dart/failure.dart';
+import '../../core/failures/failure.dart';
 import 'movie/movie_bootstart_sync.dart';
 
 /// [UseCase] a busnisses layer for blocs.

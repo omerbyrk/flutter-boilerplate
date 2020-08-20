@@ -4,12 +4,12 @@ import '../../../domain/repository/repository.dart';
 import '../../../domain/usecases/usecase.dart';
 import '../../../presentations/login/bloc/index.dart';
 import '../../consts/enums.dart';
-import '../../failures.dart/failure.dart';
+import '../../failures/failure.dart';
 import 'bloc_state_base.dart';
 
 abstract class AppBlocBase {
   /// It is a optional method.
-  /// When you override this, you need to change sub-bloc state to [BlocOnMessageStateBase] in the method.
+  /// When you override [toOnMessageState], you need to change sub-bloc state to [BlocOnMessageStateBase] in the method.
   /// We use this method in [extractEither] for showing user the error If the [Either] has failure.
   /// Therefore, if you will use the [extractEither] for the sub-bloc, you must override this method.
   /// Example: [LoginBloc]

@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../core/failures.dart/failure.dart';
+import '../../../core/failures/failure.dart';
 import '../../entities/user_entity.dart';
 import '../../repository/repository.dart';
 import '../usecase.dart';
