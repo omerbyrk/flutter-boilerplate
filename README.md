@@ -84,6 +84,10 @@ This project also uses extensions feature in dart. In case, If it doesn't work, 
 ![Iphone8Table](https://media.giphy.com/media/l0FssysujslEmvGrdm/giphy.gif)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![Iphone8Table](https://media.giphy.com/media/ZEBqzj34NI2vJc3qNV/giphy.gif)
+
+`1 - Iphone Tablet - 1670.0x2400.0`
+`2 - Android Phone - 1080.0 * 1920.0`
+`3 - iPad tablet Phone - 480.0 * 800.0`
 >>>>>>>>>>>>>>> ---
 <br />
 
