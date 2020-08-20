@@ -263,10 +263,14 @@ presentation (layer) -  contains the ui-pages and BLoCs of the application.
 >>>>>>>>>>>>>>> ---
 <br />
 
-## Flow
+## App Flow Chart 
 <br />
 
 ![CallFlow](https://i0.wp.com/resocoder.com/wp-content/uploads/2019/08/Clean-Architecture-Flutter-Diagram.png?resize=556%2C707&ssl=1)
+<br />
+
+> Flow chart was taken from [resocoder](https://resocoder.com/2019/08/27/flutter-tdd-clean-architecture-course-1-explanation-project-structure/) website
+
 
 >>>>>>>>>>>>>>> ---
 <br />
