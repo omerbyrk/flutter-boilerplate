@@ -5,21 +5,80 @@ A flutter boilerplate project can be used both <b>enterprise</b> & <b>individual
 
 # Getting Started
 </hr>
-<b>FlutMovie...👇👇</b>
+<div>
+  <div style="display:flex; justify-content:center">
+    <div style="font-size: 30px;">
+      <b>Flutmovie Boilerplate</b>
+    </div>
+  </div>
+  <div style="display:flex; justify-content: space-evenly; flex-flow: row wrap;">
+    <div style="flex:3; padding: 10px 20px 10px 20px; ">
+      <div style="background-color: #eaeaea; min-height: 100px; border: 1px solid #dcdcdc; border-radius: 12px; box-shadow: 0px 24px 35px 0px rgba(196,196,196,1); ">
+        <div style="display:flex; justify-content: center; font-size: 30px; padding-top: 10px;">
+          Enterprise & Individual App
+        </div>
+        <hr style="color: #ffffff" />
+        <div style="font-size: 22px; margin: 10px 20px 10px 20px; text-align: justify;">
+          Presents minimal requirement for creating a new <b>enterprise</b> & <b>individual</b> application.
+        </div>
+      </div>
+    </div>
+    <div style="flex:3; padding: 10px 20px 10px 20px; ">
+      <div style="background-color: #eaeaea; min-height: 100px; border: 1px solid #dcdcdc; border-radius: 12px; box-shadow: 0px 24px 35px 0px rgba(196,196,196,1); ">
+        <div style="display:flex; justify-content: center; font-size: 30px; padding-top: 10px;">
+          Domain-driven design
+        </div>
+        <hr style="color: #ffffff" />
+        <div style="font-size: 22px; margin: 10px 20px 10px 20px; text-align: justify;">
+          Has been developed by using <b>Domain-driven design</b> concept. 
+        </div>
+      </div>
+    </div>
+    <div style="flex:3; padding: 10px 20px 10px 20px; ">
+      <div style="background-color: #eaeaea; min-height: 100px; border: 1px solid #dcdcdc; border-radius: 12px; box-shadow: 0px 24px 35px 0px rgba(196,196,196,1); ">
+        <div style="display:flex; justify-content: center; font-size: 30px; padding-top: 10px;">
+          Clean & Doc-commented
+        </div>
+        <hr style="color: #ffffff" />
+        <div style="font-size: 22px; margin: 10px 20px 10px 20px; text-align: justify;">
+          Has a <b>clean</b> architecture, and is <b>doc-commented</b> for the most class in it. 
+        </div>
+      </div>
+    </div>
+    <div style="flex:3; padding: 10px 20px 10px 20px; ">
+      <div style="background-color: #eaeaea; min-height: 100px; border: 1px solid #dcdcdc; border-radius: 12px; box-shadow: 0px 24px 35px 0px rgba(196,196,196,1); ">
+        <div style="display:flex; justify-content: center; font-size: 30px; padding-top: 10px;">
+          BLoC State Managment
+        </div>
+        <hr style="color: #ffffff" />
+        <div style="font-size: 22px; margin: 10px 20px 10px 20px; text-align: justify;">
+          Uses a <b>BLoC</b> state managment which <b>is recommended by Flutter. </b>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+<br />
+<br />
+<div>
+  <div style="display:flex; flex-wrap: wrap; justify-content: space-evenly">
+    <div style="flex:4; padding: 10px 20px 10px 20px; "></div>
+    <div style="flex:4; padding: 10px 20px 10px 20px; ">
+      <div style="background-color: #eaeaea; min-height: 100px; border: 1px solid #dcdcdc; border-radius: 12px; box-shadow: 0px 24px 35px 0px rgba(196,196,196,1); ">
+        <div style="display:flex; justify-content: center; font-size: 30px; padding-top: 10px;">
+          Responsive Degisn
+        </div>
+        <hr style="color: #ffffff" />
+        <div style="font-size: 22px; margin: 10px 20px 10px 20px; text-align: justify;">
+          Supports responsive mobile design, and compatible <b>every device</b> even <b>tablet!</b>
+        </div>
+      </div>
+    </div>
+     <div style="flex:4; padding: 10px 20px 10px 20px; "></div>
+  </div>
+</div>
 
-<ul>
-  <li>presents minimal requirement for creating a new  <b>enterprise</b> & <b>individual</b> application.</li>
-  <li>has been developed by using <b>Domain-driven design</b> concept. </li>
-  <li>has a clean architecture, and is <b>doc-commented</b> for the most class in it. </li>
-  <li>uses a <b>BLoC state managment</b> which is recommended by Flutter.</li>
-  <li>has ready-to-use cachable system in it.</li>
-  <li>presents an example movie project</li>
-  <li>presents built-in animations and widgets</li>
-  <li><b>supports responsive mobile design, and compatible every device even tablet!</b></li>
-  <li>.</li>
-  <li>.</li>
-  <li>so on</li>
-</ul>
 
 <h1>How to Use</h1>
 
