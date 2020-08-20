@@ -79,9 +79,15 @@ This project also uses extensions feature in dart. In case, If it doesn't work, 
 ## Multilingual And Responsive  Support
 <br />
 
-![Iphone11inchTablet](https://media.giphy.com/media/h4wzDbG3GPzCkyLOW6/giphy.gif)
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-![Iphone8Table](https://media.giphy.com/media/KffxSFEsf0qJ65CEYC/giphy.gif)
+![Iphone11inchTablet](https://media.giphy.com/media/hrRu2FWT23pV5DVraD/giphy.gif)
+&nbsp;&nbsp;&nbsp;&nbsp;
+![Iphone8Table](https://media.giphy.com/media/l0FssysujslEmvGrdm/giphy.gif)
+&nbsp;&nbsp;&nbsp;&nbsp;
+![Iphone8Table](https://media.giphy.com/media/ZEBqzj34NI2vJc3qNV/giphy.gif)
+
+`1 - Iphone Tablet - 1670.0x2400.0` <br />
+`2 - Android Phone - 1080.0 * 1920.0` <br />
+`3 - iPad tablet Phone - 480.0 * 800.0`
 >>>>>>>>>>>>>>> ---
 <br />
 
@@ -208,7 +214,7 @@ presentation (layer) -  contains the ui-pages and BLoCs of the application.
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; `|- user/` <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; `|- do_login.dart` <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; `|- get_user_by_token.dart` <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; `|- usercase.dart` <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; `|- usercase.dart` <br/>
 
 >>>>>>>>>>>>>>> ---
 <br />
@@ -223,7 +229,7 @@ presentation (layer) -  contains the ui-pages and BLoCs of the application.
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; `|- home_event.dart` <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; `|- home_state.dart` <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; `|- index.dart` <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`|- pages/` <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; `|- pages/` <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; `|- home_page.dart` <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; `|- widgets/` <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; `|- home_page_bottom.dart` <br/>
