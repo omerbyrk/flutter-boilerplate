@@ -82,6 +82,8 @@ This project also uses extensions feature in dart. In case, If it doesn't work, 
 ![Iphone11inchTablet](https://media.giphy.com/media/hrRu2FWT23pV5DVraD/giphy.gif)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![Iphone8Table](https://media.giphy.com/media/l0FssysujslEmvGrdm/giphy.gif)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![Iphone8Table](https://media.giphy.com/media/ZEBqzj34NI2vJc3qNV/giphy.gif)
 >>>>>>>>>>>>>>> ---
 <br />
 
