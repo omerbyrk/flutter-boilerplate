@@ -7,7 +7,7 @@ class SplashPageLogoWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: this.getHeight(context, percent: .05)),
+      padding: EdgeInsets.only(top: convertSize(20)),
       child: AppLogoImage(
         height: this.convertSize(200),
         width: this.convertSize(200),

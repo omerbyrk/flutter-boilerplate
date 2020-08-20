@@ -25,23 +25,23 @@ class ScreenUtils {
     SizeType.xSmall: 0.80,
     SizeType.Small: 0.83,
     SizeType.Middle: 0.85,
-    SizeType.Large: 0.87,
-    SizeType.xLarge: 0.93,
-    SizeType.xxLarge: 1,
-    SizeType.Ultra: 1.10,
-    SizeType.Mega: 1.70
+    SizeType.Large: 0.90,
+    SizeType.xLarge: 0.95,
+    SizeType.xxLarge: 1.00,
+    SizeType.Ultra: 1.15,
+    SizeType.Mega: 1.50
   };
 
   /// If you would change it and get positive result, please push it to our repository for improving the boilerplate!
   Map<SizeType, double> _fontOrFontSizeRateMultipliers = {
-    SizeType.xxSmall: 1.12,
-    SizeType.xSmall: 1.15,
-    SizeType.Small: 1.17,
-    SizeType.Middle: 1.20,
-    SizeType.Large: 1.23,
-    SizeType.xLarge: 1.25,
-    SizeType.xxLarge: 1.27,
-    SizeType.Ultra: 1.30,
+    SizeType.xxSmall: 1.25,
+    SizeType.xSmall: 1.30,
+    SizeType.Small: 1.35,
+    SizeType.Middle: 1.37,
+    SizeType.Large: 1.40,
+    SizeType.xLarge: 1.43,
+    SizeType.xxLarge: 1.45,
+    SizeType.Ultra: 1.47,
     SizeType.Mega: 1.50
   };
 

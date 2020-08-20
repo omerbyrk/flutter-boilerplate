@@ -40,7 +40,7 @@ class SplashPage extends StatelessWidget {
                 SplashPageLogoWidget(),
                 Padding(
                   padding: EdgeInsets.only(
-                      bottom: this.getHeight(context, percent: .10)),
+                      bottom: this.getHeight(context, percent: .07)),
                   child: Column(
                     children: <Widget>[
                       SplashPageMessageWidget(message),

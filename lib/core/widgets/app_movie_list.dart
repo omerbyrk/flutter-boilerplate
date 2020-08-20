@@ -165,6 +165,7 @@ class AppMovieList extends StatelessWidget {
     return Center(
       child: AppGTText(
         text: movie.title,
+        sizeType: SizeType.Middle,
         maxLines: 1,
         fontWeight: FontWeight.w500,
         align: TextAlign.center,
