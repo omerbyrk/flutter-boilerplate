@@ -72,7 +72,6 @@ This project also uses extensions feature in dart. In case, If it doesn't work, 
 >>>>>>>>>>>>>>> ---
 ## Multilingual And Responsive  Support
 ![IphoneTable](https://media.giphy.com/media/h4wzDbG3GPzCkyLOW6/giphy.gif)
-![IphoneTable](https://media.giphy.com/media/KffxSFEsf0qJ65CEYC/giphy.gif)
 >>>>>>>>>>>>>>> ---
 
 ## Folder Structure
