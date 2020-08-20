@@ -92,14 +92,14 @@ core -  contains the objects that is used all across the application.
 </code>
 <br />
 <code>
-data (layer) -  contains the services, databases and shared preferences of your project. </code>
+data (layer) -  contains the services, databases and shared preferences of the application. </code>
 <br />
 <code>
-domain (layer) - contains the usecases, repositories and entities of your project.
+domain (layer) - contains the usecases, repositories and entities of the application.
 </code>
 <br />
 <code>
-presentation (layer) -  contains the pages and Blocs of your project.
+presentation (layer) -  contains the ui-pages and BLoCs of the application.
 </code>
 
 >>>>>>>>>>>>>>> ---
