@@ -79,7 +79,7 @@ This project also uses extensions feature in dart. In case, If it doesn't work, 
 ## Multilingual And Responsive  Support
 <br />
 
-![Iphone11inchTable](https://media.giphy.com/media/h4wzDbG3GPzCkyLOW6/giphy.gif)
+![Iphone11inchTablet](https://media.giphy.com/media/h4wzDbG3GPzCkyLOW6/giphy.gif)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![Iphone8Table](https://media.giphy.com/media/KffxSFEsf0qJ65CEYC/giphy.gif)
 >>>>>>>>>>>>>>> ---
