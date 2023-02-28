@@ -1,4 +1,4 @@
-# Flutmovie Boilerplate Project
+#  Flutter Boilerplate Project (Flutmovie App)
 A flutter boilerplate project can be used both <b>enterprise</b> & <b>individual</b> application.
 
 >>>>>>>>>>>>>>> ---
